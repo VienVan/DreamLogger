@@ -26,4 +26,4 @@ var routes = require('./config/routes');
 //Start Server
 app.listen(port, function() {
   console.log("Listening on port:", port);
-})
+});
