@@ -1,0 +1,37 @@
+var mongoose = require('mongoose');
+var Dreamer = require('../../models/dreamer');
+
+describe('A User: Model', function() {
+  var dreamer;
+  beforeEach(function(done) {
+    mongoose.createConnection("mongodb://localhost:3000/dream-logger");
+    dreamer = new Dreamer({username: "Vien"});
+    dreamer.save();
+    done();
+  })
+  afterEach(function(done) {
+    Dreamer.remove({});
+    mongoose.disconnect();
+    done();
+  })
+
+  it('user must have a username', function() {
+    expect(dreamer.username).toBeDefined();
+  })
+
+  it('user should only have one username', function() {
+    var dreamer2 = new Dreamer({username: "Vien"})
+    expect(dreamer2.save()).toThrowError;
+  })
+
+  it('user must have a password', function() {
+    expect(new Dreamer({username: "Vien"})).toThrowError;
+  })
+
+
+
+
+
+
+
+})

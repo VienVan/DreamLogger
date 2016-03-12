@@ -17,11 +17,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 //Database
-mongoose.connect('mongodb://localhost/dream-logger');
-process.on('exit', function() {mongoose.disconnect()});
+// mongoose.connect('mongodb://localhost:3000/dream-logger');
+// process.on('exit', function() {mongoose.disconnect()});
 
 //Routes
-var routes = require('./config/routes');
+// var routes = require('./config/routes');
 
 //Start Server
 app.listen(port, function() {
