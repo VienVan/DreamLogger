@@ -8,9 +8,7 @@ var dreamersController = require('../controllers/dreamersController');
 //Dreamer API
 
 router.route('/dreamers')
- .get(dreamersController.getAll);
-
-
+ 	.get(dreamersController.getAll);
 
 
 

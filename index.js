@@ -23,6 +23,7 @@ process.on('exit', function() {mongoose.disconnect()});
 
 //Routes
 var routes = require('./config/routes');
+app.use(routes);
 
 //Start Server
 app.listen(port, function() {
