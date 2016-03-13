@@ -26,6 +26,9 @@
   text-align: center;
   margin: 170px auto;
 }
-.show {
+
+.cancel {
 	display: block;
+	margin: 0 auto;
+	text-align: center;
 }
