@@ -1,11 +1,21 @@
-// var Dreams = require('../models/Dreams');
+// var Dreamer = require('../models/dreamer');
 
 var dreamsController = {
-	getAll: function(req, res) {
-		res.render('index');
-	}
+	index: function(req, res) {
+		res.render('dreams/index');
+	},
+	new: function(req, res) {
+		
+	},
+	create: function(req, res) {
 
-	
+	},
+	update: function(req, res) {
+
+	},
+	delete: function(req, res) {
+
+	}
 };
 
 module.exports = dreamsController;

@@ -9,9 +9,9 @@ var express         = require('express'),
     port            = 3000;
 
 //MIDDLEWARES
-hbs.registerPartials(__dirname + '/views/partials');
 app.set('views', './views');
 app.set('view engine', 'hbs');
+hbs.registerPartials(__dirname + '/views/partials');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

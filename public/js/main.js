@@ -1,3 +1,1 @@
-$(function(){
-	console.log("conected");
-});
+console.log("connected");
