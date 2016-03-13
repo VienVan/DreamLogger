@@ -32,5 +32,7 @@ router.route('/dreamers/:id/dreams/new')	//view for creating new dreams
 router.route('/pages/about')													//root
 			.get(pagesController.about); //view for about dreamr			
 
-
+//EDIT
+router.route('/dreamers/edit')													//root
+			.get(pagesController.edit);
 module.exports = router;
