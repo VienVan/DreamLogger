@@ -12,14 +12,14 @@ router.route('/dreamers')
 
 router.route('/dreams')
 	.get(dreamsController.getAll)
-	.post(dreamsController.createDream);
-
-router.get('/dreams/new', dreamsController.newDream);
-
-router.route('/dreams/:id')
-	.get(dreamsController.getDream)
-	.put(dreamsController.updateDream)
-	.delete(dreamsController.removeDream);
+// 	.post(dreamsController.createDream);
+//
+// router.get('/dreams/new', dreamsController.newDream);
+//
+// router.route('/dreams/:id')
+// 	.get(dreamsController.getDream)
+// 	.put(dreamsController.updateDream)
+// 	.delete(dreamsController.removeDream);
 
 
 
