@@ -1,5 +1,4 @@
 // var Dreamer = require('../models/Dreamer');
-// var helper = require('../config/helpers');
 //
 // var sessionsController = {
 // 	create: function(req, res, next) {

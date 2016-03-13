@@ -1,5 +1,4 @@
 var Dreamer = require('../models/Dreamer');
-var helper = require('../config/helpers');
 
 var dreamersController = {
 	index: function(req, res) {

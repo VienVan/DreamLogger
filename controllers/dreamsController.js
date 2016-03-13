@@ -4,11 +4,9 @@ var dreamsController = {
 	index: function(req, res) {
 		res.render('dreams/index');
 	},
-	new: function(req, res) {
-
-	},
 	create: function(req, res) {
-
+		var dreams = req.body.dreams;
+		
 	},
 	update: function(req, res) {
 
