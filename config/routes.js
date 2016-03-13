@@ -12,13 +12,14 @@ var pagesController 		= require('../controllers/pagesController');
 //DREAMERS
 router.route('/')													//root
 			.get(pagesController.index);
+			// .post(sessionsController.create);
 router.route('/dreamers')									//show all users
  			.get(dreamersController.index)
 			.post(dreamersController.create);
-router.route('/dreamers/:id/edit')				//edit view to edit users
-			.get(dreamersController.edit);
-router.route('/dreamers/:id')							//update users
-			.put(dreamersController.update);
+// router.route('/dreamers/:id/edit')				//edit view to edit users
+			// .get(dreamersController.edit);
+// router.route('/dreamers/:id')							//update users
+			// .put(dreamersController.update);
 //DREAMS
 router.route('/dreamers/:id/dreams')			//show all user's dreams (timeline)
 			.get(dreamsController.index)
@@ -26,7 +27,9 @@ router.route('/dreamers/:id/dreams')			//show all user's dreams (timeline)
 			.put(dreamsController.update)
 			.delete(dreamsController.delete);
 router.route('/dreamers/:id/dreams/new')	//view for creating new dreams
-			.get(dreamsController.new);
+			// .get(dreamsController.new);
+// router.route(['/dreamers', '/signup'])
+// 			.post(dreamersController.create)
 
 //ABOUT
 router.route('/pages/about')													//root

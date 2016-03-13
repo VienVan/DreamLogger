@@ -1,9 +1,10 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var bcrypt = require('bcrypt');
 
 var dreamerSchema = new Schema({
   username: {type: String, required: true, unique: true, trim: true},
-  password_digest: {type: String, required: true},
+  password: {type: String, required: true},
   img: {type: String},
   location: String,
   // dreams: {
@@ -11,6 +12,7 @@ var dreamerSchema = new Schema({
   //   description: String
   // },
 }, {timestamps: true});
+
 
 var Dreamer = mongoose.model('Dreamer', dreamerSchema);
 module.exports = Dreamer;
