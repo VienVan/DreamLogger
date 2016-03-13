@@ -28,5 +28,8 @@ router.route('/dreamers/:id/dreams')			//show all user's dreams (timeline)
 router.route('/dreamers/:id/dreams/new')	//view for creating new dreams
 			.get(dreamsController.new);
 
+router.route('/pages/about')													//root
+			.get(pagesController.about);			
+
 
 module.exports = router;
