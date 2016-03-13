@@ -28,10 +28,14 @@ describe('A User: Model', function() {
     expect(new Dreamer({username: "Vien"})).toThrowError;
   })
 
+  it('dreams have tag(s)', function() {
+    dreamer.dreams.tags = {name: "cats"};
+    expect(dreamer.dreams.tags).toBeDefined();
+  })
 
-
-
-
-
+  it('dreams have a description', function() {
+    dreamer.dreams.description = "I was on a boat"
+    expect(dreamer.dreams.description).toBeDefined();
+  })
 
 })

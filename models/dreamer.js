@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var dreamerSchema = new Schema({
-  username: {type: String, required: true, unique: true},
+  username: {type: String, required: true, unique: true, trim: true},
   password_digest: {type: String, required: true},
   img: {type: String},
   location: String,

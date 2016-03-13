@@ -1,13 +1,15 @@
 var mongoose = require('mongoose');
-var tag = require('../../models/tag');
+var Tag = require('../../models/tag');
 
 describe("tag model", function() {
   var tag;
   beforeEach(function(done) {
-    mongoose.connect("mongodb://localhost/dream-logger");
+    mongoose.createConnection("mongodb://localhost:3000/dream-logger");
     tag = new Tag({});
-    tag.save;
+    tag.save();
+    done();
   })
+
   afterEach(function(done) {
     mongoose.disconnect();
     done();
@@ -22,5 +24,9 @@ describe("tag model", function() {
     tag.name = "Vien";
     expect(tag.name).toBe(tag.name.toLowerCase());
   })
-  
-})
+
+  it('tags must have an image', function(){
+    expect(tag.img).toBeDefined();
+  })
+
+});
