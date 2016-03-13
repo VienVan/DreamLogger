@@ -7,7 +7,6 @@ var express 						= require('express'),
 var dreamersController 	= require('../controllers/dreamersController');
 var dreamsController 		= require('../controllers/dreamsController');
 var pagesController 		= require('../controllers/pagesController');
-var sessionsController 		= require('../controllers/sessionsController');
 //Dreamer API
 
 //DREAMERS
