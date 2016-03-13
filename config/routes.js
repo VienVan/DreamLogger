@@ -28,8 +28,9 @@ router.route('/dreamers/:id/dreams')			//show all user's dreams (timeline)
 router.route('/dreamers/:id/dreams/new')	//view for creating new dreams
 			.get(dreamsController.new);
 
+//ABOUT
 router.route('/pages/about')													//root
-			.get(pagesController.about);			
+			.get(pagesController.about); //view for about dreamr			
 
 
 module.exports = router;
