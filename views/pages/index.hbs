@@ -1,16 +1,17 @@
-  <form id="Signup-form" action="/" method="POST">
+<div class='signup hidden'>
+<form id="Signup-form" action="/" method="POST">
     <div class='form-group'>
-      <input type="hidden" name="name" placeholder="Username" class="form-control" >
+      <input type="text" name="username" placeholder="Username" class="form-control" >
     </div>
     <div class='form-group'>
-      <input type="hidden" name="password" placeholder="Password" class="form-control" >
+      <input type="text" name="password" placeholder="Password" class="form-control" >
     </div>
     <div class='form-group'>
-      <input type="hidden" value='Start Dreaming' class="create_btn btn btn-success">
+      <input type="text" value='Start Dreaming' class="create_btn btn btn-success">
     </div>
   </form>
-
+</div>
 <div id="home-btns">
-  <button onclick="" class="create_btn btn btn-success">Get Started</button><br><br>
+  <button class="create_btn btn btn-success" id='get-started'>Get Started</button><br><br>
   <button class="create_btn btn btn-success">Sign In</button>
 </div>
