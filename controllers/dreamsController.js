@@ -5,7 +5,7 @@ var dreamsController = {
 		res.render('dreams/index');
 	},
 	new: function(req, res) {
-		
+
 	},
 	create: function(req, res) {
 

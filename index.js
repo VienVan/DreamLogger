@@ -6,6 +6,9 @@ var express         = require('express'),
     methodOverride  = require('method-override'),
     hbs             = require('hbs'),
     mongoose        = require('mongoose'),
+    keygen          = require('keygenerator'),
+    // session         = require('express-session'),
+    // dreamer            = require('./models/dreamer'),
     port            = 3000;
 
 //MIDDLEWARES
@@ -24,6 +27,20 @@ process.on('exit', function() {mongoose.disconnect()});
 //Routes
 var routes = require('./config/routes');
 app.use(routes);
+
+//create sessions
+// app.use(
+//   session({
+//     // use keygen to generate a secret key for us
+//     secret: keygen._({specials: true}),
+//     resave: false,
+//     saveUninitialized: true
+//   })
+// );
+
+// extending the `req` object to help manage sessions
+// var sessions = require('./controllers/sessionsController');
+// app.use(sessions.create);
 
 
 //Start Server
