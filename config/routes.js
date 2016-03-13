@@ -11,7 +11,7 @@ router.route('/dreamers')
  	.get(dreamersController.getAll);
 
 router.route('/dreams')
-	.get(dreamsController.getAll);
+	.get(dreamsController.getAll)
 	.post(dreamsController.createDream);
 
 router.get('/dreams/new', dreamsController.newDream);
