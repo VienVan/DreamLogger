@@ -1,6 +1,7 @@
 //DEPENDENCIES
 var express         = require('express'),
     app             = express(),
+    morgan 			= require('morgan'),
     bodyParser      = require('body-parser'),
     methodOverride  = require('method-override'),
     hbs             = require('hbs'),
@@ -21,7 +22,9 @@ app.use(methodOverride('_method'));
 // process.on('exit', function() {mongoose.disconnect()});
 
 //Routes
-// var routes = require('./config/routes');
+var routes = require('./config/routes');
+app.use(routes);
+
 
 //Start Server
 app.listen(port, function() {
