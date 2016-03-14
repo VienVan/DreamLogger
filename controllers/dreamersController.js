@@ -19,6 +19,22 @@ var dreamersController = {
 	edit: function(req, res) {
 		res.render('dreamers/edit');
 	},
+
+	signup: function (req, res) {
+		  // grab the user from the params
+  var dreamer = req.body.dreamer;
+  // pull out their email & password
+  var username = dreamer.username;
+  var password = dreamer.password;
+  // create the new user
+  Dreamer.createSecure(username, password, function(err, dreamer) {
+    req.login(dreamer);
+    res.redirect("/pages/about"); 
+  });
+}
 };
 
+
 module.exports = dreamersController;
+
+

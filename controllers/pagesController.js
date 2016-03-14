@@ -9,6 +9,9 @@ var pagesController = {
 
     edit: function(req, res){
     	res.render('dreamers/edit');
+    },
+    login: function(req, res){
+    	res.render("pages/login");
     }
 };
 

@@ -18,4 +18,6 @@ var dreamerSchema = new Schema({
 
 var Dreamer = mongoose.model('Dreamer', dreamerSchema);
 var Dream = mongoose.model('Dream', dreamSchema);
+
 module.exports = Dreamer;
+module.exports = Dream;
