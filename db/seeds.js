@@ -10,8 +10,8 @@ Dreamer.remove({}, function(err) {
 });
 
 var dreamers = [
- {username: "vien", password_digest: "1234", img: "https://www.placeholder.com", location: "San Francisco"},
- {username: "dan", password_digest: "4321", img: "https://www.placeholder.com", location: "San Francisco"}
+ {username: "vien", password: "1234", img: "https://static.pexels.com/photos/26184/pexels-photo-26184-medium.jpg", location: "San Francisco"},
+ {username: "dan", password: "4321", img: "https://static.pexels.com/photos/57866/pexels-photo-57866-medium.jpeg", location: "San Francisco"}
  ]
 
 Dreamer.create(dreamers, function(err, docs) {

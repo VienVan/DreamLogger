@@ -10,7 +10,7 @@ var dreamSchema = new Schema({
 
 var dreamerSchema = new Schema({
 	username: {type: String, required: true, unique: true},
-	password_digest: {type: String, required: true},
+	password: {type: String, required: true},
 	img: {type: String},
 	location: String,
 	dreams: [dreamSchema],
