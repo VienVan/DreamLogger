@@ -6,7 +6,6 @@ var pagesController = {
     about: function(req, res){
     	res.render('pages/about');
     },
-
     edit: function(req, res){
     	res.render('dreamers/edit');
     }
