@@ -1,4 +1,4 @@
-var Dreamer = require('../models/Dreamer');
+var Dreamer = require('../models').Dream;
 
 var dreamsController = {
 	index: function(req, res) {

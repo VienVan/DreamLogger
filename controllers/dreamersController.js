@@ -1,4 +1,4 @@
-var Dreamer = require('../models/Dreamer');
+var Dreamer = require('../models').Dreamer;
 
 var dreamersController = {
 	index: function(req, res) {
@@ -9,7 +9,7 @@ var dreamersController = {
 	create: function(req, res){
 		var dreamer = req.body.dreamer;
 		var username = dreamer.username;
-		var password = dreamer.password;
+		var password = dreamer.password_digest;
 		var img = dreamer.img;
 		console.log(req.body);
 		console.log(dreamer);
