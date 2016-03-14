@@ -8,11 +8,12 @@ var express         = require('express'),
     session					= require('express-session'),
     keygen 					= require('keygenerator'),
     app             = express(),    
+    db              = require('./models'),
     port            = 3000;
 
 //Database
 mongoose.connect('mongodb://localhost/dream-logger');
-process.on('exit', function() {mongoose.disconnect();
+  process.on('exit', function() {mongoose.disconnect();
 });
 
 //MIDDLEWARES
@@ -47,7 +48,7 @@ app.use(function (req, res, next) {
   };
   // find the current user
   req.currentUser = function (cb) {
-    Dreamer.
+    db.Dreamer.
       findOne({ _id: req.session.userId },
       function (err, dreamer) {
         req.dreamer = dreamer;
@@ -62,38 +63,6 @@ app.use(function (req, res, next) {
   // call the next middleware in the stack
   next(); 
 });
-
-// signup route
-// app.get("/signup", function (req, res) {
-//   res.sendFile(path.join(views, "signup.html"));
-// });
-
-// where the user submits the sign-up form
-// app.post(["/dreamers", "/"], function signup(req, res) {
-//   // grab the user from the params
-//   var dreamer = req.body.dreamer;
-//   // pull out their email & password
-//   var username = dreamer.username;
-//   var password = dreamer.password;
-//   // create the new user
-//   Dreamer.createSecure(username, password, function(err, dreamer) {
-//     req.login(dreamer);
-//     res.redirect("/pages/about"); 
-//   });
-// });
-
-// where the user submits the login form
-// app.post(["/sessions", "/login"], function login(req, res) {
-//   var dreamer = req.body.dreamer;
-//   var username = dreamer.username;
-//   var password = dreamer.password;
-//   Dreamer.authenticate(username, password, function (err, dreamer) {
-//     // login the user
-//     req.login(dreamer);
-//     // redirect to user profile
-//     res.redirect("/pages/about"); 
-//   });
-// });
 
 // show the current user
 // app.get("/profile", function userShow(req, res) {

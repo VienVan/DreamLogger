@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var Dreamer = require("../models/dreamer");
+var Dreamer = require("../models").Dreamer;
 mongoose.connect('mongodb://localhost/dream-logger');
 
 //clears all database entries.

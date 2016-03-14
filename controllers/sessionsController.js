@@ -1,4 +1,4 @@
-var Dreamer = require('../models/Dreamer');
+var Dreamer = require('../models').Dreamer;
 
 var sessionsController = {
 	create: function(req, res){
@@ -10,7 +10,7 @@ var sessionsController = {
 	    // login the user
 	    req.login(dreamer);
 	    // redirect to user profile
-	    res.redirect("/pages/about"); 
+	    res.redirect("/"); 
 	  });
 	},
 	delete: function(req, res){

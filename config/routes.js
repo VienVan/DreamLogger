@@ -39,8 +39,10 @@ router.route('/pages/about')													//root
 
 //LOGIN
 router.route('/pages/login')
-			.get(pagesController.login)
-			.post(sessionsController.create);		
+			.get(pagesController.login);
+
+router.route('/sessions')
+			.post(sessionsController.create);
 
 //EDIT
 // router.route('/dreamers/edit')													//root
