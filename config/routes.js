@@ -16,17 +16,17 @@ router.route('/')													//root
 router.route('/dreamers')									//show all users
  			.get(dreamersController.index)
 			.post(dreamersController.create);
-// router.route('/dreamers/:id/edit')				//edit view to edit users
-			// .get(dreamersController.edit);
+router.route('/dreamers/:id/edit')				//edit view to edit users
+			.get(dreamersController.edit);
 // router.route('/dreamers/:id')							//update users
-			// .put(dreamersController.update);
+// 			.put(dreamersController.update);
 //DREAMS
 router.route('/dreamers/:id/dreams')			//show all user's dreams (timeline)
-			.get(dreamsController.index)
-			.post(dreamsController.create)
-			.put(dreamsController.update)
-			.delete(dreamsController.delete);
-router.route('/dreamers/:id/dreams/new')	//view for creating new dreams
+			.get(dreamsController.index);
+			// .post(dreamsController.create)
+			// .put(dreamsController.update)
+			// .delete(dreamsController.delete);
+// router.route('/dreamers/:id/dreams/new')	//view for creating new dreams
 			// .get(dreamsController.new);
 // router.route(['/dreamers', '/signup'])
 // 			.post(dreamersController.create)
@@ -36,6 +36,6 @@ router.route('/pages/about')													//root
 			.get(pagesController.about); //view for about dreamr			
 
 //EDIT
-router.route('/dreamers/edit')													//root
-			.get(pagesController.edit);
+// router.route('/dreamers/edit')													//root
+// 			.get(pagesController.edit);
 module.exports = router;
