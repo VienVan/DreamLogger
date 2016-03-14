@@ -1,4 +1,5 @@
-var Dreamer = require('../models').Dream;
+var Dream = require('../models').Dream;
+var Dreamer = require('../models').Dreamer;
 
 var dreamsController = {
 	index: function(req, res) {
@@ -9,7 +10,14 @@ var dreamsController = {
 
 	},
 	create: function(req, res) {
-		var dreams = req.body.dreams;
+		var description = req.body.description;
+		var tags = req.body.tags;
+		var newdream = {description: description, tags: tags};
+		Dream.create(newdream, function (err) {
+			if (err) {
+				console.log(err);
+			} res.send(200);
+		});
 
 	},
 	update: function(req, res) {

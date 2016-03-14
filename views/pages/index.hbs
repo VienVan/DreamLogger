@@ -18,9 +18,10 @@
 </div>
 <div id="home-btns">
   <button class="create_btn btn btn-success" id='get-started'>Get Started</button><br><br>
-  <button class="create_btn btn btn-success">Log In</button>
+  <a href='/pages/login' class="create_btn btn btn-success">Log In</a>
 </div>
 
 {{#if currentUser}}
+<h1>You are now logged in</h1>
 {{currentUser.username}}
 {{/if}}
