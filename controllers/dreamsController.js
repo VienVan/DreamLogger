@@ -10,7 +10,11 @@ var dreamsController = {
 			Dreamer.findById({_id: id}, function(err, dreamer) {
 				Dream.find({dreamerId: id}, function(err, dreams) {
 			    req.currentUser(function(err, currentUser) {
-			      res.render('dreams/index', {dreamer: dreamer, dreams: dreams, currentUser: currentUser});
+			    	if (currentUser){
+			    		res.render('dreams/index', {dreamer: dreamer, dreams: dreams, currentUser: currentUser});
+						}else{
+							res.redirect("/");
+						}			    
 			    });		
 			});
 		});

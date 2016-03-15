@@ -4,7 +4,11 @@ var dreamersController = {
 	index: function(req, res) {
 		Dreamer.find({}, function(err, dreamers) {
 			req.currentUser(function(err, currentUser) {
-				res.render('dreamers/index', {dreamers: dreamers, currentUser: currentUser});
+				if (currentUser){
+					res.render('dreamers/index', {dreamers: dreamers, currentUser: currentUser});
+				}else{
+					res.redirect("/");
+				}
     	});
 		});
 	},
@@ -27,23 +31,14 @@ var dreamersController = {
 		var id = req.params.id;
 		Dreamer.findById({_id: id}, function(err, dreamer) {
 			req.currentUser(function(err, currentUser) {
-				res.render('dreamers/edit', {dreamer: dreamer, currentUser: currentUser});
+				if (currentUser){
+					res.render('dreamers/edit', {dreamer: dreamer, currentUser: currentUser});
+				}else{
+					res.redirect("/");
+				}			
 			});
 		});
 	},
-
-	signup: function (req, res) {
-		  // grab the user from the params
-  var dreamer = req.body.dreamer;
-  // pull out their email & password
-  var username = dreamer.username;
-  var password = dreamer.password;
-  // create the new user
-  Dreamer.createSecure(username, password, function(err, dreamer) {
-    req.login(dreamer);
-    res.redirect("/pages/about");
-  });
-}
 };
 
 

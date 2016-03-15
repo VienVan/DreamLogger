@@ -2,7 +2,11 @@
 var pagesController = {
     index: function(req, res) {
       req.currentUser(function(err, dreamer) {
-        res.render('pages/index', {currentUser: dreamer});
+        if (dreamer){
+          res.redirect("/dreamers/"+dreamer._id+"/dreams");
+        }else{
+          res.render('pages/index', {currentUser: dreamer}); 
+        }
       });
     },
     about: function(req, res){
