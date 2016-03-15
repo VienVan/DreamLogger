@@ -20,7 +20,7 @@ router.route('/dreamers')									//show all users
  			.post(dreamersController.signup);
 router.route('/dreamers/:id/edit')				//edit view to edit users
 			.get(dreamersController.edit);
-router.route('/dreamers/:id')							//update users
+router.route('/dreamers/:id');						//update users
 
 // DREAMS
 router.route('/dreamers/:id/dreams')			//show all user's dreams (timeline)

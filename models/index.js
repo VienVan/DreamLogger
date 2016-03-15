@@ -5,16 +5,21 @@ var bcrypt = require('bcrypt');
 // dreams Schema
 var dreamSchema = new Schema({
     description: String,
-    tags: [{type: Schema.Types.ObjectId, ref: 'Tag'}]
-});
+    dreamerId: {type: Schema.Types.ObjectId, ref: 'Dreamer'}
+    // tags: [{type: Schema.Types.ObjectId, ref: 'Tag'}]
+}, {timestamps: true});
 
 var dreamerSchema = new Schema({
 	username: {type: String, required: true, unique: true},
 	password_digest: {type: String, required: true},
 	img: {type: String},
-	location: String,
-	dreams: [dreamSchema],
+	location: String
 }, {timestamps: true});
+
+var dreamtagSchema = new Schema ({
+  dreamId: [{type: Schema.Types.ObjectId, ref: 'Dream'}],
+  tagId: [{type: Schema.Types.ObjectId, ref: 'Tag'}]
+});
 
 // create a new user with secure (hashed) password (for sign up)
 dreamerSchema.statics.createSecure = function (username, password, cb) {
@@ -65,3 +70,4 @@ dreamerSchema.methods.checkPassword = function (password) {
 
 module.exports.Dreamer = mongoose.model('Dreamer', dreamerSchema);
 module.exports.Dream = mongoose.model('Dream', dreamSchema);
+module.exports.DreamTag = mongoose.model('DreamTag', dreamtagSchema);
