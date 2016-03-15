@@ -11,8 +11,8 @@ var dreamsController = {
 	},
 	create: function(req, res) {
 		var description = req.body.description;
-		var tags = req.body.tags;
-		var newdream = {description: description, tags: tags};
+		var tag = req.body.tag;
+		var newdream = {description: description, tag: tag};
 		Dream.create(newdream, function (err) {
 			if (err) {
 				console.log(err);

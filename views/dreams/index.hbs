@@ -1,15 +1,28 @@
 
 <a href="/dreamers/{{dreamer._id}}/edit"><img src='{{dreamer.img}}' class='menu'></a>
 
+<form id="dreams-form" class="form" onsubmit="dreamCatcher.createDream(event)">
+  <input type="text" name="tag" placeholder="Tag" require>
+  <input type="text" name="description" placeholder="description"></input>
+  <input type="submit"Save></input>
+</form>
 
-<form id="dreams-form" action="/dreamers/:id/dreams" method="POST">
-    <div class='form-group'>
-      <input type="text" name="description" placeholder="Description" class="form-control" >
-    </div>
-    <div class='form-group'>
-      <input type="text" name="tags" placeholder="Tags" class="form-control" >
-    </div>
-    <div class='form-group'>
-      <input type="submit" value='Create Dream' class="create_btn btn btn-success">
-    </div>
- </form>
+<div id="dream-list"></div>
+
+<!-- client-side food template -->
+<script id="dream-template" type="text/x-handlebars-template">
+  \{{#each dreams}}
+  <div id="\{{_id}}" class="dreams">
+    <p class="dream-attribute">Tag: \{{tag}}</p>
+    <p class="food-attribute">Description: \{{description}}</p>
+    <button class="btn delete-btn" onclick="dreamCatcher.deleteDream(event)">Delete</button>
+  </div>
+  \{{/each}}
+</script>
+
+<!-- page load -->
+<script type="text/javascript">
+  // pass `foods` data to client to save a request & render foods
+  // triple stash avoids data from being escaped
+  dreamCatcher.renderDreams({{{dreams}}});
+</script>

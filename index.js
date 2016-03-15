@@ -9,6 +9,7 @@ var express         = require('express'),
     keygen 					= require('keygenerator'),
     app             = express(),    
     db              = require('./models'),
+    hbsutils = require('hbs-utils')(hbs),
     port            = 3000;
 
 //Database
@@ -27,6 +28,7 @@ app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'hbs');
 app.set('views', './views');
 hbs.registerPartials(__dirname + '/views/partials');
+hbsutils.registerWatchedPartials(__dirname + '/views/partials'); // partial changes will restart nodemon
 
 ////////////////////////////////////////////////////// Session Stuff :( :( :(
 
