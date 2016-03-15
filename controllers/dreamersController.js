@@ -25,7 +25,7 @@ var dreamersController = {
 		var id = req.params.id;
 		Dreamer.findById({_id: id}, function(err, dreamer) {
 			res.render('dreamers/edit', {dreamer: dreamer});
-		})
+		});
 	},
 
 	signup: function (req, res) {

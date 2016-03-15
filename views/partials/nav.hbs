@@ -4,4 +4,10 @@
 <a href="/dreamers">/dreamers</a><br />
 {{!-- <a href="/dreamers/:id/dreams">/dreamers/:id/dreams</a><br /> --}}
 <!-- <a href="/dreamers/1/edit">/dreamers/:id/edit</a><br /> -->
-<a href="/pages/about">/pages/about</a><br />
+{{!-- <a href="/pages/about">/pages/about</a><br /> --}}
+
+{{#if currentUser}}
+<span>Welcome back, {{currentUser.username}}</span>
+{{else}}
+<span>Not logged in, SignUp!</span>
+{{/if}}
