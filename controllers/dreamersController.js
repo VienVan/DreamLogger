@@ -3,7 +3,9 @@ var Dreamer = require('../models').Dreamer;
 var dreamersController = {
 	index: function(req, res) {
 		Dreamer.find({}, function(err, dreamers) {
-			res.render('dreamers/index', {dreamers: dreamers});
+			req.currentUser(function(err, currentUser) {
+				res.render('dreamers/index', {dreamers: dreamers, currentUser: currentUser});
+    	});
 		});
 	},
 	create: function(req, res){
@@ -24,7 +26,9 @@ var dreamersController = {
 	edit: function(req, res) {
 		var id = req.params.id;
 		Dreamer.findById({_id: id}, function(err, dreamer) {
-			res.render('dreamers/edit', {dreamer: dreamer});
+			req.currentUser(function(err, currentUser) {
+				res.render('dreamers/edit', {dreamer: dreamer, currentUser: currentUser});
+			});
 		});
 	},
 
