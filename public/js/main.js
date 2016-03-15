@@ -1,14 +1,20 @@
-console.log("This is connected");
+$(document).ready(function() {
+  console.log("This is connected");
 
-$('#get-started').click(function() {
-  $('.signup').toggleClass('hidden');
-  $('#home-btns').addClass('hidden');
-});
+  $('#get-started').click(function() {
+    $('.signup').toggleClass('hidden');
+    $('#home-btns').addClass('hidden');
+  });
 
-$('.cancel').click(function() {
-  $('.signup').toggleClass('hidden');
-  $('#home-btns').removeClass('hidden');
+  $('.cancel').click(function() {
+    $('.signup').toggleClass('hidden');
+    $('#home-btns').removeClass('hidden');
+  });
+
+  $('#dreams').on('click', '.delete-dream', dreamCatcher.deleteDream);
+
 });
+// END DOCUMENT READY
 
 // $.ajax(function() {
 //   url: '/dreamers/:id/dreams',
@@ -68,4 +74,22 @@ dreamCatcher.renderDream = function(dream, tag) {
   var dreamTemplate = Handlebars.compile($('#dream-template').html());
   var compiledHTML = dreamTemplate({dreams: [dream]});
   $dreamList.prepend(compiledHTML);
-}
+};
+
+// UPDATE DREAM
+
+
+// DELETE DREAM
+dreamCatcher.deleteDream = function(e) {
+  e.preventDefault();
+  var dreamId = $(this).closest('div').data('dream-id');
+  console.log('someone wants to delete dream id= ' + dreamId);
+  $.ajax({
+    method: 'DELETE',
+    url: ('/dreamers/:id/dreams/' + dreamId),
+    data: dreamId,
+    success: function() {
+        $('#'+dreamId).remove();
+    }
+    });
+};

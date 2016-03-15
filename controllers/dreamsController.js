@@ -10,15 +10,15 @@ var dreamsController = {
 		Dreamer.findById({_id: id}, function(err, dreamer) {
 			Dream.find({dreamerId: id}, function(err, dreams) {
 
-				res.render('dreams/index', {dreamer: dreamer, dreams: dreams})
-			})
+				res.render('dreams/index', {dreamer: dreamer, dreams: dreams});
+			});
 			// res.render('dreams/index', {dreamer: dreamer});
 		});
 
 	},
 	create: function(req, res) {
 
-				var description = req.body.description;
+				// var description = req.body.description;
 				// console.log(req.body);
 				// var tag = req.body.tag;
 				var description = req.body.description;
@@ -44,8 +44,17 @@ var dreamsController = {
 
 	},
 	delete: function(req, res) {
-
-	}
+		var id = req.params.id;
+		console.log(req.params.id);
+		Dreamer.findById({_id: id}, function(err, dreamer) {
+			Dream.find({dreamerId: id}, function(err, dreams) {
+				var dreamId = req.params.id;
+				Dream.remove({_id: dreamId}, function(err, doc) {
+					err ? console.log(err) : res.status(200).send();
+				});
+	});
+});
+}
 };
 
 module.exports = dreamsController;

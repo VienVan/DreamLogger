@@ -38,4 +38,7 @@ router.route('/pages/login')
 router.route('/sessions')
 			.post(sessionsController.create);
 
+router.route('/dreamers/:id/dreams/:id')
+	.delete(dreamsController.delete);
+
 module.exports = router;
