@@ -26,7 +26,6 @@ var dreamersController = {
 			res.render('dreamers/edit', {dreamer: dreamer});
 		})
 	},
-
 	signup: function (req, res) {
 		  // grab the user from the params
   var dreamer = req.body.dreamer;
