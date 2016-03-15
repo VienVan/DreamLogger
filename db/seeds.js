@@ -6,7 +6,9 @@ var DreamTag = require('../models').DreamTag;
 mongoose.connect('mongodb://localhost/dream-logger');
 
 Dream.remove({});
-Dreamer.remove({});
+Dreamer.remove({}, function(err, dreamer) {
+	err ? console.log("err", err) : console.log("dreamer", dreamer);
+});
 Tag.remove({});
 DreamTag.remove({});
 
@@ -15,7 +17,7 @@ var dreamer = {
 	password_digest: "1234"
 };
 
-// create data 
+// create data
 Dreamer.create(dreamer, function (err, dreamer) {
 	console.log("created dreamer:", dreamer);
 	var dreams = [
@@ -28,7 +30,7 @@ Dreamer.create(dreamer, function (err, dreamer) {
 			dreamerId: dreamer._id
 		}
 	];
-	// create dreams 
+	// create dreams
 	Dream.create(dreams,function(err, dreams) {
 		console.log("created dreams:", dreams);
 		var tags = [

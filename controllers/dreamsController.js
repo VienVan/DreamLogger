@@ -10,7 +10,7 @@ var dreamsController = {
 		Dreamer.findById({_id: id}, function(err, dreamer) {
 			Dream.find({dreamerId: id}, function(err, dreams) {
 
-				res.render('dreams/index', {dreamer: dreamer, dreams: dreams, tags: tags})
+				res.render('dreams/index', {dreamer: dreamer, dreams: dreams})
 			})
 			// res.render('dreams/index', {dreamer: dreamer});
 		});
@@ -32,7 +32,7 @@ var dreamsController = {
 						console.log(newdream);
 
 							Tag.create(newTag, function(err, tag) {
-								res.json(newdream, tag);
+								res.json(newdream);
 							});
 
 				});
