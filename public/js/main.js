@@ -34,11 +34,6 @@ dreamCatcher.createDream = function(e) {
     .fail(function(err) {
       console.log("Error:", err);
     });
-  $.post('/dreamers/tags', dream)
-    .done(function(res) {
-      console.log(res);
-      dreamCatcher.renderDream(res);
-    })
 };
 
 //
