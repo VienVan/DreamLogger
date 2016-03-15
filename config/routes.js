@@ -27,8 +27,6 @@ router.route('/dreamers/:id/dreams')			//show all user's dreams (timeline)
 			.get(dreamsController.index)
 			.post(dreamsController.create)
 			.delete(dreamsController.delete);
-router.route('/dreamers/tags')
-			.post(dreamsController.createTag);
 //ABOUT
 router.route('/pages/about')													//root
 			.get(pagesController.about); //view for about dreamr

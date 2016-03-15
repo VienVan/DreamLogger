@@ -5,12 +5,12 @@ var DreamTag = require('../models').DreamTag;
 
 var dreamsController = {
 	index: function(req, res) {
-		var id = req.params.id;
+		var id 							= req.params.id;
 		console.log(req.params.id);
 		Dreamer.findById({_id: id}, function(err, dreamer) {
 			Dream.find({dreamerId: id}, function(err, dreams) {
 
-				res.render('dreams/index', {dreamer: dreamer, dreams: dreams})
+				res.render('dreams/index', {dreamer: dreamer, dreams: dreams, tags: tags})
 			})
 			// res.render('dreams/index', {dreamer: dreamer});
 		});
@@ -19,16 +19,21 @@ var dreamsController = {
 	create: function(req, res) {
 
 				var description = req.body.description;
-				console.log(req.body);
+				// console.log(req.body);
 				// var tag = req.body.tag;
 				var description = req.body.description;
-				var dreamerId = req.body.dreamerId;
-				var newdream = {description: description, dreamerId: dreamerId};
-
+				var dreamerId 	= req.body.dreamerId;
+				var newdream 		= {description: description, dreamerId: dreamerId};
+				var newTag 			= {name: req.body.tags.name};
+				var tagQuery 		=
+				// console.log(req.body.tags);
 
 					Dream.create(newdream, function(err, newdream) {
 						console.log(newdream);
-							res.json(newdream);
+
+							Tag.create(newTag, function(err, tag) {
+								res.json(newdream, tag);
+							});
 
 				});
 
@@ -39,14 +44,6 @@ var dreamsController = {
 
 	},
 	delete: function(req, res) {
-
-	},
-	createTag: function(req, res) {
-		var tag = req.body.name;
-		Tag.create(tag, function(err, tag) {
-			console.log(tag);
-			res.json(tag);
-		})
 
 	}
 };

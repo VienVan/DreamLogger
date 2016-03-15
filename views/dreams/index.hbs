@@ -2,11 +2,12 @@
 <a href="/dreamers/{{dreamer._id}}/edit"><img src='{{dreamer.img}}' class='menu'></a>
 {{#each dreams}}
 {{description}}
+{{tags.name}}
 {{/each}}
 
 
 <form id="dreams-form" class="form" onsubmit="dreamCatcher.createDream(event)">
-  <input type="text" name="tag" placeholder="Tag" require>
+  <input type="text" name="tags[name]" placeholder="#tag">
   <input type="text" name="description" placeholder="description"></input>
   <input type="hidden" name="dreamerId" value={{dreamer.id}}>
   <input type="submit"></input>
@@ -18,7 +19,7 @@
 <script id="dream-template" type="text/x-handlebars-template">
   \{{#each dreams}}
   <div id="\{{_id}}" class="dreams">
-    <!-- <p class="dream-attribute">Tag: \{{tag}}</p> -->
+    <p class="dream-attribute">Tag: \{{tags.name}}</p>
     <p class="food-attribute">Description: \{{description}}</p>
     <button class="btn delete-btn" onclick="dreamCatcher.deleteDream(event)">Delete</button>
   </div>
