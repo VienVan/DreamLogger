@@ -26,7 +26,8 @@
     "keygenerator": "^1.0.4",
     "method-override": "^2.3.5",
     "mongoose": "^4.4.7",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "repl": "^0.1.3"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
