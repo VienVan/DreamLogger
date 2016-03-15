@@ -11,9 +11,9 @@ var dreamersController = {
 		var username = dreamer.username;
 		var password = dreamer.password_digest;
 		var img = dreamer.img;
-		console.log(req.body);
-		console.log(dreamer);
-		console.log(dreamer.img)
+		// console.log(req.body);
+		// console.log(dreamer);
+		// console.log(dreamer.img)
 		Dreamer.create({username, password, img}, function(err, dreamer) {
 			var id = dreamer._id;
 			console.log(id);

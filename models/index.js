@@ -13,6 +13,7 @@ var dreamerSchema = new Schema({
 	username: {type: String, required: true, unique: true},
 	password_digest: {type: String, required: true},
 	img: {type: String},
+  // dreams: [dreamId: {type: Schema.Types.ObjectId, ref: 'Dream'}],
 	location: String
 }, {timestamps: true});
 

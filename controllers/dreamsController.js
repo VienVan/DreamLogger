@@ -6,31 +6,47 @@ var DreamTag = require('../models').DreamTag;
 var dreamsController = {
 	index: function(req, res) {
 		var id = req.params.id;
+		console.log(req.params.id);
 		Dreamer.findById({_id: id}, function(err, dreamer) {
-			res.render('dreams/index', {dreamer: dreamer});
+			Dream.find({dreamerId: id}, function(err, dreams) {
+
+				res.render('dreams/index', {dreamer: dreamer, dreams: dreams})
+			})
+			// res.render('dreams/index', {dreamer: dreamer});
 		});
 
 	},
 	create: function(req, res) {
-		req.currentUser(function(err, dreamer) {
-        if (err) { 
-				console.log(err);
-			}
+
 				var description = req.body.description;
-				var tag = req.body.tag;
-				var newdream = {description: description, tag: tag};
-				Dream.create(newdream, function(err, dream) {
-						console.log(dream);
-						res.json(dream);
+				console.log(req.body);
+				// var tag = req.body.tag;
+				var description = req.body.description;
+				var dreamerId = req.body.dreamerId;
+				var newdream = {description: description, dreamerId: dreamerId};
+
+
+					Dream.create(newdream, function(err, newdream) {
+						console.log(newdream);
+							res.json(newdream);
+
 				});
-				// var dreamtag = new DreamTag({dreamId: dream._id, tagId: tag._id});
-		});
-		
+
+
+
 	},
 	update: function(req, res) {
 
 	},
 	delete: function(req, res) {
+
+	},
+	createTag: function(req, res) {
+		var tag = req.body.name;
+		Tag.create(tag, function(err, tag) {
+			console.log(tag);
+			res.json(tag);
+		})
 
 	}
 };
