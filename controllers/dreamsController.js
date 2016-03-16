@@ -3,7 +3,7 @@ var Dreamer 						= require('../models').Dreamer;
 var Tag 								= require('../models/tag');
 var DreamTag 						= require('../models').DreamTag;
 
-var dreamsController = {
+var dreamsController 		= {
 	index: function(req, res) {
 			var id 							= req.params.id;
 			console.log(req.params.id);
