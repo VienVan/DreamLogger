@@ -1,13 +1,34 @@
 
 <a href="/dreamers/{{dreamer._id}}/edit"><img src='{{dreamer.img}}' class='menu'></a>
 
-<form id="dreams-form" class="form" onsubmit="dreamCatcher.createDream(event)">
-  <input type="text" name="tags[name]" placeholder="#tag">
-  <!-- <input type="hidden" name="tags[_id]" value="tags[_id]">  -->
-  <input type="text" name="description" placeholder="description"></input>
-  <input type="hidden" name="dreamerId" value={{dreamer.id}}>
-  <input type="submit"></input>
-</form>
+<button type="button" id="addDream" class="btn btn-primary" data-toggle="modal" data-target="#createDreamModal">Add Dream</button>
+
+<!-- CREATE DREAMS MODAL -->
+<div id="createDreamModal" class="modal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" data-dream-id="{{_id}}">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Create Dream</h4>
+      </div>
+      <div class="modal-body">
+        <form id="dreams-form" class="form" onsubmit="dreamCatcher.createDream(event)">
+          <input id="dreams-form-tag" type="text" name="newtags[name]" placeholder="#tag">
+          <input id="dreams-form-description" type="text" name="newdescription" placeholder="description"></input>
+          <input type="hidden" name="dreamerId" value={{dreamer.id}}>
+{{!--           <input type="submit"></input> --}}
+       <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" id="addDream" data-dream-id="{{_id}}" >Add Dream</button>
+      </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <div class="container" id="dreams">
   {{#each dreams}}
@@ -18,7 +39,7 @@
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dreamModal" id="{{_id}}">Edit Dream</button>
   </div>
 
-  <!-- Modal -->
+  <!-- Edit Dreams Modal -->
 <div id="dreamModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -63,3 +84,5 @@
   <p class='dream-attribute'>Tag: \{{name}}</p>
   \{{/each}}
 </script>
+
+

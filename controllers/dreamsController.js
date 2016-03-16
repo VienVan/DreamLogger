@@ -11,18 +11,20 @@ var dreamsController 		= {
 			    req.currentUser(function(err, currentUser) {
 			    	if (currentUser){
 			    		res.render('dreams/index', {dreamer: dreamer, dreams: dreams, currentUser: currentUser});
-						}else{
-							res.redirect("/");
 						}
+						else{
+							res.redirect("/");
+		}
+						});
 			    });
 			});
 
 	},
 	create: function(req, res) {
-		var description 		= req.body.description;
+		var description 		= req.body.newdescription;
 		var dreamerId     	= req.body.dreamerId;
 		var newdream     	 	= {description: description, dreamerId: dreamerId};
-		var newTag        	= req.body.tags;
+		var newTag        	= req.body.newtags;
 		var tagId;
 			console.log('req.body.tags',newTag);
 				Dream.create(newdream, function(err, newdream) {
@@ -63,7 +65,7 @@ var dreamsController 		= {
 				});
 	});
 });
-}
+	}
 };
 
 module.exports = dreamsController;
