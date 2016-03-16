@@ -33,11 +33,6 @@ router.route('/dreamers/:id/dreams/:id')
 			.put(dreamsController.edit)
 		  .delete(dreamsController.delete);
 
-
-// router.route('/dreamers/:id/dreams/:id/edit')
-// 	.get(dreamersController.index)
-// 	.put(dreamsController.edit);
-
 //ABOUT
 router.route('/pages/about')													//root
 			.get(pagesController.about); //view for about dreamr
