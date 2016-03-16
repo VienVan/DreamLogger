@@ -1,25 +1,60 @@
 
 <a href="/dreamers/{{dreamer._id}}/edit"><img src='{{dreamer.img}}' class='menu'></a>
-{{#each dreams}}
-{{description}}
-{{tags.name}}
-{{/each}}
-
 
 <form id="dreams-form" class="form" onsubmit="dreamCatcher.createDream(event)">
   <input type="text" name="tags[name]" placeholder="#tag">
+  <!-- <input type="hidden" name="tags[_id]" value="tags[_id]">  -->
   <input type="text" name="description" placeholder="description"></input>
   <input type="hidden" name="dreamerId" value={{dreamer.id}}>
   <input type="submit"></input>
 </form>
 
+<div class="container" id="dreams">
+  {{#each dreams}}
+  <div class="row-dream" data-dreams-id={{_id}} id="{{_id}}">
+    {{description}}
+    {{tags.name}}
+    <button class='btn btn-danger delete-dream'>Delete Dream</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dreamModal" id="{{_id}}">Edit Dream</button>
+  </div>
+
+  <!-- Modal -->
+<div id="dreamModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" data-dream-id="{{_id}}">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Dream</h4>
+      </div>
+      <div class="modal-body">
+        <form id="edit-dreams-form" class="form" onsubmit="dreamCatcher.editDream(event)">
+          {{!-- <input type="text" name="tags[name]" placeholder=""> --}}
+          <input type="text" name="description" placeholder="description"></input>
+          <input type="hidden" name="dreamerId" value={{dreamer.id}}>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="saveDream" data-dream-id="{{_id}}" onclick="dreamCatcher.editDream(event)">Save changes</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+  {{/each}}
+</div>
+
 <div id="dream-list"></div>
+
 
 <!-- client-side food template -->
 <script id="dream-template" type="text/x-handlebars-template">
   \{{#each dreams}}
   <div id="\{{_id}}" class="dreams">
-    <p class="dream-attribute">Tag: \{{tags.name}}</p>
+    <!-- <p>Dream Tag: \{{tags}}</p> -->
+    <!-- <p class="dream-attribute">Tag: \{{dreamtag.tagId}}</p> -->
     <p class="food-attribute">Description: \{{description}}</p>
     <button class="btn delete-btn" onclick="dreamCatcher.deleteDream(event)">Delete</button>
   </div>
