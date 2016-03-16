@@ -27,7 +27,7 @@ dreamCatcher.createDream = function(e) {
   var dream = $(e.target).serialize();
   $.post("/dreamers/:id/dreams", dream)
     .done(function(res) {
-      // OPTIMIZE: renders the entire dom eat time a food is created
+      // OPTIMIZE: renders the entire dom dream once dreamer is created
       console.log(res);
       dreamCatcher.renderDream(res);
     })
@@ -35,6 +35,11 @@ dreamCatcher.createDream = function(e) {
       console.log("Error:", err);
     });
 };
+
+dreamCatcher.editDreamer = function(e) {
+  e.preventDefault();
+  var id = req.params.id;
+}
 
 //
 // dreamCatcher.deleteDream = function(e) {

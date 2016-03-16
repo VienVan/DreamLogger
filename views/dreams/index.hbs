@@ -11,7 +11,7 @@
   <input type="submit"></input>
 </form>
 
-<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+<div class="flip-container" action="/dreamers/dreamers/'+id+'/dreams" method="put" style="background: red" onclick="this.classList.toggle('hover');">
   <div class="flipper">
     <div class="front">
       <!-- front content -->
@@ -33,12 +33,13 @@
   <br>
   <button class="create_btn btn btn-success">Save</button>
   <button class="create_btn btn btn-success">Cancel</button>
+  <div class="form-group">
+  <input type="hidden" role="uploadcare-uploader" name="dreamer[img]"/>
+</div>
     </div>
 </form>
     </div>
-<div class="form-group">
-  <input type="hidden" role="uploadcare-uploader" name="dreamer[img]"/>
-</div>
+
   </div>
 </div>
 
