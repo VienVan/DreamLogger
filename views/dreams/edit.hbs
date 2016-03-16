@@ -1,0 +1,15 @@
+<h1>This is DREAMS edit page</h1>
+
+
+
+<a href="/dreamers/{{dreamer._id}}/dreams "><img src='{{dreamer.img}}' class='menu'></a>
+<div class="form-group">
+  <input type="hidden" role="uploadcare-uploader" name="dreamer[img]"/>
+</div>
+
+<form id="dreams-form" class="form" onsubmit="dreamCatcher.createDream(event)">
+  <input type="text" name="tags[name]" placeholder="#tag">
+  <input type="text" name="description" placeholder="description"></input>
+  <input type="hidden" name="dreamerId" value={{dreamer.id}}>
+  <input type="submit"></input>
+</form>
