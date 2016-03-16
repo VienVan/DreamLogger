@@ -28,9 +28,9 @@
         <h4 class="modal-title">Edit Dream</h4>
       </div>
       <div class="modal-body">
-        <form id="dreams-form" class="form" onsubmit="dreamCatcher.editDream(event)">
+        <form id="edit-dreams-form" class="form" onsubmit="dreamCatcher.editDream(event)">
           {{!-- <input type="text" name="tags[name]" placeholder=""> --}}
-          <input type="text" name="description" placeholder="\{{_id}}"></input>
+          <input type="text" name="description" placeholder="description"></input>
           <input type="hidden" name="dreamerId" value={{dreamer.id}}>
         </form>
       </div>

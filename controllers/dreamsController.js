@@ -17,10 +17,6 @@ var dreamsController = {
 
 	},
 	create: function(req, res) {
-
-				// var description = req.body.description;
-				// console.log(req.body);
-				// var tag = req.body.tag;
 				var description = req.body.description;
 				var dreamerId 	= req.body.dreamerId;
 				var newdream 		= {description: description, dreamerId: dreamerId};
@@ -41,26 +37,33 @@ var dreamsController = {
 
 	},
 	edit: function(req, res) {
-		// var id = req.params.id;
-		// Dream.findOne({_id: id}, function (err, dream) {
-		// 	console.log(dream);
-		// 	if (err) { console.log('error', err);}
-		// 	dream.description = req.body.description;
-		// 	dream.save(function (err, saved) {
-		// 		if (err) { console.log('error', err);}
-		// 		res.status(200).send();
-		// 	});
+		var id = req.params.id;
+		// var description = req.body.description;
+		//not grabbing form value
+		console.log(req.body.description);
+		Dream.findOne({_id: id}, function (err, dream) {
+			if (err) console.log(err);
+			if (req.body.description) dream.description = req.body.description;
+			var obj = {
+				description: dream.description
+			};
+			Dream.update({_id: id}, obj, function(err, dream){
+				if (err) console.log(err);
+				res.status(200).send();
+			});
+			});
+
+			// console.log(dream);
+			// if (err) { console.log('error', err);}
+			// dream.description = description;
+			// console.log(dream.description);
+			// dream.save(function (err, saved) {
+			// 	if (err) { console.log('error', err);}
+			// 	res.status(200).send();
+			// });
 
 		// });
 	},
-
-	// 				Dream.findOne({_id: dreamId}, function(err, dream) {
-// 					console.log("Dream: ", dream);
-// 					if (err) { console.log('error', err);}
-// 					dream.description = req.body.description;
-// 					dream.save(function (err, saved) {
-// 						if (err) { console.log('error', err); }
-// 						res.status(200).send();
 
 	delete: function(req, res) {
 		var id = req.params.id;
@@ -76,21 +79,4 @@ var dreamsController = {
 }
 };
 
-// var id = req.params.id;
-// 		console.log(req.params.id);
-// 		Dreamer.findById({_id: id}, function(err, dreamer) {
-// 			Dream.find({dreamerId: id}, function(err, dreams) {
-// 				var dreamId = req.params.id;
-// 				console.log("dreams: ", dreams)
-// 				console.log("dreamid: ", dreamId);
-// 				Dream.findOne({_id: dreamId}, function(err, dream) {
-// 					console.log("Dream: ", dream);
-// 					if (err) { console.log('error', err);}
-// 					dream.description = req.body.description;
-// 					dream.save(function (err, saved) {
-// 						if (err) { console.log('error', err); }
-// 						res.status(200).send();
-// 					});
-// 				});	
-// 			});
 module.exports = dreamsController;

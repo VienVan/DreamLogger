@@ -72,8 +72,8 @@ dreamCatcher.editDream = function(e) {
   $.ajax({
     method: 'PUT',
     url: ('/dreamers/:id/dreams/' + dreamId),
-    data: dreamId,
-    success: function() {
+    data: $('#edit-dreams-form').serialize(),
+    success: function(data) {
         console.log("success!");
     }
     });
