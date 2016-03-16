@@ -1,14 +1,26 @@
-var Dreamer = require('../models').Dreamer;
+var Dream 							= require('../models').Dream;
+var Dreamer 						= require('../models').Dreamer;
+var Tag 								= require('../models/tag');
+var DreamTag 						= require('../models').DreamTag;
 
 var dreamersController = {
 	index: function(req, res) {
 		Dreamer.find({}, function(err, dreamers) {
 			req.currentUser(function(err, currentUser) {
-				if (currentUser){
-					res.render('dreamers/index', {dreamers: dreamers, currentUser: currentUser});
-				}else{
-					res.redirect("/");
-				}
+				DreamTag.find({}, function( err, dreamtags) {
+					Dream.find({}, function( err, dreams) {
+						var targetTagIds = dreamtags.map(function(dreamtag) {
+							return dreamtag.tagId;
+						});
+						Tag.find({_id: { $in: targetTagIds}}, function(err, tags) {
+							if (currentUser){
+								res.render('dreamers/index', {dreamers: dreamers, currentUser: currentUser, tags: tags});
+							} else {
+								res.redirect("/");
+							}
+						});
+					});
+				});
     	});
 		});
 	},

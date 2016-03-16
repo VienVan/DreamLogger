@@ -17,23 +17,21 @@ var dreamsController 		= {
 						})
 			    });
 			});
-
 	},
 	create: function(req, res) {
 		var description 		= req.body.description;
 		var dreamerId     	= req.body.dreamerId;
 		var newdream     	 	= {description: description, dreamerId: dreamerId};
-		var tag        	= req.body.tags;
+		var tag        			= req.body.tags;
 		var tagId;
-			console.log('req.body.tags',tag);
+			// console.log('req.body.tags',tag);
 				Dream.create(newdream, function(err, newdream) {
-					console.log('inside .body.tags', tag);
+					// console.log('inside .body.tags', tag);
 						Tag.findOne(tag, function(err, foundTag) {
 							console.log(foundTag);
 							if(!foundTag) {
 								Tag.create(tag, function(err, tag) {
 									DreamTag.create({dreamId: newdream._id, tagId: tag._id}, function(err, dreamtag) {
-
 										res.json(newdream);
 									});
 								});
@@ -81,9 +79,10 @@ var dreamsController 		= {
 	search: function(req, res) {
 		// console.log('this is hitting the search controller', req.query);
 			var searchQuery = req.query.tag;
-			console.log('searchQuery', searchQuery);
-			Tag.dreams(searchQuery, function(searchedTag) {
-				console.log("searched tags:", searchedTag);
+			// console.log('searchQuery', searchQuery);
+			Tag.dreams(searchQuery, function(dreams) {
+				console.log("sending back dreams", dreams)
+				res.send(dreams);
 			})
 
 

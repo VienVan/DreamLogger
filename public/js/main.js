@@ -92,8 +92,12 @@ dreamCatcher.deleteDream = function(e) {
 
 $('#search').click( function() {
     $.ajax({
+      // var tag = $('#searchTag.val()');
       method: "GET",
       url: "/dreams",
-      data: {tag: $('#searchTag').val()}
+      data: {tag: $('#searchTag').val()},
+      success: function(data) {
+        console.log("got data:", data);
+      }
 });
 });

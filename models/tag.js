@@ -11,14 +11,11 @@ var tagSchema = new Schema({
 
 tagSchema.statics.dreams = function(name, cb) {
   this.findOne({name: name}, function(err, tag) {
-    console.log("found tag", tag)
     DreamTag.find({tagId: tag._id}, function(err, dreamtags) {
-      console.log("found dreamtags", dreamtags)
       dreamIds = dreamtags.map(function(dreamtag) {
         return dreamtag.dreamId;
       })
       Dream.find({_id: { $in: dreamIds}}, function(err, dreams){
-      console.log("found dreams", dreams)
        cb(dreams);
       });
     });
