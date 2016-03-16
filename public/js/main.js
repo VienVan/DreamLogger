@@ -13,6 +13,7 @@ $(document).ready(function() {
   //
   $('#dreams').on('click', '.delete-dream', dreamCatcher.deleteDream);
   $('#dreams').on('click', '.edit-dream', dreamCatcher.editDream);
+  $('#createDreamModal').modal('show');
 
 
 });
@@ -23,12 +24,16 @@ var dreamCatcher = {};
 //
 dreamCatcher.createDream = function(e) {
   e.preventDefault();
+  var that = this;
   var dream = $(e.target).serialize();
   $.post("/dreamers/:id/dreams", dream)
     .done(function(res) {
       // OPTIMIZE: renders the entire dom eat time a food is created
       console.log(res);
       dreamCatcher.renderDream(res);
+      that.removeHide();
+      // $('#createDreamModal').removeClass("show");
+      // $('#createDreamModal').addClass("hide");
     })
     .fail(function(err) {
       console.log("Error:", err);
@@ -88,8 +93,8 @@ dreamCatcher.deleteDream = function(e) {
     });
 };
 
-//SEARCH FOR DREAMS BY TAGS
 
+//SEARCH FOR DREAMS BY TAGS
 $('#search').click( function() {
     $.ajax({
       method: "GET",
@@ -97,3 +102,14 @@ $('#search').click( function() {
       data: {tag: $('#searchTag').val()}
 });
 });
+
+// REMOVE CLASS HIDE
+dreamCatcher.removeHide = function() {
+  $('#dreams-form-tag').val("");
+  $('#dreams-form-description').val("");
+
+  $('#createDreamModal').modal('hide');
+  $('#createDreamModal').removeClass("show");
+};
+
+

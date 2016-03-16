@@ -11,10 +11,10 @@ var dreamsController 		= {
 			    req.currentUser(function(err, currentUser) {
 			    	if (currentUser){
 			    		res.render('dreams/index', {dreamer: dreamer, dreams: dreams, currentUser: currentUser});
-						}else{
+						}
+						else{
 							res.redirect("/");
 						}
-						})
 			    });
 			});
 		});
@@ -23,7 +23,7 @@ var dreamsController 		= {
 		var description 		= req.body.description;
 		var dreamerId     	= req.body.dreamerId;
 		var newdream     	 	= {description: description, dreamerId: dreamerId};
-		var tag        	= req.body.tags;
+		var tag        			= req.body.tags;
 		var tagId;
 			console.log('req.body.tags',tag);
 				Dream.create(newdream, function(err, newdream) {
@@ -40,10 +40,10 @@ var dreamsController 		= {
 							} else {
 								DreamTag.create({dreamId: newdream._id, tagId: foundTag._id}, function(err, dreamtag) {
 									res.json(newdream);
-								})
+								});
 							}
 
-						})
+						});
 
 		});
 	},
@@ -80,15 +80,12 @@ var dreamsController 		= {
 },
 	search: function(req, res) {
 		// console.log('this is hitting the search controller', req.query);
-			var searchQuery = req.query.tag;
-			console.log('searchQuery', searchQuery);
-			Tag.dreams(searchQuery, function(searchedTag) {
-				console.log("searched tags:", searchedTag);
-			})
-
-
-}
-
+		var searchQuery = req.query.tag;
+		console.log('searchQuery', searchQuery);
+		Tag.dreams(searchQuery, function(searchedTag) {
+			console.log("searched tags:", searchedTag);
+		});
+	}
 };
 
 module.exports = dreamsController;
