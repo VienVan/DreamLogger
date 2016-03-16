@@ -16,7 +16,7 @@ var dreamsController 		= {
 						}
 			    });
 			});
-
+		});
 	},
 	create: function(req, res) {
 		var description 		= req.body.description;
