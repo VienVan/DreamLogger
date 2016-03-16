@@ -1,5 +1,4 @@
-
-<a href="/dreamers/{{dreamer._id}}/edit"><img src='{{dreamer.img}}' class='menu'></a>
+<!-- // may not need this page// -->
 {{#each dreams}}
 {{description}}
 {{/each}}
@@ -12,14 +11,43 @@
   <input type="submit"></input>
 </form>
 
+<div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <div class="front">
+      <!-- front content -->
+<a href="/dreamers/{{dreamer._id}}/dreams"><img src='{{dreamer.img}}' class='menu'></a>
+
+    
+    </div>
+    <div class="back">
+      <!-- back content -->
+<form>
+<br>
+<div class="form-group">
+  <input type="hidden" role="uploadcare-uploader" name="dreamer[img]"/>
+</div>
+<br>
+  Edit Profile:<br>
+  <input type="text" name="Username" placeholder="Username"><br>
+  <input type="text" name="Password" placeholder="Password">
+  <br>
+  <input type="text" name="Confirm Password" placeholder="Confirm Password">
+  <br>
+  <button class="create_btn btn btn-success">Save</button>
+    </div>
+</form>
+    </div>
+  </div>
+</div>
+
 <div id="dream-list"></div>
 
-<!-- client-side food template -->
+<!-- client-side dream template -->
 <script id="dream-template" type="text/x-handlebars-template">
   \{{#each dreams}}
   <div id="\{{_id}}" class="dreams">
     <!-- <p class="dream-attribute">Tag: \{{tag}}</p> -->
-    <p class="food-attribute">Description: \{{description}}</p>
+    <p class="dream-attribute">Description: \{{description}}</p>
     <button class="btn delete-btn" onclick="dreamCatcher.deleteDream(event)">Delete</button>
   </div>
   \{{/each}}
