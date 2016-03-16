@@ -40,5 +40,7 @@ router.route('/sessions')
 
 router.route('/logout')
 			.get(pagesController.logout);
+router.route('/meaning')
+			.get(pagesController.search);
 
 module.exports = router;
