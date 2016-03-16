@@ -14,11 +14,11 @@ var dreamersController = {
 	},
 	create: function(req, res){
 		var dreamer = req.body.dreamer;
-		var id = dreamer._id;
 		var username = dreamer.username;
 		var password = dreamer.password_digest;
 		var img = dreamer.img;
 		Dreamer.create({username: username, password_digest: password, img: img}, function(err, dreamer) {
+			var id = dreamer._id;
 			if (err) {
 				console.log(err);
 			}else{
@@ -35,7 +35,7 @@ var dreamersController = {
 					res.render('dreamers/edit', {dreamer: dreamer, currentUser: currentUser});
 				}else{
 					res.redirect("/");
-				}			
+				}
 			});
 		});
 	},
