@@ -50,19 +50,9 @@ var dreamsController = {
 			Dream.update({_id: id}, obj, function(err, dream){
 				if (err) console.log(err);
 				res.status(200).send();
+				// res.render('dreams/index');
 			});
 			});
-
-			// console.log(dream);
-			// if (err) { console.log('error', err);}
-			// dream.description = description;
-			// console.log(dream.description);
-			// dream.save(function (err, saved) {
-			// 	if (err) { console.log('error', err);}
-			// 	res.status(200).send();
-			// });
-
-		// });
 	},
 
 	delete: function(req, res) {

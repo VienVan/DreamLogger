@@ -76,7 +76,8 @@ dreamCatcher.editDream = function(e) {
     success: function(data) {
         console.log("success!");
         $('#dreamModal').modal('hide');
-        //hides the modal
+        window.location.reload(true);
+        //refreshes page after closing modal
     }
     });
 };
