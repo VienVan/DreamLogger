@@ -25,13 +25,14 @@ router.route('/dreamers/:id');						//update users
 // DREAMS
 router.route('/dreamers/:id/dreams')			//show all user's dreams (timeline)
 			.get(dreamsController.index)
-			.post(dreamsController.create)
-			.delete(dreamsController.delete);
+			.post(dreamsController.create);
+			// .delete(dreamsController.delete);
 			// .put(dreamsController.edit);
 
 router.route('/dreamers/:id/dreams/:id')
-			// .get(dreamsController.edit)
-			.put(dreamsController.edit);
+			.put(dreamsController.edit)
+		  .delete(dreamsController.delete);
+
 
 // router.route('/dreamers/:id/dreams/:id/edit')
 // 	.get(dreamersController.index)
