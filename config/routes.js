@@ -27,6 +27,16 @@ router.route('/dreamers/:id/dreams')			//show all user's dreams (timeline)
 			.get(dreamsController.index)
 			.post(dreamsController.create)
 			.delete(dreamsController.delete);
+			// .put(dreamsController.edit);
+
+router.route('/dreamers/:id/dreams/:id')
+			// .get(dreamsController.edit)
+			.put(dreamsController.edit);
+
+// router.route('/dreamers/:id/dreams/:id/edit')
+// 	.get(dreamersController.index)
+// 	.put(dreamsController.edit);
+
 //ABOUT
 router.route('/pages/about')													//root
 			.get(pagesController.about); //view for about dreamr
@@ -37,8 +47,5 @@ router.route('/pages/login')
 
 router.route('/sessions')
 			.post(sessionsController.create);
-
-router.route('/dreamers/:id/dreams/:id')
-	.delete(dreamsController.delete);
 
 module.exports = router;

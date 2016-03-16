@@ -40,9 +40,28 @@ var dreamsController = {
 
 
 	},
-	update: function(req, res) {
+	edit: function(req, res) {
+		// var id = req.params.id;
+		// Dream.findOne({_id: id}, function (err, dream) {
+		// 	console.log(dream);
+		// 	if (err) { console.log('error', err);}
+		// 	dream.description = req.body.description;
+		// 	dream.save(function (err, saved) {
+		// 		if (err) { console.log('error', err);}
+		// 		res.status(200).send();
+		// 	});
 
+		// });
 	},
+
+	// 				Dream.findOne({_id: dreamId}, function(err, dream) {
+// 					console.log("Dream: ", dream);
+// 					if (err) { console.log('error', err);}
+// 					dream.description = req.body.description;
+// 					dream.save(function (err, saved) {
+// 						if (err) { console.log('error', err); }
+// 						res.status(200).send();
+
 	delete: function(req, res) {
 		var id = req.params.id;
 		console.log(req.params.id);
@@ -57,4 +76,21 @@ var dreamsController = {
 }
 };
 
+// var id = req.params.id;
+// 		console.log(req.params.id);
+// 		Dreamer.findById({_id: id}, function(err, dreamer) {
+// 			Dream.find({dreamerId: id}, function(err, dreams) {
+// 				var dreamId = req.params.id;
+// 				console.log("dreams: ", dreams)
+// 				console.log("dreamid: ", dreamId);
+// 				Dream.findOne({_id: dreamId}, function(err, dream) {
+// 					console.log("Dream: ", dream);
+// 					if (err) { console.log('error', err);}
+// 					dream.description = req.body.description;
+// 					dream.save(function (err, saved) {
+// 						if (err) { console.log('error', err); }
+// 						res.status(200).send();
+// 					});
+// 				});	
+// 			});
 module.exports = dreamsController;

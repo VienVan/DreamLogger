@@ -12,6 +12,8 @@ $(document).ready(function() {
   });
 
   $('#dreams').on('click', '.delete-dream', dreamCatcher.deleteDream);
+  $('#dreams').on('click', '.edit-dream', dreamCatcher.editDream);
+
 
 });
 // END DOCUMENT READY
@@ -76,13 +78,31 @@ dreamCatcher.renderDream = function(dream, tag) {
   $dreamList.prepend(compiledHTML);
 };
 
-// UPDATE DREAM
+// EDIT DREAM
+dreamCatcher.editDream = function(e) {
+  e.preventDefault();
+  var dreamId = $(e.relatedTarget).data('dreams-id');
 
+  // $('#dreamModal').on('show', function (e) {
+  // var $invoker = $(e.relatedTarget);
+  // console.log($invoker);
+  // });
+  
+  console.log('someone wants to edit dream id= ' + dreamId);
+  $.ajax({
+    method: 'PUT',
+    url: ('/dreamers/:id/dreams/' + dreamId),
+    data: dreamId,
+    success: function() {
+        console.log("success!");
+    }
+    });
+};
 
 // DELETE DREAM
 dreamCatcher.deleteDream = function(e) {
   e.preventDefault();
-  var dreamId = $(this).closest('div').data('dream-id');
+  var dreamId = $(this).closest('div').data('dreams-id');
   console.log('someone wants to delete dream id= ' + dreamId);
   $.ajax({
     method: 'DELETE',
