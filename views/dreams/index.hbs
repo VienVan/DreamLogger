@@ -1,4 +1,4 @@
-<!-- // may not need this page// -->
+
 {{#each dreams}}
 {{description}}
 {{/each}}
@@ -23,9 +23,6 @@
       <!-- back content -->
 <form>
 <br>
-<div class="form-group">
-  <input type="hidden" role="uploadcare-uploader" name="dreamer[img]"/>
-</div>
 <br>
   Edit Profile:<br>
   <input type="text" name="Username" placeholder="Username"><br>
@@ -33,10 +30,15 @@
   <br>
   <input type="text" name="Confirm Password" placeholder="Confirm Password">
   <br>
+  <br>
   <button class="create_btn btn btn-success">Save</button>
+  <button class="create_btn btn btn-success">Cancel</button>
     </div>
 </form>
     </div>
+<div class="form-group">
+  <input type="hidden" role="uploadcare-uploader" name="dreamer[img]"/>
+</div>
   </div>
 </div>
 
