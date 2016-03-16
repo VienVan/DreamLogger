@@ -14,7 +14,7 @@
     {{description}}
     {{tags.name}}
     <button class='btn btn-danger delete-dream'>Delete Dream</button>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dreamModal">Edit Dream</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dreamModal" id="{{_id}}">Edit Dream</button>
   </div>
 
   <!-- Modal -->
@@ -61,6 +61,3 @@
   <p class='dream-attribute'>Tag: \{{name}}</p>
   \{{/each}}
 </script>
-
-
-

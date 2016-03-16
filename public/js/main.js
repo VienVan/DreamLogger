@@ -44,32 +44,6 @@ dreamCatcher.createDream = function(e) {
     });
 };
 
-//
-// dreamCatcher.deleteDream = function(e) {
-//   var id = $(e.target).parent(".dreams").attr("id");
-//   var ajaxOption = {
-//     url: '/dreamers/:id/dreams/' + id,
-//     type: 'DELETE',
-//     success: function(result) {
-//       // clear it from the page upon successful delete
-//       $("#" + id).remove();
-//     }
-//   };
-//   // execute ajax
-//   $.ajax(ajaxOption);
-// };
-//
-// dreamCatcher.renderDreams = function(dreams) {
-//   var $dreamList = $("#dream-list");
-//   // clear out existing foods out of the list
-//   $dreamList.html("");
-//   // create the template
-//   var dreamTemplate = Handlebars.compile($("#dream-template").html());
-//   // pass the data into the template
-//   var compiledHTML = dreamTemplate({dreams: dreams});
-//   // append the rendered html to the page
-//   $dreamList.prepend(compiledHTML);
-// }();
 
 dreamCatcher.renderDream = function(dream, tag) {
   var $dreamList = $('#dream-list');
@@ -79,15 +53,21 @@ dreamCatcher.renderDream = function(dream, tag) {
 };
 
 // EDIT DREAM
+$('#dreamModal').on('show.bs.modal', function (e) {
+  var $invoker = $(e.relatedTarget).attr('id');
+  // console.log($invoker.attr('id'));
+  dreamCatcher.dreamId = $invoker;
+});
+dreamCatcher.dreamId;
 dreamCatcher.editDream = function(e) {
   e.preventDefault();
-  var dreamId = $(e.relatedTarget).data('dreams-id');
+  var dreamId = dreamCatcher.dreamId;
 
   // $('#dreamModal').on('show', function (e) {
   // var $invoker = $(e.relatedTarget);
   // console.log($invoker);
   // });
-  
+
   console.log('someone wants to edit dream id= ' + dreamId);
   $.ajax({
     method: 'PUT',
