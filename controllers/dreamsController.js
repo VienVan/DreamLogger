@@ -5,8 +5,7 @@ var DreamTag 						= require('../models').DreamTag;
 
 var dreamsController 		= {
 	index: function(req, res) {
-			var id 							= req.params.id;
-			console.log(req.params.id);
+			var id 						= req.params.id;
 			Dreamer.findById({_id: id}, function(err, dreamer) {
 				Dream.find({dreamerId: id}, function(err, dreams) {
 			    req.currentUser(function(err, currentUser) {
