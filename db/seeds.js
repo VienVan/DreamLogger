@@ -6,16 +6,19 @@ var DreamTag = require('../models').DreamTag;
 mongoose.connect('mongodb://localhost/dream-logger');
 
 Dream.remove({});
-Dreamer.remove({});
+Dreamer.remove({}, function(err, dreamer) {
+	err ? console.log("err", err) : console.log("dreamer", dreamer);
+});
 Tag.remove({});
 DreamTag.remove({});
 
 var dreamer = {
 	username: "Vien",
-	password_digest: "1234"
+	password_digest: "1234",
+	img: 'https://images.unsplash.com/photo-1447280714070-3280cb09be9b?crop=entropy&dpr=2&fit=crop&fm=jpg&h=725&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1300'
 };
 
-// create data 
+// create data
 Dreamer.create(dreamer, function (err, dreamer) {
 	console.log("created dreamer:", dreamer);
 	var dreams = [
@@ -28,7 +31,7 @@ Dreamer.create(dreamer, function (err, dreamer) {
 			dreamerId: dreamer._id
 		}
 	];
-	// create dreams 
+	// create dreams
 	Dream.create(dreams,function(err, dreams) {
 		console.log("created dreams:", dreams);
 		var tags = [

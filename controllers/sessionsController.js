@@ -10,7 +10,7 @@ var sessionsController = {
 	    // login the user
 	    req.login(dreamer);
 	    // redirect to user profile
-	    res.redirect("/"); 
+	    res.redirect("/dreamers/"+dreamer._id+"/dreams");
 	  });
 	},
 	delete: function(req, res){
