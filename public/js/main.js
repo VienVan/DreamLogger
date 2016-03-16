@@ -10,7 +10,7 @@ $(document).ready(function() {
     $('.signup').toggleClass('hidden');
     $('#home-btns').removeClass('hidden');
   });
-
+  //
   $('#dreams').on('click', '.delete-dream', dreamCatcher.deleteDream);
   $('#dreams').on('click', '.edit-dream', dreamCatcher.editDream);
 
@@ -87,3 +87,13 @@ dreamCatcher.deleteDream = function(e) {
     }
     });
 };
+
+//SEARCH FOR DREAMS BY TAGS
+
+$('#search').click( function() {
+    $.ajax({
+      method: "GET",
+      url: "/dreams",
+      data: {tag: $('#searchTag').val()}
+});
+});

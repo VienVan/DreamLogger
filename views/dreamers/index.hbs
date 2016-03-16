@@ -1,4 +1,9 @@
 <h1>This is dreamers show all page</h1>
 {{#each dreamers}}
-<a href="/dreamers/{{_id}}/edit"><img src={{img}} class='menu'/></a>
+<img src={{img}} class='menu'/>
 {{/each}}
+
+
+
+    <input type='text' placeholder='Search By Dream Tag' id='searchTag'>
+    <input type='submit' value ='Search' id='search'>
