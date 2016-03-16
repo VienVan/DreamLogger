@@ -75,6 +75,8 @@ dreamCatcher.editDream = function(e) {
     data: $('#edit-dreams-form').serialize(),
     success: function(data) {
         console.log("success!");
+        $('#dreamModal').modal('hide');
+        //hides the modal
     }
     });
 };
