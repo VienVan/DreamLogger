@@ -38,4 +38,7 @@ router.route('/pages/login')
 router.route('/sessions')
 			.post(sessionsController.create);
 
+router.route('/logout')
+			.get(pagesController.logout);
+
 module.exports = router;

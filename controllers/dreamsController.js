@@ -3,14 +3,21 @@ var Dreamer 						= require('../models').Dreamer;
 var Tag 								= require('../models/tag');
 var DreamTag 						= require('../models').DreamTag;
 
-var dreamsController 		= {
+var dreamsController = {
 	index: function(req, res) {
-		var id 							= req.params.id;
-		Dreamer.findById({_id: id}, function(err, dreamer) {
-			Dream.find({dreamerId: id}, function(err, dreams) {
-					res.render('dreams/index', {dreamer: dreamer, dreams: dreams})
-				})
-			})
+			var id 							= req.params.id;
+			console.log(req.params.id);
+			Dreamer.findById({_id: id}, function(err, dreamer) {
+				Dream.find({dreamerId: id}, function(err, dreams) {
+			    req.currentUser(function(err, currentUser) {
+			    	if (currentUser){
+			    		res.render('dreams/index', {dreamer: dreamer, dreams: dreams, currentUser: currentUser});
+						}else{
+							res.redirect("/");
+						}
+			    });
+			});
+		});
 	},
 	create: function(req, res) {
 		var description 		= req.body.description;
