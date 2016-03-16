@@ -48,7 +48,7 @@ var dreamersController = {
 		// });
 			req.currentUser(function(err, currentUser) {
 				if (currentUser){
-					res.render('dreamers/edit', {dreamer: dreamer, currentUser: currentUser});
+					res.reload('dreamers/edit', {dreamer: dreamer, currentUser: currentUser});
 				}else{
 					res.redirect("/");
 				}

@@ -37,7 +37,7 @@ var pagesController = {
         var search = req.params.search;
         Tag.dreams('search', function(err, dreams) {
           res.render('/pages/meaning', {dreams: dreams})
-        })
+        });
     }
 };
 

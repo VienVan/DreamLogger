@@ -39,7 +39,19 @@ dreamCatcher.createDream = function(e) {
 dreamCatcher.editDreamer = function(e) {
   e.preventDefault();
   var id = req.params.id;
-}
+  console.log('someone wants to edit dreamer profile id= ' + dreamerId);
+  $.ajax({
+    method: 'PUT',
+    url: ('/dreamers/:id/edit' + dreamerId),
+    data: $('#edit-dreamer-form').serialize(),
+    success: function(data) {
+        console.log("success!");
+        $('#"dreamerUpdate"').modal('hide');
+        window.location.reload(true);
+        //refreshes page after closing modal
+    }
+    });
+};
 
 //
 // dreamCatcher.deleteDream = function(e) {
@@ -83,6 +95,7 @@ $('#dreamModal').on('show.bs.modal', function (e) {
   dreamCatcher.dreamId = $invoker;
 });
 dreamCatcher.dreamId;
+
 dreamCatcher.editDream = function(e) {
   e.preventDefault();
   var dreamId = dreamCatcher.dreamId;

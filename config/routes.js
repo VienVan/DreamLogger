@@ -38,7 +38,7 @@ router.route('/pages/about')													//root
 			.get(pagesController.about); //view for about dreamr
 
 //LOGIN
-router.route('/pages/login')
+router.route('/pages/login') //login client side
 			.get(pagesController.login);
 
 router.route('/sessions')
