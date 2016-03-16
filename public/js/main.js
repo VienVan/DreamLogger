@@ -18,15 +18,6 @@ $(document).ready(function() {
 });
 // END DOCUMENT READY
 
-// $.ajax(function() {
-//   url: '/dreamers/:id/dreams',
-//   method: "GET",
-//   success: function() {
-//
-//     res.render('index');
-//   }
-// })
-
 // //client-side dream logic
 var dreamCatcher = {};
 //
