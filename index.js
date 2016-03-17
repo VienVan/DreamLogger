@@ -7,10 +7,12 @@ var express         = require('express'),
     mongoose        = require('mongoose'),
     session					= require('express-session'),
     keygen 					= require('keygenerator'),
-    app             = express(),    
+    app             = express(),
     db              = require('./models'),
     hbsutils = require('hbs-utils')(hbs),
-    port            = 3000;
+    port            = 3000,
+    http            = require('http'),
+    https           = require('https');
 
 //Database
 mongoose.connect('mongodb://localhost/dream-logger');
@@ -63,7 +65,7 @@ app.use(function (req, res, next) {
     req.dreamer = null;
   };
   // call the next middleware in the stack
-  next(); 
+  next();
 });
 
 // show the current user

@@ -30,7 +30,6 @@ router.route('/dreamers/:id/dreams')			//show all user's dreams (timeline)
 			.post(dreamsController.create);
 			// .delete(dreamsController.delete);
 			// .put(dreamsController.edit);
-
 router.route('/dreamers/:id/dreams/:id')
 			.put(dreamsController.edit)
 		  .delete(dreamsController.delete);
@@ -48,7 +47,8 @@ router.route('/sessions')
 
 router.route('/logout')
 			.get(pagesController.logout);
-router.route('/meaning')
-			.get(pagesController.search);
+router.route('/dreams')
+			.get(dreamsController.search);
+
 
 module.exports = router;

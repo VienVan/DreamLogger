@@ -10,9 +10,10 @@ $(document).ready(function() {
     $('.signup').toggleClass('hidden');
     $('#home-btns').removeClass('hidden');
   });
-
+  //
   $('#dreams').on('click', '.delete-dream', dreamCatcher.deleteDream);
   $('#dreams').on('click', '.edit-dream', dreamCatcher.editDream);
+  $('#createDreamModal').modal('show');
 
 
 });
@@ -23,7 +24,9 @@ var dreamCatcher = {};
 //
 dreamCatcher.createDream = function(e) {
   e.preventDefault();
+  var that = this;
   var dream = $(e.target).serialize();
+  console.log("created dream," , dream);
   $.post("/dreamers/:id/dreams", dream)
     .done(function(res) {
       console.log(res);
@@ -31,6 +34,9 @@ dreamCatcher.createDream = function(e) {
       // $("#dreams").append("<div class='row-dream' data-dreams-id="+ res._id+" id="+res._id+">"+res.description +"<button class='btn btn-danger delete-dream'>Delete Dream</button><button type='button' class='btn btn-primary' data-toggle='modal' data-target='#dreamModal' id="+res._id+">Edit Dream</button></div>");
       console.log("HELO");
       dreamCatcher.renderDream(res);
+      that.removeHide();
+      // $('#createDreamModal').removeClass("show");
+      // $('#createDreamModal').addClass("hide");
     })
     .fail(function(err) {
       console.log("Error:", err);
@@ -83,13 +89,20 @@ dreamCatcher.editDreamer = function(e) {
 // }();
 
 
-dreamCatcher.renderDream = function(dream, tag) {
-  console.log("HIT")
+
+dreamCatcher.renderDream = function(dream) {
+
   var $dreamList = $('#dream-list');
   var dreamTemplate = Handlebars.compile($('#dream-template').html());
   var compiledHTML = dreamTemplate({dreams: [dream]});
   $dreamList.prepend(compiledHTML);
 };
+
+dreamCatcher.renderTag = function(tag) {
+  var $dreamList = $('#dream-list');
+  var dreamTemplate = Handlebars.compile($('dream-template').html());
+  var compiledHTML = dreamTemplate({tags: [tag]})
+}
 
 // EDIT DREAM
 $('#dreamModal').on('show.bs.modal', function (e) {
@@ -135,4 +148,32 @@ dreamCatcher.deleteDream = function(e) {
         $('#'+dreamId).remove();
     }
     });
+};
+
+
+//SEARCH FOR DREAMS BY TAGS
+$('#search').click( function() {
+    $.ajax({
+      // var tag = $('#searchTag.val()');
+      method: "GET",
+      url: "/dreams",
+      data: {tag: $('#searchTag').val()},
+      success: function(data) {
+        // $('#dreamers').remove();
+        console.log("got data:", data);
+        data.dreams.forEach(function(dream) {
+          console.log(dream);
+          dreamCatcher.renderDream(dream);
+        })
+      }
+});
+});
+
+// REMOVE CLASS HIDE
+dreamCatcher.removeHide = function() {
+  $('#dreams-form-tag').val("");
+  $('#dreams-form-description').val("");
+
+  $('#createDreamModal').modal('hide');
+  $('#createDreamModal').removeClass("show");
 };
