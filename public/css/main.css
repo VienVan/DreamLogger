@@ -1,18 +1,7 @@
 /*******************************Nav buttons**********************************/
 body {
 	font-family: Noto Sans;
-	/*overflow-y: hidden;*/
-}
-.container-fluid {
-/*overflow-x: hidden;
- position: absolute;
- top: 0;
- width: 100%;
- height: 100%;
- overflow: auto;
- scroll-snap-points-y: repeat(100%);
- scroll-snap-type: mandatory;
- scroll-snap-destination: 100% 0%;*/
+	overflow-y: hidden;
 }
 
 /*****************************************************************/
