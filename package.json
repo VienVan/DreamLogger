@@ -23,6 +23,8 @@
     "express-session": "^1.13.0",
     "hbs": "^4.0.0",
     "hbs-utils": "0.0.3",
+    "http": "0.0.0",
+    "https": "^1.0.0",
     "keygenerator": "^1.0.4",
     "method-override": "^2.3.5",
     "mongoose": "^4.4.7",
