@@ -41,12 +41,18 @@ dreamCatcher.createDream = function(e) {
 };
 
 
-dreamCatcher.renderDream = function(dream, tag) {
+dreamCatcher.renderDream = function(dream) {
   var $dreamList = $('#dream-list');
   var dreamTemplate = Handlebars.compile($('#dream-template').html());
   var compiledHTML = dreamTemplate({dreams: [dream]});
   $dreamList.prepend(compiledHTML);
 };
+
+dreamCatcher.renderTag = function(tag) {
+  var $dreamList = $('#dream-list');
+  var dreamTemplate = Handlebars.compile($('dream-template').html());
+  var compiledHTML = dreamTemplate({tags: [tag]})
+}
 
 // EDIT DREAM
 $('#dreamModal').on('show.bs.modal', function (e) {
@@ -102,7 +108,12 @@ $('#search').click( function() {
       url: "/dreams",
       data: {tag: $('#searchTag').val()},
       success: function(data) {
+        // $('#dreamers').remove();
         console.log("got data:", data);
+        data.dreams.forEach(function(dream) {
+          console.log(dream);
+          dreamCatcher.renderDream(dream);
+        })
       }
 });
 });
