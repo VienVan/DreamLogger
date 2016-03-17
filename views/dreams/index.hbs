@@ -1,7 +1,7 @@
 
 <a href="/dreamers/{{dreamer._id}}/edit"><img src='{{dreamer.img}}' class='menu'></a>
 
-<button type="button" id="addDream" class="btn btn-primary" data-toggle="modal" data-target="#createDreamModal">Add Dream</button>
+
 
 <!-- CREATE DREAMS MODAL -->
 <div id="createDreamModal" class="modal" role="dialog">
@@ -30,14 +30,16 @@
   </div>
 </div>
 
-<div class="container" id="dreams">
+<div class="container hidden" id="dreams">
   {{#each dreams}}
   <div class="row-dream" data-dreams-id={{_id}} id="{{_id}}">
     {{description}}
-    {{tags.name}}
-    <button class='btn btn-danger delete-dream'>Delete Dream</button>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dreamModal" id="{{_id}}">Edit Dream</button>
+    {{tags.name}}.{{createdAt}}
+   {{!--  <button class='btn btn-danger delete-dream'>Delete Dream</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dreamModal" id="{{_id}}">Edit Dream</button> --}}
   </div>
+  {{/each}}
+</div>
 
   <!-- Edit Dreams Modal -->
 <div id="dreamModal" class="modal fade" role="dialog">
@@ -57,32 +59,39 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="saveDream" data-dream-id="{{_id}}" onclick="dreamCatcher.editDream(event)">Save changes</button>
+{{!--         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="saveDream" data-dream-id="{{_id}}" onclick="dreamCatcher.editDream(event)">Save changes</button> --}}
       </div>
     </div>
 
   </div>
 </div>
-  {{/each}}
-</div>
+
+
 
 <div id="dream-list"></div>
 
-
-<!-- client-side food template -->
+<!-- client-side dream template -->
 <script id="dream-template" type="text/x-handlebars-template">
   \{{#each dreams}}
   <div id="\{{_id}}" class="dreams">
     <!-- <p>Dream Tag: \{{tags}}</p> -->
     <!-- <p class="dream-attribute">Tag: \{{dreamtag.tagId}}</p> -->
     <p>Description: \{{description}}</p>
-    <button class="btn delete-btn" onclick="dreamCatcher.deleteDream(event)">Delete</button>
+    {{!-- <button class="btn delete-btn" onclick="dreamCatcher.deleteDream(event)">Delete</button> --}}
   </div>
   \{{/each}}
   \{{#each tags}}
   <p class='dream-attribute'>Tag: \{{name}}</p>
   \{{/each}}
 </script>
+
+<br><br><br>
+
+<button type="button" id="addDream" class="btn btn-primary" data-toggle="modal" data-target="#createDreamModal">Add Dream</button>
+
+<div id="content-wrapper">
+<div id="timeline" class="timeCube"></div>
+</div>
 
 
