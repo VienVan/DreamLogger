@@ -28,35 +28,34 @@ var dreamsController 		= {
 		var tagId;
 				Dream.create(newdream, function(err, newdream) {
 						Tag.findOne(tag, function(err, foundTag) {
-							// console.log(foundTag);
-							if(!foundTag) {
-							Tag.create(tag, function(err, tag) {
-								console.log("tag", tag);
-								console.log("tagname", tag.name);
-								console.log("type of tag", typeof tag);
-								rp({
-									uri: "http://api.giphy.com/v1/gifs/search?q="+tag.name+"&api_key=dc6zaTOxFJmzC",
-    							qs: {
-        							api_key: 'dc6zaTOxFJmzC'// -> uri + '?access_token=xxxxx%20xxxxx'
-    									},
-    							headers: {
-        					'User-Agent': 'Request-Promise'
-    							},
-    							json: true})
-									.then(function(body) {
-										var imageUrl = body.data[0].images.original.url
-										tag.img = imageUrl;
-										console.log("full tag", tag);
+							rp({
+								uri: "http://api.giphy.com/v1/gifs/search?q="+tag.name+"&api_key=dc6zaTOxFJmzC",
+								qs: {
+										api_key: 'dc6zaTOxFJmzC'// -> uri + '?access_token=xxxxx%20xxxxx'
+										},
+								headers: {
+								'User-Agent': 'Request-Promise'
+								},
+								json: true})
+								.then(function(body) {
+									var imageUrl = body.data[0].images.original.url
+									tag.img = imageUrl;
+
+									if(!foundTag) {
+									Tag.create(tag, function(err, tag) {
+										console.log("tag", tag);
+										console.log("tagname", tag.name);
+										console.log("type of tag", typeof tag);
+										DreamTag.create({dreamId: newdream._id, tagId: tag._id}, function(err, dreamtag) {
+											res.send({newdream: newdream, tag: tag});
+										});
+									});
+									} else {
+										DreamTag.create({dreamId: newdream._id, tagId: foundTag._id}, function(err, dreamtag) {
+											res.send({newdream: newdream, tag: tag});
 									})
-								DreamTag.create({dreamId: newdream._id, tagId: tag._id}, function(err, dreamtag) {
-										res.json(newdream);
-								});
-							});
-							} else {
-								DreamTag.create({dreamId: newdream._id, tagId: foundTag._id}, function(err, dreamtag) {
-									res.json(newdream);
-								});
-					}
+									}
+								})
 
 						});
 

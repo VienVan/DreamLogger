@@ -26,6 +26,7 @@ dreamCatcher.createDream = function(e) {
   e.preventDefault();
   var that = this;
   var dream = $(e.target).serialize();
+  console.log("created dream," , dream);
   $.post("/dreamers/:id/dreams", dream)
     .done(function(res) {
       // OPTIMIZE: renders the entire dom eat time a food is created
@@ -126,5 +127,3 @@ dreamCatcher.removeHide = function() {
   $('#createDreamModal').modal('hide');
   $('#createDreamModal').removeClass("show");
 };
-
-
