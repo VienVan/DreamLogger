@@ -10,12 +10,19 @@ var dreamsController 		= {
 			Dreamer.findById({_id: id}, function(err, dreamer) {
 				Dream.find({dreamerId: id}, function(err, dreams) {
 			    req.currentUser(function(err, currentUser) {
-			    	if (currentUser){
-			    		res.render('dreams/index', {dreamer: dreamer, dreams: dreams, currentUser: currentUser});
+
+			    	if (req.xhr){
+			    		res.json({dreams: dreams});
+			    	}else{
+
+				    	if (currentUser){
+				    		res.render('dreams/index', {dreamer: dreamer, dreams: dreams, currentUser: currentUser});
+							}
+							else{
+								res.redirect("/");
+							}
 						}
-						else{
-							res.redirect("/");
-						}
+						
 			    });
 			});
 		});
@@ -38,9 +45,11 @@ var dreamsController 		= {
 								},
 								json: true})
 								.then(function(body) {
-									var imageUrl = body.data[0].images.original.url
-									tag.img = imageUrl;
-
+									if (body.data[0]){
+										var imageUrl = body.data[0].images.original.url;
+										tag.img = imageUrl;
+									}
+									
 									if(!foundTag) {
 									Tag.create(tag, function(err, tag) {
 										console.log("tag", tag);
