@@ -2,7 +2,7 @@ $(document).ready(function() {
   console.log("This is connected");
 
   $('#get-started').click(function() {
-    $('.signup').toggleClass('hidden');
+    $('.signup').toggleClass('hidden', 2000);
     $('#home-btns').addClass('hidden');
   });
 
@@ -10,10 +10,32 @@ $(document).ready(function() {
     $('.signup').toggleClass('hidden');
     $('#home-btns').removeClass('hidden');
   });
+
+  $('#login').click(function() {
+    $('#get-started').addClass('hidden');
+    $('.login').toggleClass('hidden');
+  })
   //
   $('#dreams').on('click', '.delete-dream', dreamCatcher.deleteDream);
   $('#dreams').on('click', '.edit-dream', dreamCatcher.editDream);
   $('#createDreamModal').modal('show');
+
+
+$('#footer').click(function() {
+    var y = $(window).scrollTop();
+     $("html, body").animate({ scrollTop: y + $(window).height() }, 1200);
+})
+
+//   $('#footer').toggle(function(){
+//     // $('.about-us').toggleClass('hidden');
+//     // $('.about-us').css('background: red');
+//
+//
+//     var y = $(window).scrollTop();
+//     console.log("clicked on footer");
+//     //
+//     $("html, body").animate({ scrollTop: y + $(window).height() }, 1200);
+// }
 
 
 });

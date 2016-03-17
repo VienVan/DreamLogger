@@ -1,3 +1,19 @@
+<div class='container-fluid'>
+
+  <div id='logo'>
+    <h1 class='dreamcatcher'>Dream C<span id='a'>a</span>tcher</h1>
+  </div>
+    <div class='phone-buttons'>
+      <div id="home-btns">
+        <button class="create_btn btn btn-success" id="get-started">Get Started</button><br><br>
+        <button class="btn btn-success" id="login">Log In</button>
+      </div>
+    </div>
+    <div class='about-us'>
+      {{> about}}
+    </div>
+</div>
+
 <div class='signup hidden'>
 <form id="Signup-form" action="/dreamers" method="POST">
     <div class='form-group'>
@@ -7,19 +23,16 @@
       <input type="text" name="dreamer[password_digest]" placeholder="Password" class="form-control" >
     </div>
     <div class='form-group'>
-      <input type="submit" value='Start Dreaming' class="create_btn btn btn-success">
+      <input type="submit" value='Start Dreaming' class="create_btn btn btn-success form-control">
     </div>
-    <div class="form-group">
-      <input type="hidden" role="uploadcare-uploader" name="dreamer[img]"/>
+    <div class="form-group uploader-normal-button">
+      <input type="hidden" role="uploadcare-uploader" name="dreamer[img]" class='form-control'/>
     </div>
-
   </form>
   <button class="btn btn-danger cancel">Cancel</button>
 </div>
-<div id="home-btns">
-  <button class="create_btn btn btn-success" id='get-started'>Get Started</button><br><br>
-  <a href='/pages/login' class="create_btn btn btn-success">Log In</a>
-</div>
+
+
 
 <div class="crossfade">
   <figure class='overlay'></figure>
@@ -27,4 +40,26 @@
   <figure class='overlay'></figure>
   <figure class='overlay'></figure>
   <figure class='overlay'></figure>
+</div>
+
+<div class="login hidden">
+  <form id="Login-form" action="/sessions" method="POST">
+      <div class='form-group'>
+        <input type="text" name="dreamer[username]" placeholder="Username" class="form-control" autofocus>
+      </div>
+      <div class='form-group'>
+        <input type="text" name="dreamer[password]" placeholder="Password" class="form-control" >
+      </div>
+      <div class='form-group'>
+        <input type="submit" value='Log In' class="btn btn-success form-control">
+      </div>
+    </form>
+</div>
+
+
+
+
+
+<div class='about-us hidden'>
+  {{> about}}
 </div>
