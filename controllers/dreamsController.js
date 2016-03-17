@@ -15,12 +15,12 @@ var dreamsController 		= {
 			    		res.json({dreams: dreams});
 			    	}else{
 
-				    	// if (currentUser){
+				    	if (currentUser){
 				    		res.render('dreams/index', {dreamer: dreamer, dreams: dreams, currentUser: currentUser});
-							// }
-							// else{
-							// 	res.redirect("/");
-							// }
+							}
+							else{
+								res.redirect("/");
+							}
 						}
 						
 			    });
