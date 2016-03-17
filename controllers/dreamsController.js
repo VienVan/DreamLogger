@@ -79,12 +79,27 @@ var dreamsController 		= {
 	search: function(req, res) {
 		// console.log('this is hitting the search controller', req.query);
 			var searchQuery = req.query.tag;
+
 			// console.log('searchQuery', searchQuery);
+			// var dreamers = [];
 			Tag.dreams(searchQuery, function(dreams) {
 				console.log("sending back dreams", dreams)
-				res.send(dreams);
-			})
-
+				var dreamerIds = dreams.map(function(dream) {
+					return dream.dreamerId;
+					console.log('dreamerIds', dreamerIds);
+				})
+				Dreamer.find({_id: { $in: dreamerIds}}, function(err, dreamers) {
+					console.log("found dreamers,", dreamers);
+					res.send({dreams: dreams, dreamers: dreamers});
+				})
+		})
+				// dreams.forEach(function(dream) {
+				// 	Dreamer.findOne({_id: dream.dreamerId}, function(err, dreamer) {
+				// 			// return dreamer = dreamer;
+				// 			dreamers.push(dreamer);
+				// 			console.log("found dreamers", dreamers);
+				// 	})
+				// })
 
 }
 
