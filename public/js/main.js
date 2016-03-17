@@ -26,8 +26,10 @@ dreamCatcher.createDream = function(e) {
   var dream = $(e.target).serialize();
   $.post("/dreamers/:id/dreams", dream)
     .done(function(res) {
-      // OPTIMIZE: renders the entire dom dream once dreamer is created
       console.log(res);
+      // OPTIMIZE: renders the entire dom dream once dreamer is created
+      // $("#dreams").append("<div class='row-dream' data-dreams-id="+ res._id+" id="+res._id+">"+res.description +"<button class='btn btn-danger delete-dream'>Delete Dream</button><button type='button' class='btn btn-primary' data-toggle='modal' data-target='#dreamModal' id="+res._id+">Edit Dream</button></div>");
+      console.log("HELO");
       dreamCatcher.renderDream(res);
     })
     .fail(function(err) {
@@ -35,7 +37,7 @@ dreamCatcher.createDream = function(e) {
     });
 };
 
-
+// Al's code
 dreamCatcher.editDreamer = function(e) {
   e.preventDefault();
   var id = req.params.id;
@@ -46,7 +48,7 @@ dreamCatcher.editDreamer = function(e) {
     data: $('#edit-dreamer-form').serialize(),
     success: function(data) {
         console.log("success!");
-        $('#"dreamerUpdate"').modal('hide');
+        $('#"dreamerUpdate"');
         window.location.reload(true);
         //refreshes page after closing modal
     }
@@ -82,6 +84,7 @@ dreamCatcher.editDreamer = function(e) {
 
 
 dreamCatcher.renderDream = function(dream, tag) {
+  console.log("HIT")
   var $dreamList = $('#dream-list');
   var dreamTemplate = Handlebars.compile($('#dream-template').html());
   var compiledHTML = dreamTemplate({dreams: [dream]});

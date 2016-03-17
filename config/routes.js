@@ -19,7 +19,9 @@ router.route('/dreamers')									//show all users
  			.get(dreamersController.index)
  			.post(dreamersController.create);
 router.route('/dreamers/:id/edit')				//edit view to edit users
-			.put(dreamersController.edit);
+			.put(dreamersController.edit)
+			//al's code
+			.patch(dreamersController.update);
 router.route('/dreamers/:id');						//update users
 
 // DREAMS

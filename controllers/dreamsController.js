@@ -29,6 +29,7 @@ var dreamsController 		= {
 						Tag.create(newTag, function(err, tag) {
 							DreamTag.create({dreamId: newdream._id, tagId: tag._id}, function(err, dreamtag) {
 								res.json(newdream);
+								console.log(newdream);
 							});
 						});
 		});
