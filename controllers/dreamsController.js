@@ -14,7 +14,7 @@ var dreamsController 		= {
 						}else{
 							res.redirect("/");
 						}
-						})
+						});
 			    });
 			});
 	},
@@ -38,10 +38,10 @@ var dreamsController 		= {
 							} else {
 								DreamTag.create({dreamId: newdream._id, tagId: foundTag._id}, function(err, dreamtag) {
 									res.json(newdream);
-								})
+								});
 							}
 
-						})
+						});
 
 		});
 	},
@@ -83,16 +83,16 @@ var dreamsController 		= {
 			// console.log('searchQuery', searchQuery);
 			// var dreamers = [];
 			Tag.dreams(searchQuery, function(dreams) {
-				console.log("sending back dreams", dreams)
+				console.log("sending back dreams", dreams);
 				var dreamerIds = dreams.map(function(dream) {
 					return dream.dreamerId;
 					console.log('dreamerIds', dreamerIds);
-				})
+				});
 				Dreamer.find({_id: { $in: dreamerIds}}, function(err, dreamers) {
 					console.log("found dreamers,", dreamers);
 					res.send({dreams: dreams, dreamers: dreamers});
-				})
-		})
+				});
+		});
 				// dreams.forEach(function(dream) {
 				// 	Dreamer.findOne({_id: dream.dreamerId}, function(err, dreamer) {
 				// 			// return dreamer = dreamer;
