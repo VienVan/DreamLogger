@@ -24,6 +24,7 @@ var dreamCatcher = {};
 dreamCatcher.createDream = function(e) {
   e.preventDefault();
   var dream = $(e.target).serialize();
+  console.log("created dream," , dream);
   $.post("/dreamers/:id/dreams", dream)
     .done(function(res) {
       // OPTIMIZE: renders the entire dom eat time a food is created
