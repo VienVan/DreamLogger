@@ -2,6 +2,7 @@ var Dream 							= require('../models').Dream;
 var Dreamer 						= require('../models').Dreamer;
 var Tag 								= require('../models/tag');
 var DreamTag 						= require('../models').DreamTag;
+var rp			 						= require('request-promise');
 
 var dreamsController 		= {
 	index: function(req, res) {
@@ -24,21 +25,36 @@ var dreamsController 		= {
 		var newdream     	 	= {description: description, dreamerId: dreamerId};
 		var tag        			= req.body.tags;
 		var tagId;
-			// console.log('req.body.tags',tag);
 				Dream.create(newdream, function(err, newdream) {
-					// console.log('inside .body.tags', tag);
 						Tag.findOne(tag, function(err, foundTag) {
-							console.log(foundTag);
+							// console.log(foundTag);
 							if(!foundTag) {
-								Tag.create(tag, function(err, tag) {
-									DreamTag.create({dreamId: newdream._id, tagId: tag._id}, function(err, dreamtag) {
+							Tag.create(tag, function(err, tag) {
+								console.log("tag", tag);
+								console.log("tagname", tag.name);
+								console.log("type of tag", typeof tag);
+								rp({
+									uri: "http://api.giphy.com/v1/gifs/search?q="+tag.name+"&api_key=dc6zaTOxFJmzC",
+    							qs: {
+        							api_key: 'dc6zaTOxFJmzC'// -> uri + '?access_token=xxxxx%20xxxxx'
+    									},
+    							headers: {
+        					'User-Agent': 'Request-Promise'
+    							},
+    							json: true})
+									.then(function(body) {
+										var imageUrl = body.data[0].images.original.url
+										tag.img = imageUrl;
+										console.log("full tag", tag);
+									})
+								DreamTag.create({dreamId: newdream._id, tagId: tag._id}, function(err, dreamtag) {
 										res.json(newdream);
-									});
 								});
+							});
 							} else {
 								DreamTag.create({dreamId: newdream._id, tagId: foundTag._id}, function(err, dreamtag) {
 									res.json(newdream);
-								})
+							})
 							}
 
 						})

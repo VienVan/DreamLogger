@@ -33,41 +33,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 hbsutils.registerWatchedPartials(__dirname + '/views/partials'); // partial changes will restart nodemon
 
 ////////////////////////////////////////////////////// Session Stuff :( :( :(
-//GIPHY
-exports.getJSON = function(options, onResult)
-{
-    console.log("rest::getJSON");
 
-    var prot = options.port == 443 ? https : http;
-    var req = prot.request(options, function(res)
-    {
-        var output = '';
-        console.log(options.host + ':' + res.statusCode);
-        res.setEncoding('utf8');
-
-        res.on('data', function (chunk) {
-            output += chunk;
-        });
-
-        res.on('end', function() {
-            var obj = JSON.parse(output);
-            onResult(res.statusCode, obj);
-        });
-    });
-
-    req.on('error', function(err) {
-        //res.send('error: ' + err.message);
-    });
-
-    req.end();
-};
-var options = {
-    host: 'http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=american+psycho',
-    port: port,
-    path: '/v1/gifs/random',
-    method: 'GET',
-    data: "data"
-};
 // create our session
 app.use(
   session({
