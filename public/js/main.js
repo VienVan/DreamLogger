@@ -24,8 +24,15 @@ function checkUrl(){
     $('#home-btns').removeClass('hidden');
   });
 
+  $('.cancelLogin').click(function() {
+    $('.login').toggleClass('hidden');
+    $('#login').removeClass('hidden');
+    $('#get-started').removeClass('hidden');
+  });
+
   $('#login').click(function() {
     $('#get-started').addClass('hidden');
+    $('#login').addClass('hidden');
     $('.login').toggleClass('hidden');
   })
   //
