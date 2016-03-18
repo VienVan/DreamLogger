@@ -1,11 +1,15 @@
 
-
+<div class='dreamers-index'>
+  <div class='search'>
 <input type='text' placeholder='Search By Dream Tag' id='searchTag'>
-<input type='submit' value ='Search' id='search'>
+<input type='submit' value ='Search' id='search' class='btn'>
+</div>
+
 <div id="dream-list"></div>
+</div>
 <script id="dream-template" type="text/x-handlebars-template">
 
-<div class='container-fluid dreamers-page'>
+  <div class='container-fluid dreamers-page'>
   <div class='found-dreamers'>
     \{{#each dreamers}}
     <a href='dreamers/\{{_id}}/dreams'><img src='\{{img}}' class='dreamer-img'></a>

@@ -1,7 +1,18 @@
 /*******************************Nav buttons**********************************/
 body {
-	font-family: Noto Sans;
+	font-family: Halant;
 	/*overflow: hidden;*/
+}
+a {
+	color: white;
+	text-decoration: none;
+	font-size: 20px;
+}
+.navbar-brand {
+	font-size: 26px;
+}
+.navbar {
+	padding: 5px;
 }
 /*.video {
     position: fixed;
@@ -93,17 +104,17 @@ body {
 
 
 .menu	{
-	display: block;
-	width: 200px;
-	height: 200px;
-	border-radius: 20px;
+	/*display: inline;*/
+	width: 100px;
+	height: 100px;
+	border-radius: 100%;
 	font-size: 20px;
 	color: #fff;
 	line-height: 100px;
 	text-decoration: none;
 	position: relative;
-	margin: 30px auto;
-	box-shadow: 0px 0px 5px white;
+	margin: 120px 100px -45px 180px;
+	box-shadow: 0px 0px 60px white;
 }
 
 .menu:hover	{
@@ -233,6 +244,9 @@ imageAnimation {  0% {
 .calendar-text {
 	color: gray !important;
 }
+.calendar-text:hover {
+	color: white;
+}
 
 .addDream {
 	font-size: 30px;
@@ -246,8 +260,12 @@ imageAnimation {  0% {
 }
 .addDream:hover {
 	cursor: cell;
-	color: gray;
+	color: rgba(125, 75, 165, .7);
 }
+.addDream:hover > .calender-text:hover {
+	color: white;
+}
+
 
 .form-group2 {
 	/*color: red;*/
@@ -273,7 +291,7 @@ imageAnimation {  0% {
 
 .dreamers-page {
 	display: flex;
-	/*background: purple;*/
+
 	position: relative;
 	height: 100%;
 	width: 100%;
@@ -287,4 +305,34 @@ imageAnimation {  0% {
 	flex: 1;
 	background: red;
 	text-align: center;
+}
+
+.dreamers-index {
+	background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url('http://i.imgur.com/riJCDCp.gif');
+	height: 100vh;
+	width: 100vw;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+	margin: 0 auto;
+}
+.search {
+	width: 100vw;
+	position: relative;
+	margin: 0 auto;
+	display: block;
+	text-align: center;
+	top: 10%;
+}
+#searchTag {
+	/*position: relative;*/
+	/*margin: 0 auto;*/
+	width: 90%;
+	padding: 8px;
+	border-radius: 5px;
+}
+#search {
+	background: purple;
+	color: white;
+	font-size: 20px;
 }
