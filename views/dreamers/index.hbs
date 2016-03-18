@@ -1,9 +1,12 @@
 <div id="dreamers">
-<h1>This is dreamers show all page</h1>
+  <h1>This is dreamers show all page</h1>
 {{#each dreamers}}
 <img src={{img}} class='menu'/>
 {{/each}}
 </div>
+<!-- {{#each dreams}}
+{{description}}
+{{/each}} -->
 
  <div id="dream-list">
 
@@ -13,21 +16,26 @@
  <input type='submit' value ='Search' id='search'>
 
  <script id="dream-template" type="text/x-handlebars-template">
-
-
-   {{#dreamers}}
-    {{username}}
-    <img src={{img}}>
-   {{/dreamers}}
-
-    \{{#each dreams}}
+   \{{#each dreams}}
    <div id="\{{_id}}" class="dreams">
      <!-- <p>Dream Tag: \{{tags}}</p> -->
      <!-- <p class="dream-attribute">Tag: \{{dreamtag.tagId}}</p> -->
-    <p class="dream-attribute">Description: \{{description}}</p>
+     <p>Description: \{{description}}</p>
+
+     <p>\{{dreamerId}}</p>
+
    </div>
+   \{{/each}}
+
+   {{#dreamers}}
+    <p>Username: {{username}}</p>
+   {{/dreamers}}
+
+   \{{#each dreamers}}
+   {{img}}
+   \{{/each}}
    \{{#each tags}}
-   <p class='dream-attribute'>Tag: \{{meaning}}></p>
+   <p class='dream-attribute'>Tag: \{{meaning}}</p>
    \{{/each}}
  </script>
 <br>

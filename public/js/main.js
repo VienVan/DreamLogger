@@ -27,7 +27,7 @@ dreamCatcher.createDream = function(e) {
   $.post("/dreamers/:id/dreams", dream)
     .done(function(res) {
       // OPTIMIZE: renders the entire dom eat time a food is created
-      console.log(res);
+      console.log("res", res);
       dreamCatcher.renderDream(res);
     })
     .fail(function(err) {
