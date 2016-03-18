@@ -1,11 +1,25 @@
+<div class='container-fluid dreams-page'>
 <div class='dreamer-image'>
 <a href="/dreamers/{{dreamer._id}}/edit"><img src='{{dreamer.img}}' class='menu'></a>
 </div>
 
 
 
+      <div class="content-wrapper">
 
+      <div id="timeline" class="timeCube">
+        <a id="addDream" data-toggle="modal" data-target="#createDreamModal">
+            <span class="fa-stack fa-2x">
+                <i class="fa fa-cloud fa-stack-2x"></i>
+                <strong class="fa-stack-1x calendar-text">+</strong>
+            </span>
+        </a>
+        <button id="prev-link">Previous</button>
+        <button id="next-link">Next</button>
+      </div>
+      </div>
 
+</div>
 <!-- CREATE DREAMS MODAL -->
 <div id="createDreamModal" class="modal" role="dialog">
   <div class="modal-dialog">
@@ -90,19 +104,3 @@
 </script>
 
 <br><br><br>
-
-
-
-<div id="content-wrapper">
-
-<div id="timeline" class="timeCube">
-  <a id="addDream" data-toggle="modal" data-target="#createDreamModal">
-      <span class="fa-stack fa-2x">
-          <i class="fa fa-cloud fa-stack-2x"></i>
-          <strong class="fa-stack-1x calendar-text">+</strong>
-      </span>
-  </a>
-  <button id="prev-link">Previous</button>
-  <button id="next-link">Next</button>
-</div>
-</div>

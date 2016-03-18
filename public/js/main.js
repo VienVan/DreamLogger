@@ -62,14 +62,13 @@ var counter = 0;
 
 $('#footer').click(function() {
   console.log("hitting the counter")
-  counter+=3;
+  counter+=1;
   console.log(counter);
   if(counter % 2 !== 0) {
     console.log("odd count");
     var y = $(window).scrollTop();
      $("html, body").animate({ scrollTop: y + $(window).height() }, 1200);
   } else if (counter % 2 === 0){
-    counter+=3;
     console.log("even counter", counter);
     $("html, body").animate({scrollTop: 0}, 1200);
   }

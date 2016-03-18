@@ -1,10 +1,17 @@
 /*******************************Nav buttons**********************************/
 body {
 	font-family: Noto Sans;
-
 }
 
 /*****************************************************************/
+.dreams-page {
+	height: 50vw;
+	background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url('http://i.imgur.com/A3770nh.gif');
+	background-attachment: fixed;
+	backface-visibility: hidden;
+  background-size: cover;
+  background-position: center center;
+}
 
 /******************************Main Content***********************************/
 .about-us {
@@ -74,13 +81,13 @@ body {
 	display: block;
 	width: 200px;
 	height: 200px;
-	border-radius: 20%;
+	border-radius: 100%;
 	font-size: 20px;
 	color: #fff;
 	line-height: 100px;
 	text-decoration: none;
 	position: relative;
-	margin: 0 auto;
+	margin: 30px auto;
 }
 
 .menu:hover	{
@@ -202,8 +209,6 @@ imageAnimation {  0% {
 	background: rgba(200, 200, 200, .6);
 }
 .uploadcare-widget-button {
-	background: red;
-	color: yellow;
 	width: 200px;
 	padding: 10px;
 }
