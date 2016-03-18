@@ -100,7 +100,6 @@ a {
 	color: white;
 }
 
-
 /*******************************Nav buttons**********************************/
 
 /*********************************** Pages **********************************/
@@ -110,7 +109,7 @@ a {
 	background-attachment: fixed;
 	backface-visibility: hidden;
   background-size: cover;
-  background-position: 40px center;
+  background-position: center center;
 	padding-bottom: 50px;
 	padding-top: 100px;
 }
