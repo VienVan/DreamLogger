@@ -1,6 +1,7 @@
 /*******************************Nav buttons**********************************/
 body {
 	font-family: Noto Sans;
+	overflow: hidden;
 }
 
 /*****************************************************************/
@@ -11,6 +12,7 @@ body {
 	backface-visibility: hidden;
   background-size: cover;
   background-position: center center;
+	padding-bottom: 50px;
 }
 
 /******************************Main Content***********************************/
@@ -218,15 +220,17 @@ imageAnimation {  0% {
 	color: white !important;
 }
 
-#addDream {
-	background: none;
+.addDream {
+	font-size: 30px;
 	border: none;
-	color: purple;
+	color: rgba(175, 125, 200, 1);
 	position: absolute;
-	margin-left: 50px;
+	margin-top: -45px;
 	top: 0;
 	right: 0;
+	z-index: 999;
 }
-#addDream:hover {
-	cursor: pointer;
+.addDream:hover {
+	cursor: cell;
+	color: gray;
 }

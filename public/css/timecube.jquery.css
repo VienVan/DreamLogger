@@ -1,10 +1,9 @@
 #content-wrapper {
+	background: white;
 	width: 100vw;
 	height: 300px;
-	/*position: absolute;*/
+	position: absolute;
 	/*background: purple;*/
-	overflow: hidden;
-	background-attachment: fixed;
 }
 
 /* OTHER STYLES */
@@ -56,8 +55,8 @@ a#prev-link.active, a#prev-link.disabled {
 
 
 .timeCube {
-	width: 800px;
-	margin: 8px 0px;
+	width: 80vw;
+	/*margin: 8px 50px;*/
 	position: relative;
 	-webkit-perspective-origin: 50% 200px;
 	-webkit-transform-style: preserve-3d;
@@ -75,10 +74,10 @@ a#prev-link.active, a#prev-link.disabled {
 
 .timeCube > .nav > .line {
 	background: white;
-	width: 500px;
+	width: 700px;
 	height: 2px;
 	position: relative;
-	margin: 100px auto;
+	margin: 0 auto;
 }
 
 .timeCube > .nav > .line > .marker {
@@ -86,7 +85,7 @@ a#prev-link.active, a#prev-link.disabled {
 	height: 30px;
 	width: 30px;
 	position: absolute;
-	border-radius: 8px;
+	border-radius: 100%;
 	margin-left: -8px;
 	margin-top: -15px;
 	-webkit-transform: scale(.4);
@@ -110,15 +109,11 @@ a#prev-link.active, a#prev-link.disabled {
 	position: absolute;
 	font-family: "Helvetica";
 	font-size: 10px;
-	color: #999999;
-	border-left: 2px dotted rgba(194,194,189,1);
-	height: 30px;
+	color: white;
+	border-left: 2px dotted white;
+	height: 50px;
 	padding-left: 4px;
-	margin-top: 100px;
 }
-
-
-
 
 
 .timeCube > .container {
@@ -126,16 +121,22 @@ a#prev-link.active, a#prev-link.disabled {
 	height: 300px;
 	position: absolute;
 	top: 60px;
+	/*background: red;*/
 	-webkit-transform-style: preserve-3d;
 	-webkit-transition-timing-function: ease-out;
 }
 
 
 .timeCube > .container > .event {
-	position: relative;
-	margin: 150px auto;
+	position: absolute;
 	width: 1000px;
 	height: 280px;
+	margin-left: 150px;
+	border-radius: 10px;
+	top: 0px;
+	right: 0px;
+	/*text-align: center;*/
+	background: rgba(255, 255, 255, .2);
 	-webkit-transform-style: preserve-3d;
 	-webkit-transition-timing-function: ease-out;
 }
@@ -148,9 +149,6 @@ a#prev-link.active, a#prev-link.disabled {
 	-webkit-transform: rotateY(60deg) rotateX(0deg) translate3D(0px, 0px, 0px);
 }
 
-
-
-
 .timeCube > .container > .event > h1 {
 	font-family: UnitSlabPro-Medi;
 	color: white !important;
@@ -161,7 +159,7 @@ a#prev-link.active, a#prev-link.disabled {
 }
 
 .timeCube > .container > .event > p {
-	font-family: "Noto Sans";
+	font-family: "Helvetica";
 	color: white;
 	font-size: 30px;
 	margin: 10px 24px;
