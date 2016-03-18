@@ -1,11 +1,10 @@
-.content-wrapper {
-	/*background: url('http://i.imgur.com/A3770nh.gif');*/
+#content-wrapper {
 	width: 100vw;
 	height: 300px;
 	/*position: absolute;*/
+	/*background: purple;*/
 	overflow: hidden;
 	background-attachment: fixed;
-	/*background: purple;*/
 }
 
 /* OTHER STYLES */
@@ -28,7 +27,6 @@ a#next-link {
 
 a#next-link.active, a#next-link.disabled {
 	opacity: 0.4;
-	z-index: 9;
 	-webkit-transition-duration: 300ms;
 }
 
@@ -49,7 +47,6 @@ a#prev-link {
 
 a#prev-link.active, a#prev-link.disabled {
 	opacity: 0.4;
-	z-index: 9;
 	-webkit-transition-duration: 300ms;
 }
 
@@ -78,7 +75,7 @@ a#prev-link.active, a#prev-link.disabled {
 
 .timeCube > .nav > .line {
 	background: white;
-	width: 800px;
+	width: 500px;
 	height: 2px;
 	position: relative;
 	margin: 100px auto;
@@ -89,7 +86,7 @@ a#prev-link.active, a#prev-link.disabled {
 	height: 30px;
 	width: 30px;
 	position: absolute;
-	border-radius: 100%;
+	border-radius: 8px;
 	margin-left: -8px;
 	margin-top: -15px;
 	-webkit-transform: scale(.4);
@@ -113,12 +110,11 @@ a#prev-link.active, a#prev-link.disabled {
 	position: absolute;
 	font-family: "Helvetica";
 	font-size: 10px;
-	color: white;
+	color: #999999;
 	border-left: 2px dotted rgba(194,194,189,1);
 	height: 30px;
 	padding-left: 4px;
 	margin-top: 100px;
-
 }
 
 
@@ -173,7 +169,7 @@ a#prev-link.active, a#prev-link.disabled {
 }
 
 .timeCube > .container > .event > span.date {
-	font-family: "Noto Sans";
+	font-family: "Helvetica";
 	color: #666666;
 	font-weight: bold;
 	font-size: 16px;
