@@ -236,8 +236,13 @@ imageAnimation {  0% {
 	color: gray;
 }
 
-.form-group {
-	color: red;
+.form-group2 {
+	/*color: red;*/
 	/*background: red;*/
 	width: 100%;
+}
+
+#a {
+	color: purple;
+	text-shadow: 0px 0px 10px white;
 }

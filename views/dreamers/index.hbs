@@ -1,43 +1,16 @@
-<div id="dreamers">
-  <h1>This is dreamers show all page</h1>
-{{#each dreamers}}
-<img src={{img}} class='menu'/>
-{{/each}}
-</div>
-<!-- {{#each dreams}}
-{{description}}
-{{/each}} -->
+<div id="dream-list"></div>
 
- <div id="dream-list">
-
- </div>
-
- <input type='text' placeholder='Search By Dream Tag' id='searchTag'>
- <input type='submit' value ='Search' id='search'>
-
- <script id="dream-template" type="text/x-handlebars-template">
+<input type='text' placeholder='Search By Dream Tag' id='searchTag'>
+<input type='submit' value ='Search' id='search'>
+<script id="dream-template" type="text/x-handlebars-template">
    \{{#each dreams}}
-   <div id="\{{_id}}" class="dreams">
-     <!-- <p>Dream Tag: \{{tags}}</p> -->
-     <!-- <p class="dream-attribute">Tag: \{{dreamtag.tagId}}</p> -->
+<div id="\{{_id}}" class="dreams">
      <p>Description: \{{description}}</p>
-
-     <p>\{{dreamerId}}</p>
-
-   </div>
+</div>
    \{{/each}}
 
    \{{#each dreamers}}
     <p>Username: \{{username}}</p>
+    <img src='\{{img}}' class='menu'>
    \{{/each}}
-
-
-
  </script>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>

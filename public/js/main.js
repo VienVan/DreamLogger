@@ -102,11 +102,9 @@ dreamCatcher.getDreams = function(){
     pastDreams = [];
     for (var i=0; i < dreamCount; i++){
       var string = dreams.children[i].innerText;
-      console.log("dreams children", string);
       var array = string.split(".");
       var descriptionArray = array.splice(0, array.length-1);
       var description = descriptionArray.join('.');
-      console.log("description", description);
       var fullDate = array[array.length - 1];
       var dateArray = fullDate.split(" ")
       var wantedDate = dateArray.splice(0, 3);
@@ -150,34 +148,6 @@ dreamCatcher.createDream = function(e) {
     });
 };
 
-
-// dreamCatcher.renderDream = function(dream) {
-
-//   console.log(dream);
-//   description= dream.newdream.description;
-//   date= dream.newdream.createdAt;
-
-//   var object = {
-//     title: date,
-//     description: description,
-//     delete: "delete button",
-//     edit: "edit button",
-//     startDate: (new Date(date)),
-//     endDate: null
-//   };
-
-// console.log(dream.newdream.dreamerId);
-
-
-//   dreamCatcher.timeLine.push(object);
-
-//     timeLine.push(dream);
-
-//   // var $dreams = $('#dreams');
-//   // var dreamTemplate = Handlebars.compile($('#dream-template').html());
-//   // var compiledHTML = dreamTemplate({dreams: [dream]});
-//   // $dreams.prepend(compiledHTML);
-// };
 dreamCatcher.renderDream = function(dream) {
   var $dreamList = $('#dream-list');
   var dreamTemplate = Handlebars.compile($('#dream-template').html());
@@ -287,32 +257,3 @@ e.preventDefault();
 document.body.addEventListener('touchmove', function(e){
 e.preventDefault();
 });
-
-// Events
-// var timeLine = [{
-// title: 'created at',
-// description: "Description",
-// delete: "delete button",
-// edit: "edit button",
-// startDate: (new Date('September 31, 2015 10:29:00 pm GMT+0')),
-// endDate: null
-// },
-// {
-// title: 'created at',
-// description: "Description",
-// delete: "delete button",
-// edit: "edit button",
-// startDate: (new Date('December 15, 2015 00:00:00 am GMT+0')),
-// endDate: null
-// },
-// {
-// title: 'created at',
-// description: "Description",
-// delete: "delete button",
-// edit: "edit button",
-// startDate: (new Date('January 18, 2016 00:00:00 am GMT+0')),
-// endDate: null
-// }
-// ];
-
-// Initialize the plugin
