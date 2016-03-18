@@ -1,7 +1,7 @@
 /*******************************Nav buttons**********************************/
 body {
 	font-family: Questrial;
-	/*overflow: hidden;*/
+	overflow: hidden;
 }
 a {
 	color: white;
@@ -41,12 +41,13 @@ a {
 /*****************************************************************/
 .dreams-page {
 	height: 80vw;
-	background: linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .25)), url('http://i.imgur.com/h8awQ4t.gif');
+	background: linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .25)), url('http://i.imgur.com/ozh66TS.gif');
 	background-attachment: fixed;
 	backface-visibility: hidden;
   background-size: cover;
-  background-position: center center;
+  background-position: 40px center;
 	padding-bottom: 50px;
+	padding-top: 100px;
 }
 
 /******************************Main Content***********************************/
@@ -156,7 +157,7 @@ a {
   z-index: -100;
 }
 
-.crossfade > figure:nth-child(1) { background-image: url('http://i.imgur.com/ozh66TS.gif'); }
+.crossfade > figure:nth-child(1) { background-image: url('http://i.imgur.com/h8awQ4t.gif'); }
 .crossfade > figure:nth-child(2) {
   animation-delay: 6s;
   background-image: url('http://i.imgur.com/41yhAnY.gif');
@@ -178,7 +179,7 @@ a {
 @keyframes
 imageAnimation {  0% {
  animation-timing-function: ease-in;
- opacity: .2;
+ opacity: 0;
 }
  8% {
  animation-timing-function: ease-out;
@@ -188,10 +189,10 @@ imageAnimation {  0% {
  opacity: 1
 }
  25% {
- opacity: .2
+ opacity: 0
 }
  100% {
- opacity: .2
+ opacity: 0
 }
 
 }
@@ -297,6 +298,7 @@ imageAnimation {  0% {
 	width: 200px;
 	height: 200px;
 	border-radius: 100%;
+	box-shadow: 0 0 50px white;
 }
 
 .dreamers-page {
@@ -308,13 +310,25 @@ imageAnimation {  0% {
 }
 .found-dreamers {
 	width: 30%;
-	background: lightblue;
+	/*background: lightblue;*/
 	padding-top: 100px;
+	color: white;
+	margin-top: 100px;
+}
+.found-dreamers > p {
+	font-size: 30px;
 }
 .found-dreams {
 	flex: 1;
-	background: red;
+	/*background: red;*/
 	text-align: center;
+	color: white;
+}
+.found-dreams > ul > li {
+	color: white;
+	font-size: 30px;
+	margin-top: -50px !important;
+	list-style: none;
 }
 
 .dreamers-index {

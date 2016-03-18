@@ -123,7 +123,7 @@ dreamCatcher.createDream = function(e) {
   var that = this;
   var dream = $(e.target).serialize();
   var formData = JSON.stringify($(e.target).serializeArray());
-  console.log('formdata', formData);
+  console.log('formdata', formData["0"]);
   window.formData = formData;
 
   console.log("created dream," , dream);
@@ -133,7 +133,7 @@ dreamCatcher.createDream = function(e) {
       // dreamCatcher.renderDream(res);
       that.removeHide();
       console.log("res,", res)
-      window.location.reload(true);
+      // window.location.reload(true);
       // $('#createDreamModal').removeClass("show");
       // $('#createDreamModal').addClass("hide");
     })
