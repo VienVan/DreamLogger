@@ -37,8 +37,9 @@ router.route('/dreamers/:id/dreams/:id')
 			.put(dreamsController.edit)
 		  .delete(dreamsController.delete);
 
-//ABOUT
-router.route('/pages/about')													//root
+//ABOUT 
+			//al's code
+router.route('/pages/about')	//root
 			.get(pagesController.about); //view for about dreamr
 
 //LOGIN

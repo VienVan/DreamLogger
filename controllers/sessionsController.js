@@ -4,14 +4,21 @@ var sessionsController = {
 	login: function(req, res){
 	var dreamer = req.body.dreamer;
   var username = dreamer.username;
+  console.log(dreamer);
   var password = dreamer.password;
 
+//Al's code with dreamer authentication//
 	  Dreamer.authenticate(username, password, function (err, dreamer) {
-
-      // login the user
-	    req.login(dreamer);
-	    // redirect to user profile
-	    res.redirect("/dreamers/"+dreamer._id+"/dreams");
+      if (err) { 
+        res.redirect('/');
+      }
+      else {
+        // login the user
+  	    req.login(dreamer);
+        console.log('logged in dreamer: ', dreamer);
+  	    // redirect to user profile
+  	    res.redirect("/dreamers/"+dreamer._id+"/dreams");
+      }
 	  });
 	},
  signup: function (req, res) {

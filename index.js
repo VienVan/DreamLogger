@@ -45,7 +45,7 @@ app.use(
 );
 
 // extending the `req` object to help manage sessions
-app.use(function (req, res, next) {
+app.use('/', function (req, res, next) {
   // login a user
   req.login = function (dreamer) {
     req.session.userId = dreamer._id;

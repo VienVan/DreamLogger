@@ -27,7 +27,7 @@ dreamerSchema.statics.createSecure = function (username, password, cb) {
   // `_this` now references our schema
   var _this = this;
   // generate some salt
-  bcrypt.genSalt(function (err, salt) {
+  bcrypt.genSalt(12, function (err, salt) {
     // hash the password with the salt
     bcrypt.hash(password, salt, function (err, hash) {
       // build the user object
@@ -47,15 +47,15 @@ dreamerSchema.statics.authenticate = function (username, password, cb) {
   this.findOne({username: username}, function (err, dreamer) {
     // throw error if can't find user
     if (dreamer === null) {
-      cb("Can\'t find user with that username", null);
+      return cb("Can\'t find user with that username", null);
     // if found user, check if password is correct
     } else if (dreamer.checkPassword(password)) {
       // the user is found & password is correct, so execute callback
       // pass no error, just the user to the callback
-      cb(null, dreamer);
+      return cb(null, dreamer);
     } else {
       // user found, but password incorrect
-      cb("password incorrect", dreamer);
+     return cb("password incorrect", dreamer);
     }
   });
 };
