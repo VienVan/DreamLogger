@@ -13,7 +13,7 @@ function checkUrl(){
    dreamCatcher.getDreams();
  }
 }
-  var homeButton
+  var homeButton;
   $('#get-started').click(function() {
     $('.about-us').css('padding-top', '150px');
 
@@ -75,16 +75,6 @@ $('#footer').click(function() {
 
 })
 
-//   $('#footer').toggle(function(){
-//     // $('.about-us').toggleClass('hidden');
-//     // $('.about-us').css('background: red');
-//
-//
-//     var y = $(window).scrollTop();
-//     console.log("clicked on footer");
-//     //
-//     $("html, body").animate({ scrollTop: y + $(window).height() }, 1200);
-// }
 
 
 });
@@ -133,7 +123,8 @@ dreamCatcher.createDream = function(e) {
   var that = this;
   var dream = $(e.target).serialize();
   var formData = JSON.stringify($(e.target).serializeArray());
-  console.log('formdata', formData['dreamerId']);
+  console.log('formdata', formData);
+  window.formData = formData;
 
   console.log("created dream," , dream);
   $.post("/dreamers/:id/dreams", dream)

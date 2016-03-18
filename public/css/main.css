@@ -1,6 +1,6 @@
 /*******************************Nav buttons**********************************/
 body {
-	font-family: Halant;
+	font-family: Questrial;
 	/*overflow: hidden;*/
 }
 a {
@@ -14,7 +14,17 @@ a {
 .navbar {
 	padding: 5px;
 }
-/*.video {
+
+.know {
+	font-family: Josefin Slab;
+	color: white;
+	font-size: 50px;
+	text-align: center;
+	margin-bottom: -80px;
+	margin-top: -36px;
+	text-shadow: 0 0 50px black;
+}
+.video {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -27,7 +37,7 @@ a {
     transform: translateX(-50%) translateY(-50%);
     background: url(polina.jpg) no-repeat;
     background-size: cover;
-}*/
+}
 /*****************************************************************/
 .dreams-page {
 	height: 80vw;
@@ -146,7 +156,7 @@ a {
   z-index: -100;
 }
 
-.crossfade > figure:nth-child(1) { background-image: url('http://i.imgur.com/41yhAnY.gif'); }
+.crossfade > figure:nth-child(1) { background-image: url('http://i.imgur.com/ozh66TS.gif'); }
 .crossfade > figure:nth-child(2) {
   animation-delay: 6s;
   background-image: url('http://i.imgur.com/41yhAnY.gif');
@@ -168,7 +178,7 @@ a {
 @keyframes
 imageAnimation {  0% {
  animation-timing-function: ease-in;
- opacity: 0;
+ opacity: .2;
 }
  8% {
  animation-timing-function: ease-out;
@@ -178,10 +188,10 @@ imageAnimation {  0% {
  opacity: 1
 }
  25% {
- opacity: 0
+ opacity: .2
 }
  100% {
- opacity: 0
+ opacity: .2
 }
 
 }
@@ -273,9 +283,9 @@ imageAnimation {  0% {
 	width: 100%;
 }
 
-#a {
+.a {
 	color: purple;
-	text-shadow: 0px 0px 10px white;
+	text-shadow: 0px 0px 50px white;
 }
 .found-dreamers {
 	text-align: center;
@@ -308,7 +318,7 @@ imageAnimation {  0% {
 }
 
 .dreamers-index {
-	background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url('http://i.imgur.com/riJCDCp.gif');
+	/*background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url('http://i.imgur.com/riJCDCp.gif');*/
 	height: 100vh;
 	width: 100vw;
 	background-size: cover;
