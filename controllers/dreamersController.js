@@ -33,9 +33,11 @@ var dreamersController = {
 
 		Dreamer.createSecure(username, password, function(err, dreamer) {
 			if (err) {
+				req.flash('danger','invalid username/password');
 				console.log(err);
 			}else{
 				req.login(dreamer);
+				req.flash('success','Successfully Loggedin');
 				console.log("Successfully created" ,dreamer);
 				res.redirect('/');
 			}
