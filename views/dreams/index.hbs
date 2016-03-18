@@ -32,9 +32,15 @@
       </div>
       <div class="modal-body">
         <form id="dreams-form" class="form" onsubmit="dreamCatcher.createDream(event)">
-          <input id="dreams-form-tag" type="text" name="tags[name]" placeholder="#tag">
-          <input id="dreams-form-description" type="text" name="description" placeholder="description"></input>
-          <input type="hidden" name="dreamerId" value={{dreamer.id}}>
+          <div class='form-group'>
+          <input id="dreams-form-tag" type="text" name="tags[name]" placeholder="#tag your dreams to connect with other users!" class='form-control'>
+          </div>
+          <div class='form-group'>
+          <input id="dreams-form-description" type="textarea" name="description" placeholder="What did you dream about today?" class='form-control'></input>
+          </div>
+          <div class='form-group'>
+          <input type="hidden" name="dreamerId" value={{dreamer.id}} class='form-control'>
+        </div>
 {{!--           <input type="submit"></input> --}}
        <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

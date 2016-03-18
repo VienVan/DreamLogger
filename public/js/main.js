@@ -102,9 +102,12 @@ dreamCatcher.getDreams = function(){
     pastDreams = [];
     for (var i=0; i < dreamCount; i++){
       var string = dreams.children[i].innerText;
+      console.log("dreams children", string);
       var array = string.split(".");
-      var description = array[0];
-      var fullDate = array[1];
+      var descriptionArray = array.splice(0, array.length-1);
+      var description = descriptionArray.join('.');
+      console.log("description", description);
+      var fullDate = array[array.length - 1];
       var dateArray = fullDate.split(" ")
       var wantedDate = dateArray.splice(0, 3);
       var date = wantedDate.join(' ');
@@ -137,6 +140,7 @@ dreamCatcher.createDream = function(e) {
       // OPTIMIZE: renders the entire dom eat time a food is created
       // dreamCatcher.renderDream(res);
       that.removeHide();
+      console.log("res,", res)
       window.location.reload(true);
       // $('#createDreamModal').removeClass("show");
       // $('#createDreamModal').addClass("hide");
