@@ -7,13 +7,9 @@ body {
 }
 #content-wrapper {
 	background: white;
-	width: 1000px;
-	height: 250px;
+	width: 100vw;
+	height: 300px;
 	position: absolute;
-	top: 0px;
-	left: 10%;
-
-	overflow: hidden;
 	/*background: purple;*/
 }
 
@@ -85,10 +81,10 @@ a#prev-link.active, a#prev-link.disabled {
 
 .timeCube > .nav > .line {
 	background: gray;
-	width: 800px;
+	width: 500px;
 	height: 2px;
 	position: absolute;
-	top: 40px;
+	top: 0px;
 }
 
 .timeCube > .nav > .line > .marker {
@@ -164,8 +160,8 @@ a#prev-link.active, a#prev-link.disabled {
 .timeCube > .container > .event > h1 {
 	font-family: UnitSlabPro-Medi;
 	color: rgba(100, 100, 100, .75) !important;
-	font-size: 10px;
-	margin: 0px 24px;
+	font-size: 30px;
+	margin: 30px 24px;
 	height: 20px;
 	text-align: center;
 }
