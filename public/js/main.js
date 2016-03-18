@@ -28,27 +28,25 @@ function checkUrl(){
   // });
 
   $('.cancel').click(function() {
-     $('.signup').before(homeButton).detach();
-    // $('.signup').replaceWith(homeButton);
-
-
-    // $('.signup').addClass('hidden');
+    $('#home-btns').toggleClass('hidden');
+    $('.login').toggleClass('hidden');
   });
 
   $('#login').click(function() {
      $('.login').toggleClass('hidden');
-    $('#home-btns').replaceWith($('.login'));
-    $('.about-us').css('margin-top', '325px');
+     $('#home-btns').toggleClass('hidden');
+    // $('#home-btns').replaceWith($('.login'));
+    $('.about-us').css('margin-top', '400px');
     //
-  })
+  });
 
-  $('#login').click(function() {
-    $('#home-btns').replaceWith($('.login'));
-    $('.about-us').css('margin-top', '325px');
-    //
-    $('#get-started').addClass('hidden');
-    $('#login').addClass('hidden');
-  })
+  // $('#login').click(function() {
+  //   $('#home-btns').replaceWith($('.login'));
+  //   $('.about-us').css('margin-top', '325px');
+  //   //
+  //   $('#get-started').addClass('hidden');
+  //   $('#login').addClass('hidden');
+  // })
   //
   $('#dreams').on('click', '.delete-dream', dreamCatcher.deleteDream);
   $('#dreams').on('click', '.edit-dream', dreamCatcher.editDream);
