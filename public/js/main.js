@@ -140,7 +140,7 @@ dreamCatcher.createDream = function(e) {
       // dreamCatcher.renderDream(res);
       that.removeHide();
       console.log("res,", res)
-      // window.location.reload(true);
+      window.location.reload(true);
       // $('#createDreamModal').removeClass("show");
       // $('#createDreamModal').addClass("hide");
     })
