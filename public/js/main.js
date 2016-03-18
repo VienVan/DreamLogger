@@ -132,6 +132,9 @@ dreamCatcher.createDream = function(e) {
   e.preventDefault();
   var that = this;
   var dream = $(e.target).serialize();
+  var formData = JSON.stringify($(e.target).serializeArray());
+  console.log('formdata', formData['dreamerId']);
+
   console.log("created dream," , dream);
   $.post("/dreamers/:id/dreams", dream)
     .done(function(res) {
@@ -139,7 +142,7 @@ dreamCatcher.createDream = function(e) {
       // dreamCatcher.renderDream(res);
       that.removeHide();
       console.log("res,", res)
-      window.location.reload(true);
+      // window.location.reload(true);
       // $('#createDreamModal').removeClass("show");
       // $('#createDreamModal').addClass("hide");
     })
@@ -150,6 +153,7 @@ dreamCatcher.createDream = function(e) {
 
 dreamCatcher.renderDream = function(dream) {
   var $dreamList = $('#dream-list');
+  $('#dream-list').html('');
   var dreamTemplate = Handlebars.compile($('#dream-template').html());
   var compiledHTML = dreamTemplate({dreams: [dream]});
   $dreamList.prepend(compiledHTML);

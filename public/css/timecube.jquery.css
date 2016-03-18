@@ -81,7 +81,7 @@ a#prev-link.active, a#prev-link.disabled {
 }
 
 .timeCube > .nav > .line > .marker {
-	background: rgba(125,100,200,.4);
+	background: rgba(125, 125, 125, .8);
 	height: 30px;
 	width: 30px;
 	position: absolute;
@@ -95,7 +95,7 @@ a#prev-link.active, a#prev-link.disabled {
 
 .timeCube > .nav > .line > .marker.active {
 	-webkit-transform: scale(.8);
-	background: rgba(125, 100, 200, 1);
+	background: white;
 	-webkit-transition-property: -webkit-transform, background;
 	-webkit-transition-duration: 400ms;
 	z-index: 999;
@@ -130,15 +130,18 @@ a#prev-link.active, a#prev-link.disabled {
 .timeCube > .container > .event {
 	position: absolute;
 	width: 1000px;
-	height: 280px;
+	height: 250px;
 	margin-left: 150px;
+	margin-top: 50px;
 	border-radius: 10px;
 	top: 0px;
 	right: 0px;
 	/*text-align: center;*/
-	background: rgba(255, 255, 255, .2);
+	background: rgba(10, 10, 10, .5);
 	-webkit-transform-style: preserve-3d;
 	-webkit-transition-timing-function: ease-out;
+	box-shadow: 0px 0px 10px white;
+	padding: 10px;
 }
 
 .timeCube > .container > .event.left {
@@ -150,20 +153,23 @@ a#prev-link.active, a#prev-link.disabled {
 }
 
 .timeCube > .container > .event > h1 {
-	font-family: UnitSlabPro-Medi;
+	font-family: Sacramento;
 	color: white !important;
-	font-size: 30px;
+	font-size: 22px;
 	margin: 30px 24px;
 	height: 20px;
-	text-align: center;
+	text-align: left;
+	letter-spacing: 6px;
+	text-shadow: 0px 0px 5px black;
 }
 
 .timeCube > .container > .event > p {
-	font-family: "Helvetica";
+	font-family: "Pompiere";
 	color: white;
 	font-size: 30px;
 	margin: 10px 24px;
 	text-align: center;
+	text-shadow: 0px 0px 10px black;
 }
 
 .timeCube > .container > .event > span.date {

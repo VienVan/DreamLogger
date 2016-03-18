@@ -1,13 +1,26 @@
 /*******************************Nav buttons**********************************/
 body {
 	font-family: Noto Sans;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
-
+/*.video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover;
+}*/
 /*****************************************************************/
 .dreams-page {
-	height: 50vw;
-	background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url('http://i.imgur.com/A3770nh.gif');
+	height: 80vw;
+	background: linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .25)), url('http://i.imgur.com/h8awQ4t.gif');
 	background-attachment: fixed;
 	backface-visibility: hidden;
   background-size: cover;
@@ -218,15 +231,15 @@ imageAnimation {  0% {
 #content-wrapper {
 }
 .calendar-text {
-	color: white !important;
+	color: gray !important;
 }
 
 .addDream {
 	font-size: 30px;
 	border: none;
-	color: rgba(175, 125, 200, 1);
+	color: white;
 	position: absolute;
-	margin-top: -45px;
+	margin-top: -60px;
 	top: 0;
 	right: 0;
 	z-index: 999;
@@ -245,4 +258,33 @@ imageAnimation {  0% {
 #a {
 	color: purple;
 	text-shadow: 0px 0px 10px white;
+}
+.found-dreamers {
+	text-align: center;
+}
+.found-dreamers > p {
+	text-align: center;
+}
+.dreamer-img {
+	width: 200px;
+	height: 200px;
+	border-radius: 100%;
+}
+
+.dreamers-page {
+	display: flex;
+	/*background: purple;*/
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+.found-dreamers {
+	width: 30%;
+	background: lightblue;
+	padding-top: 100px;
+}
+.found-dreams {
+	flex: 1;
+	background: red;
+	text-align: center;
 }
