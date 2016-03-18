@@ -175,7 +175,7 @@ a {
 }
 
 .dreamers-index {
-	/*background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url('http://i.imgur.com/riJCDCp.gif');*/
+	background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url('http://i.imgur.com/4DU4hYi.gif');
 	height: 100vh;
 	width: 100vw;
 	background-size: cover;
@@ -238,7 +238,7 @@ a {
   z-index: -100;
 }
 
-.crossfade > figure:nth-child(1) { background-image: url('http://i.imgur.com/h8awQ4t.gif'); }
+.crossfade > figure:nth-child(1) { background-image: url('https://i.imgur.com/ezKSIXl.gif'); }
 .crossfade > figure:nth-child(2) {
   animation-delay: 6s;
   background-image: url('http://i.imgur.com/41yhAnY.gif');
@@ -360,12 +360,11 @@ imageAnimation {  0% {
 
 
 #searchTag {
-	/*position: relative;*/
-	/*margin: 0 auto;*/
 	width: 90%;
 	padding: 8px;
 	border-radius: 5px;
 }
+
 #search {
 	background: purple;
 	color: white;
