@@ -54,9 +54,9 @@ dreamCatcher.editDreamer = function(e) {
     data: $('#edit-dreamer-form').serialize(),
     success: function(data) {
         console.log("success!");
-        
+
         // $('#"dreamerUpdate"');
-        // window.location.reload(true);
+        window.location.href  = "/dreamers";
         //refreshes page after closing modal
     }
     });

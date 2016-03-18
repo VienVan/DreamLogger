@@ -27,6 +27,7 @@ var dreamersController = {
 	create: function(req, res){
 
 		var dreamer = req.body.dreamer;
+		// console.log("dreamer", dreamer);
 		var username = dreamer.username;
 		var password = dreamer.password_digest;
 
@@ -71,6 +72,7 @@ var dreamersController = {
 		});
 
 	}
+
 };
 
 

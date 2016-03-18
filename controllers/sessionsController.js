@@ -7,7 +7,8 @@ var sessionsController = {
   var password = dreamer.password;
 
 	  Dreamer.authenticate(username, password, function (err, dreamer) {
-	    // login the user
+
+      // login the user
 	    req.login(dreamer);
 	    // redirect to user profile
 	    res.redirect("/dreamers/"+dreamer._id+"/dreams");
