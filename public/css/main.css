@@ -72,15 +72,15 @@ body {
 
 .menu	{
 	display: block;
-	width: 100px;
-	height: 100px;
-	border-radius: 50px;
+	width: 200px;
+	height: 200px;
+	border-radius: 20%;
 	font-size: 20px;
 	color: #fff;
 	line-height: 100px;
-	text-align: center;
 	text-decoration: none;
-	background: #000;
+	position: relative;
+	margin: 0 auto;
 }
 
 .menu:hover	{
@@ -207,4 +207,65 @@ imageAnimation {  0% {
 	width: 200px;
 	padding: 10px;
 }
+#content-wrapper {
+	/*background: red;*/
+	/*position: relative;*/
+	/*display: block;*/
+	margin: 35% auto;
+}
+
+
+
+
+
+
+
+/***********************************************************************/
+
+
+#cloud {
+	width: 350px; height: 120px;
+
+	background: transparent;
+	background: -webkit-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -moz-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -ms-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+	background: -o-linear-gradient(top, #f2f9fe 5%, #d6f0fd 100%);
+
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+
+	position: relative;
+	margin: 120px auto 20px;
+	z-index: -60;
+}
+
+#cloud:after, #cloud:before {
+	content: '';
+	position: absolute;
+	background: transparent;
+	border: 1px solid black;
+	z-index: -1
+}
+
+#cloud:after {
+	width: 100px; height: 100px;
+	top: -50px; left: 50px;
+
+	border-radius: 100px;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+}
+
+#cloud:before {
+	width: 180px; height: 180px;
+	top: -90px; right: 50px;
+
+	border-radius: 200px;
+	-webkit-border-radius: 200px;
+	-moz-border-radius: 200px;
+}
+
+
 /***********************************************************************/

@@ -3,7 +3,7 @@ $(document).ready(function(){
 
 
 
-function checkUrl(){ 
+function checkUrl(){
  var url = window.location.href;
  // "dreamers/234932842/dreams"
  var splitUrl = url.split('/');
@@ -82,19 +82,22 @@ dreamCatcher.getDreams = function(){
       var string = dreams.children[i].innerText;
       var array = string.split(".");
       var description = array[0];
-      var date = array[1];
+      var fullDate = array[1];
+      var dateArray = fullDate.split(" ")
+      var wantedDate = dateArray.splice(0, 3);
+      var date = wantedDate.join(' ');
 
       pastDreams.push({
         title: date,
         description: description,
         delete: "delete button",
         edit: "edit button",
-        startDate: (new Date(date)),
+        startDate: (new Date(fullDate)),
         endDate: null
       });
     }
 
- 
+
 
   // $.get('/dreamers/:id/dreams')
   //   .done(function(res){
@@ -232,7 +235,7 @@ dreamCatcher.removeHide = function() {
 ///////////////////////////Timeline
 
 // Prevent scrolling
-document.body.addEventListener('touchstart', function(e){  
+document.body.addEventListener('touchstart', function(e){
 // allow clicks on links within the moveable area
 if($(e.target).is('a, iframe')) {
 return true;
@@ -240,7 +243,7 @@ return true;
 e.preventDefault();
 });
 
-document.body.addEventListener('touchmove', function(e){ 
+document.body.addEventListener('touchmove', function(e){
 e.preventDefault();
 });
 
@@ -261,7 +264,7 @@ e.preventDefault();
 // startDate: (new Date('December 15, 2015 00:00:00 am GMT+0')),
 // endDate: null
 // },
-// {     
+// {
 // title: 'created at',
 // description: "Description",
 // delete: "delete button",
@@ -272,5 +275,3 @@ e.preventDefault();
 // ];
 
 // Initialize the plugin
-
-

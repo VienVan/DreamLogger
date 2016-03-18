@@ -7,11 +7,14 @@ body {
 }
 #content-wrapper {
 	background: white;
-	width: 600px;
+	width: 1000px;
 	height: 250px;
 	position: absolute;
 	top: 0px;
+	left: 10%;
+
 	overflow: hidden;
+	/*background: purple;*/
 }
 
 /* OTHER STYLES */
@@ -69,6 +72,7 @@ a#prev-link.active, a#prev-link.disabled {
 	-webkit-perspective-origin: 50% 200px;
 	-webkit-transform-style: preserve-3d;
 	-webkit-perspective: 600;
+	/*background: red;*/
 }
 
 .timeCube > .nav {
@@ -80,15 +84,15 @@ a#prev-link.active, a#prev-link.disabled {
 }
 
 .timeCube > .nav > .line {
-	background: rgba(194,194,189,1);
-	width: 420px;
+	background: gray;
+	width: 800px;
 	height: 2px;
 	position: absolute;
 	top: 40px;
 }
 
 .timeCube > .nav > .line > .marker {
-	background: rgba(0,0,0,1);
+	background: rgba(125,100,200,.4);
 	height: 16px;
 	width: 16px;
 	position: absolute;
@@ -102,7 +106,7 @@ a#prev-link.active, a#prev-link.disabled {
 
 .timeCube > .nav > .line > .marker.active {
 	-webkit-transform: scale(.8);
-	background: rgba(30, 127, 194, 1);
+	background: rgba(125, 100, 200, 1);
 	-webkit-transition-property: -webkit-transform, background;
 	-webkit-transition-duration: 400ms;
 	z-index: 999;
@@ -117,8 +121,8 @@ a#prev-link.active, a#prev-link.disabled {
 	font-family: "Helvetica";
 	font-size: 10px;
 	color: #999999;
-	border-left: 1px solid rgba(194,194,189,1);
-	height: 40px;
+	border-left: 2px dotted rgba(194,194,189,1);
+	height: 30px;
 	padding-left: 4px;
 }
 
@@ -138,7 +142,7 @@ a#prev-link.active, a#prev-link.disabled {
 
 .timeCube > .container > .event {
 	position: absolute;
-	width: 600px;
+	width: 1000px;
 	height: 280px;
 	top: 0px;
 	left: 0px;
@@ -159,18 +163,19 @@ a#prev-link.active, a#prev-link.disabled {
 
 .timeCube > .container > .event > h1 {
 	font-family: UnitSlabPro-Medi;
-	color: #0793cc;
-	font-size: 40px;
+	color: rgba(100, 100, 100, .75) !important;
+	font-size: 10px;
 	margin: 0px 24px;
-	height: 54px;
+	height: 20px;
+	text-align: center;
 }
 
 .timeCube > .container > .event > p {
 	font-family: "Helvetica";
 	color: #999999;
-	font-size: 14px;
-	margin: 0px;
-	margin: 0px 24px;
+	font-size: 30px;
+	margin: 10px 24px;
+	text-align: center;
 }
 
 .timeCube > .container > .event > span.date {
@@ -198,3 +203,5 @@ hr {
 	display: block;
 	margin: 16px 0px;
 }
+
+@media
