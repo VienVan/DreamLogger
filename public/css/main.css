@@ -14,6 +14,99 @@ a {
 .navbar {
 	padding: 5px;
 }
+
+.know {
+	font-family: Josefin Slab;
+	color: white;
+	font-size: 50px;
+	text-align: center;
+	margin-bottom: -80px;
+	margin-top: -36px;
+	text-shadow: 0 0 50px black;
+}
+.video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover;
+}
+/*****************************************************************/
+.dreams-page {
+	height: 80vw;
+	background: linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .25)), url('http://i.imgur.com/ozh66TS.gif');
+	background-attachment: fixed;
+	backface-visibility: hidden;
+  background-size: cover;
+  background-position: 40px center;
+	padding-bottom: 50px;
+	padding-top: 100px;
+}
+
+/******************************Main Content***********************************/
+.about-us {
+	height: 1000px;
+}
+#logo {
+	scroll-snap-coords:
+}
+
+
+.know {
+	font-family: Josefin Slab;
+	color: white;
+	font-size: 50px;
+	text-align: center;
+	margin-bottom: -80px;
+	margin-top: -36px;
+	text-shadow: 0 0 50px black;
+}
+.video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover;
+}
+/*****************************************************************/
+.dreams-page {
+	height: 80vw;
+	background: linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .25)), url('http://i.imgur.com/ozh66TS.gif');
+	background-attachment: fixed;
+	backface-visibility: hidden;
+  background-size: cover;
+  background-position: 40px center;
+	padding-bottom: 50px;
+	padding-top: 100px;
+}
+
+/******************************Main Content***********************************/
+.about-us {
+	height: 1000px;
+	text-align: center;
+	background: url("http://www.techandall.com/wp-content/uploads/2013/07/05.png") no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  /*top: 50px;*/
+}
+#logo {
+	scroll-snap-coords:
+}
+
 .login {
 	position   : fixed;
 	left       : 10%;
@@ -114,9 +207,9 @@ a {
 	padding-top: 100px;
 }
 
-.about-us {
+/*.about-us {
 	height: 1000px;
-}
+}*/
 
 .main-content {
 	width: 100%;
@@ -370,4 +463,10 @@ imageAnimation {  0% {
 	background: purple;
 	color: white;
 	font-size: 20px;
+}
+.d1{
+	width:200px;
+	height:200px;
+	border: 2px solid black;
+	border-radius: .5px;
 }

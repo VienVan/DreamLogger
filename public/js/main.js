@@ -15,10 +15,11 @@ function checkUrl(){
 }
   var homeButton;
   $('#get-started').click(function() {
-    $('.about-us').css('padding-top', '150px');
+    $('.about-us').css('margin-top', '150px');
 
     console.log("replace home btns with signup", homeButton)
     $('.signup').toggleClass('hidden');
+    $('.signup').css('z-index', '999');
     // $('#home-btns').addClass('hidden');
     $('#home-btns').before($('.signup')).detach();
     return homeButton = $('#home-btns').replaceWith($('.signup'))
@@ -69,19 +70,21 @@ function checkUrl(){
 var counter = 0;
 
 $('#footer').click(function() {
-  console.log("hitting the counter")
+  console.log("hitting the counter");
   counter+=1;
   console.log(counter);
   if(counter % 2 !== 0) {
     console.log("odd count");
     var y = $(window).scrollTop();
+    // $("#footer-text").innerText("Sing Up Now");
      $("html, body").animate({ scrollTop: y + $(window).height() }, 1200);
+     $(".twitter-follow-button").hide();
   } else if (counter % 2 === 0){
     console.log("even counter", counter);
     $("html, body").animate({scrollTop: 0}, 1200);
+    $(".twitter-follow-button").show();
   }
-
-})
+});
 
 
 
