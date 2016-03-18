@@ -25,17 +25,18 @@ var dreamersController = {
 		});
 	},
 	create: function(req, res){
+
 		var dreamer = req.body.dreamer;
 		var username = dreamer.username;
 		var password = dreamer.password_digest;
-		var img = dreamer.img;
-		Dreamer.create({username: username, password_digest: password, img: img}, function(err, dreamer) {
-			var id = dreamer._id;
+
+		Dreamer.createSecure(username, password, function(err, dreamer) {
 			if (err) {
 				console.log(err);
 			}else{
 				req.login(dreamer);
-				res.redirect('/dreamers/'+id+'/dreams');
+				console.log("Successfully created" ,dreamer);
+				res.redirect('/');
 			}
 		});
 	},
@@ -69,19 +70,7 @@ var dreamersController = {
 			});
 		});
 
-	},
-	signup: function (req, res) {
-		  // grab the user from the params
-  var dreamer = req.body.dreamer;
-  // pull out their email & password
-  var username = dreamer.username;
-  var password = dreamer.password;
-  // create the new user
-  Dreamer.createSecure(username, password, function(err, dreamer) {
-    req.login(dreamer);
-    res.redirect("/pages/about");
-  });
-}
+	}
 };
 
 

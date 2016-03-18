@@ -46,7 +46,7 @@ router.route('/pages/login') //login client side
 			.get(pagesController.login);
 
 router.route('/sessions')
-			.post(sessionsController.create);
+			.post(sessionsController.signup);
 
 router.route('/logout')
 			.get(pagesController.logout);
