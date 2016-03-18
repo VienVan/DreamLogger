@@ -12,7 +12,7 @@ var express         = require('express'),
     hbsutils = require('hbs-utils')(hbs),
     port            = 3000,
     http            = require('http'),
-    https           = require('https'), 
+    https           = require('https');
 
     
 
