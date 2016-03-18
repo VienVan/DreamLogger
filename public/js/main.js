@@ -228,7 +228,7 @@ $('#search').click( function() {
         dreamCatcher.renderDream(dream);
       })
       data.dreamers.forEach(function(dreamer){
-        console.log("hittin that dramer shit")
+        console.log("hittin that dreamer shit")
         dreamCatcher.renderDreamer(dreamer);
       })
 }
