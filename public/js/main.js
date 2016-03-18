@@ -43,6 +43,13 @@ dreamCatcher.renderDream = function(dream) {
   $dreamList.prepend(compiledHTML);
 };
 
+dreamCatcher.renderDreamer = function(dreamer) {
+  var $dreamList = $('#dream-list');
+  var dreamTemplate = Handlebars.compile($('#dream-template').html());
+  var compiledHTML = dreamTemplate({dreamers: [dreamer]});
+  $dreamList.prepend(compiledHTML);
+};
+
 
 
 // EDIT DREAM
@@ -104,6 +111,11 @@ $('#search').click( function() {
         data.dreams.forEach(function(dream) {
           // console.log(dream);
           dreamCatcher.renderDream(dream);
+
+        })
+        data.dreamers.forEach(function(dreamer){
+          console.log("hittin that dramer shit")
+          dreamCatcher.renderDreamer(dreamer);
         })
       }
 });
