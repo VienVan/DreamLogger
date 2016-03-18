@@ -13,20 +13,32 @@ function checkUrl(){
    dreamCatcher.getDreams();
  }
 }
-
+  var homeButton
   $('#get-started').click(function() {
-    $('.signup').toggleClass('hidden', 2000);
-    $('#home-btns').addClass('hidden');
+    $('.about-us').css('padding-top', '150px');
+
+    console.log("replace home btns with signup", homeButton)
+    $('.signup').toggleClass('hidden');
+    // $('#home-btns').addClass('hidden');
+    $('#home-btns').before($('.signup')).detach();
+    return homeButton = $('#home-btns').replaceWith($('.signup'))
+
+    // console.log(homeButton);
   });
 
   $('.cancel').click(function() {
-    $('.signup').toggleClass('hidden');
-    $('#home-btns').removeClass('hidden');
+     $('.signup').before(homeButton).detach();
+    // $('.signup').replaceWith(homeButton);
+
+
+    // $('.signup').addClass('hidden');
   });
 
   $('#login').click(function() {
-    $('#get-started').addClass('hidden');
-    $('.login').toggleClass('hidden');
+     $('.login').toggleClass('hidden');
+    $('#home-btns').replaceWith($('.login'));
+    $('.about-us').css('margin-top', '325px');
+    //
   })
   //
   $('#dreams').on('click', '.delete-dream', dreamCatcher.deleteDream);
@@ -46,11 +58,22 @@ function checkUrl(){
   showDate: false
   });
 
-
+var counter = 0;
 
 $('#footer').click(function() {
+  console.log("hitting the counter")
+  counter+=3;
+  console.log(counter);
+  if(counter % 2 !== 0) {
+    console.log("odd count");
     var y = $(window).scrollTop();
      $("html, body").animate({ scrollTop: y + $(window).height() }, 1200);
+  } else if (counter % 2 === 0){
+    counter+=3;
+    console.log("even counter", counter);
+    $("html, body").animate({scrollTop: 0}, 1200);
+  }
+
 })
 
 //   $('#footer').toggle(function(){
