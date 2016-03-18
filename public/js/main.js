@@ -13,19 +13,19 @@ function checkUrl(){
    dreamCatcher.getDreams();
  }
 }
-  var homeButton;
-  $('#get-started').click(function() {
-    $('.about-us').css('margin-top', '150px');
-
-    console.log("replace home btns with signup", homeButton)
-    $('.signup').toggleClass('hidden');
-    $('.signup').css('z-index', '999');
-    // $('#home-btns').addClass('hidden');
-    $('#home-btns').before($('.signup')).detach();
-    return homeButton = $('#home-btns').replaceWith($('.signup'))
+  // var homeButton;
+  // $('#get-started').click(function() {
+  //   $('.about-us').css('margin-top', '150px');
+  //
+  //   console.log("replace home btns with signup", homeButton)
+  //   $('.signup').toggleClass('hidden');
+  //   $('.signup').css('z-index', '999');
+  //   // $('#home-btns').addClass('hidden');
+  //   $('#home-btns').before($('.signup')).detach();
+  //   return homeButton = $('#home-btns').replaceWith($('.signup'))
 
     // console.log(homeButton);
-  });
+  // });
 
   $('.cancel').click(function() {
      $('.signup').before(homeButton).detach();
