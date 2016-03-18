@@ -53,6 +53,7 @@ a {
 /******************************Main Content***********************************/
 .about-us {
 	height: 1000px;
+	text-align: center;
 }
 #logo {
 	scroll-snap-coords:
@@ -359,4 +360,10 @@ imageAnimation {  0% {
 	background: purple;
 	color: white;
 	font-size: 20px;
+}
+.d1{
+	width:200px;
+	height:200px;
+	border: 2px solid black;
+	border-radius: .5px;
 }

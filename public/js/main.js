@@ -68,19 +68,21 @@ function checkUrl(){
 var counter = 0;
 
 $('#footer').click(function() {
-  console.log("hitting the counter")
+  console.log("hitting the counter");
   counter+=1;
   console.log(counter);
   if(counter % 2 !== 0) {
     console.log("odd count");
     var y = $(window).scrollTop();
+    // $("#footer-text").innerText("Sing Up Now");
      $("html, body").animate({ scrollTop: y + $(window).height() }, 1200);
+     $(".twitter-follow-button").hide();
   } else if (counter % 2 === 0){
     console.log("even counter", counter);
     $("html, body").animate({scrollTop: 0}, 1200);
+    $(".twitter-follow-button").show();
   }
-
-})
+});
 
 
 
