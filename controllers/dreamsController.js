@@ -2,6 +2,7 @@ var Dream 							= require('../models').Dream;
 var Dreamer 						= require('../models').Dreamer;
 var Tag 								= require('../models/tag');
 var DreamTag 						= require('../models').DreamTag;
+var rp			 						= require('request-promise');
 
 var dreamsController 		= {
 	index: function(req, res) {
@@ -9,14 +10,26 @@ var dreamsController 		= {
 			Dreamer.findById({_id: id}, function(err, dreamer) {
 				Dream.find({dreamerId: id}, function(err, dreams) {
 			    req.currentUser(function(err, currentUser) {
-			    	if (currentUser){
-			    		res.render('dreams/index', {dreamer: dreamer, dreams: dreams, currentUser: currentUser});
-						}else{
-							res.redirect("/");
+
+			    	if (req.xhr){
+			    		res.json({dreams: dreams});
+			    	}else{
+
+				    	if (currentUser){
+				    		res.render('dreams/index', {dreamer: dreamer, dreams: dreams, currentUser: currentUser});
+							}
+							else{
+								res.redirect("/");
+							}
 						}
+
 						});
+
+						})
+
 			    });
-			});
+
+
 	},
 	create: function(req, res) {
 		var description 		= req.body.description;
@@ -24,22 +37,39 @@ var dreamsController 		= {
 		var newdream     	 	= {description: description, dreamerId: dreamerId};
 		var tag        			= req.body.tags;
 		var tagId;
-			// console.log('req.body.tags',tag);
 				Dream.create(newdream, function(err, newdream) {
-					// console.log('inside .body.tags', tag);
 						Tag.findOne(tag, function(err, foundTag) {
-							console.log(foundTag);
-							if(!foundTag) {
-								Tag.create(tag, function(err, tag) {
-									DreamTag.create({dreamId: newdream._id, tagId: tag._id}, function(err, dreamtag) {
-										res.json(newdream);
+							rp({
+								uri: "http://api.giphy.com/v1/gifs/search?q="+tag.name+"&api_key=dc6zaTOxFJmzC",
+								qs: {
+										api_key: 'dc6zaTOxFJmzC'// -> uri + '?access_token=xxxxx%20xxxxx'
+										},
+								headers: {
+								'User-Agent': 'Request-Promise'
+								},
+								json: true})
+								.then(function(body) {
+									if (body.data[0]){
+										var imageUrl = body.data[0].images.original.url;
+										tag.img = imageUrl;
+									}
+
+									if(!foundTag) {
+									Tag.create(tag, function(err, tag) {
+										console.log("tag", tag);
+										console.log("tagname", tag.name);
+										console.log("type of tag", typeof tag);
+										DreamTag.create({dreamId: newdream._id, tagId: tag._id}, function(err, dreamtag) {
+											res.send({newdream: newdream, tag: tag});
+										});
 									});
-								});
-							} else {
-								DreamTag.create({dreamId: newdream._id, tagId: foundTag._id}, function(err, dreamtag) {
-									res.json(newdream);
-								});
-							}
+
+									} else {
+										DreamTag.create({dreamId: newdream._id, tagId: foundTag._id}, function(err, dreamtag) {
+											res.send({newdream: newdream, tag: tag});
+									})
+									}
+								})
 
 						});
 
@@ -102,7 +132,6 @@ var dreamsController 		= {
 				// })
 
 }
-
 };
 
 module.exports = dreamsController;

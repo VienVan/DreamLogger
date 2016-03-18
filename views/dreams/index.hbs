@@ -1,24 +1,50 @@
-
+<div class='dreamer-image'>
 <a href="/dreamers/{{dreamer._id}}/edit"><img src='{{dreamer.img}}' class='menu'></a>
+</div>
 
-<form id="dreams-form" class="form" onsubmit="dreamCatcher.createDream(event)">
-  <input type="text" name="tags[name]" placeholder="#tag">
-  <!-- <input type="hidden" name="tags[_id]" value="tags[_id]">  -->
-  <input type="text" name="description" placeholder="description"></input>
-  <input type="hidden" name="dreamerId" value={{dreamer.id}}>
-  <input type="submit"></input>
-</form>
 
-<div class="container" id="dreams">
+
+
+
+<!-- CREATE DREAMS MODAL -->
+<div id="createDreamModal" class="modal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content" data-dream-id="{{_id}}">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Create Dream</h4>
+      </div>
+      <div class="modal-body">
+        <form id="dreams-form" class="form" onsubmit="dreamCatcher.createDream(event)">
+          <input id="dreams-form-tag" type="text" name="tags[name]" placeholder="#tag">
+          <input id="dreams-form-description" type="text" name="description" placeholder="description"></input>
+          <input type="hidden" name="dreamerId" value={{dreamer.id}}>
+{{!--           <input type="submit"></input> --}}
+       <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" id="addDream" data-dream-id="{{_id}}" >Add Dream</button>
+      </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container hidden" id="dreams">
   {{#each dreams}}
   <div class="row-dream" data-dreams-id={{_id}} id="{{_id}}">
     {{description}}
-    {{tags.name}}
-    <button class='btn btn-danger delete-dream'>Delete Dream</button>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dreamModal" id="{{_id}}">Edit Dream</button>
+    {{tags.name}}.{{createdAt}}
+   {{!--  <button class='btn btn-danger delete-dream'>Delete Dream</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dreamModal" id="{{_id}}">Edit Dream</button> --}}
   </div>
+  {{/each}}
+</div>
 
-  <!-- Modal -->
+  <!-- Edit Dreams Modal -->
 <div id="dreamModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -36,30 +62,47 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="saveDream" data-dream-id="{{_id}}" onclick="dreamCatcher.editDream(event)">Save changes</button>
+{{!--         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="saveDream" data-dream-id="{{_id}}" onclick="dreamCatcher.editDream(event)">Save changes</button> --}}
       </div>
     </div>
 
   </div>
 </div>
-  {{/each}}
-</div>
+
+
 
 <div id="dream-list"></div>
 
-
-<!-- client-side food template -->
+<!-- client-side dream template -->
 <script id="dream-template" type="text/x-handlebars-template">
   \{{#each dreams}}
   <div id="\{{_id}}" class="dreams">
     <!-- <p>Dream Tag: \{{tags}}</p> -->
     <!-- <p class="dream-attribute">Tag: \{{dreamtag.tagId}}</p> -->
     <p>Description: \{{description}}</p>
-    <button class="btn delete-btn" onclick="dreamCatcher.deleteDream(event)">Delete</button>
+    {{!-- <button class="btn delete-btn" onclick="dreamCatcher.deleteDream(event)">Delete</button> --}}
   </div>
   \{{/each}}
   \{{#each tags}}
   <p class='dream-attribute'>Tag: \{{name}}</p>
   \{{/each}}
 </script>
+
+<br><br><br>
+
+
+
+<div id="content-wrapper">
+
+<div id="timeline" class="timeCube">
+  <a id="addDream" data-toggle="modal" data-target="#createDreamModal">
+      <span class="fa-stack fa-2x">
+          <i class="fa fa-cloud fa-stack-2x"></i>
+          <strong class="fa-stack-1x calendar-text">+</strong>
+      </span>
+  </a>
+  <button id="prev-link">Previous</button>
+  <button id="next-link">Next</button>
+</div>
+</div>

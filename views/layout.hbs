@@ -4,20 +4,29 @@
 	<meta charset="UTF-8">
 	<title>Dreamr</title>
     <!-- bootstrap css -->
+		<link rel="stylesheet" type="text/css" href="/css/timecube.jquery.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Sacramento' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
 		<script>
   			UPLOADCARE_PUBLIC_KEY = "82e633f88f6e3199848f";
 		</script>
-		<script charset="utf-8" src="//ucarecdn.com/widget/2.6.0/uploadcare/uploadcare.full.min.js"></script>
+		<!-- <script charset="utf-8" src="//ucarecdn.com/widget/2.6.0/uploadcare/uploadcare.full.min.js"></script> -->
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
 </head>
 
 <body>
 	{{> nav}}
-	{{{body}}}
+
+		{{{body}}}
+
 	{{> footer}}
+
+
+
 
 
 	<!-- JQuery -->
@@ -25,7 +34,9 @@
 	<!-- bootstrap js -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<!-- custom scripts -->
+	<script src="/js/timecube.jquery.js"></script>
 	<script src="/js/main.js"></script>
+
 </body>
 
 </html>

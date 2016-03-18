@@ -26,7 +26,6 @@ var dreamersController = {
 	},
 	create: function(req, res){
 		var dreamer = req.body.dreamer;
-
 		var username = dreamer.username;
 		var password = dreamer.password_digest;
 		var img = dreamer.img;
