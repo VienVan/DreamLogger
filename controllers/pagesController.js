@@ -7,12 +7,11 @@ var DreamTag 						= require('../models').DreamTag;
 var pagesController = {
     index: function(req, res) {
       req.currentUser(function(err, dreamer) {
-        // get error messages here
-        console.log(req.flash)
+      
         if (dreamer){
           res.redirect("/dreamers/"+dreamer._id+"/dreams");
         }else{
-          res.render('pages/index', {currentUser: dreamer, messages: 'test'});
+          res.render('pages/index', {currentUser: dreamer});
         }
       });
     },

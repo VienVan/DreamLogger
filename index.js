@@ -13,8 +13,7 @@ var express         = require('express'),
     port            = 3000,
     http            = require('http'),
     https           = require('https'), 
-    flash           = require('express-flash-notification'),
-    cookieParser    = require('cookie-parser');
+
     
 
 
@@ -29,14 +28,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
-app.use(cookieParser());
 
-app.use(session({
-  secret: 'dreamer',
-  resave: false,
-  saveUninitialized: false
-}));
-app.use(flash());
+
+
 
 //View Engine
 app.set('view engine', 'hbs');
