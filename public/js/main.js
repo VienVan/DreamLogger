@@ -34,11 +34,18 @@ function checkUrl(){
     // $('.signup').addClass('hidden');
   });
 
+  $('.cancelLogin').click(function() {
+    $('.login').toggleClass('hidden');
+    $('#login').removeClass('hidden');
+    $('#get-started').removeClass('hidden');
+  });
+
   $('#login').click(function() {
-     $('.login').toggleClass('hidden');
     $('#home-btns').replaceWith($('.login'));
     $('.about-us').css('margin-top', '325px');
     //
+    $('#get-started').addClass('hidden');
+    $('#login').addClass('hidden');
   })
   //
   $('#dreams').on('click', '.delete-dream', dreamCatcher.deleteDream);
