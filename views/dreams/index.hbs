@@ -20,7 +20,7 @@
     </div>
     <div class="back">
       <!-- back content -->
-      <form action="/dreamers/:id/dreams" method="PUT" >
+      <form id="edit-dreamer-form" data-dreamer-id="{{dreamer.id}}" action="/dreamers/:id/dreams" onsubmit="dreamCatcher.editDreamer(event)">
       <br>
       <br>
         Edit Profile:<br>
@@ -30,7 +30,7 @@
         <!-- <input id="dreamerUpdate"type="text" name="Confirm Password" placeholder="Confirm Password"> -->
         <br>
         <br>
-        <button class="create_btn btn btn-success"onsubmit="dreamCatcher.editDreamer(event)">Save</button>
+        <button type="submit" class="create_btn btn btn-success" onsubmit="dreamCatcher.editDreamer(event)" id="{{dreamer.id}}">Save</button>
         <button class="create_btn btn btn-success">Cancel</button>
         <div class="form-group">
           <input type="hidden" role="uploadcare-uploader" name="dreamer[img]"/>

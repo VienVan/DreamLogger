@@ -48,24 +48,26 @@ var dreamersController = {
 	//Profile form update (al)
 	update: function(req, res) {
 		var id = req.params.id;
-		console.log('user id', id);
-		// var dreamer = req.body.dreamer;
-		// var username = dreamer.username;
-		// var password = dreamer.password_digest;
-		// var img = dreamer.img;
-		// Dreamer.update({username, password, img}, function(err, dreamer) {
-		// 	var id = dreamer._id;
-		// 	console.log(id);
-		// 	err ? console.log(err) : res.render('/dreamers/'+id+'/dreams')
-		// });
-			req.currentUser(function(err, currentUser) {
-				if (currentUser){
-					res.reload('dreamers/edit', {dreamer: dreamer, currentUser: currentUser});
-				}else{
-					res.redirect("/");
-				}
+		var dreamer = req.body.dreamer;
+		// console.log('user id', id);
+		var username = dreamer.username;
+		var password = dreamer.password;
+		var img = dreamer.img;
+		Dreamer.findOne({_id: id}, function (err, dream) {
+			if (err) console.log(err);
+			if (username) Dreamer.username = username;
+			if (password) Dreamer.password = password;
+			if (img) Dreamer.img = img;
+			var updatedDreamer = {
+				username: Dreamer.username,
+				password: Dreamer.password,
+				img: Dreamer.img
+			};
+			Dreamer.update({_id: id}, updatedDreamer, function (err, dreamer) {
+				if (err) console.log(err);
+				res.status(200).send();
 			});
-		
+		});
 
 	},
 	signup: function (req, res) {

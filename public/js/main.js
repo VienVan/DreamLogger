@@ -46,16 +46,17 @@ dreamCatcher.createDream = function(e) {
 // Al's code
 dreamCatcher.editDreamer = function(e) {
   e.preventDefault();
-  var id = req.params.id;
-  console.log('someone wants to edit dreamer profile id= ' + dreamerId);
+  var dreamerId = $(e.target).data('dreamer-id');
+  console.log(dreamerId);
   $.ajax({
     method: 'PUT',
-    url: ('/dreamers/:id/edit' + dreamerId),
+    url: ('/dreamers/:id/edit/' + dreamerId),
     data: $('#edit-dreamer-form').serialize(),
     success: function(data) {
         console.log("success!");
-        $('#"dreamerUpdate"');
-        window.location.reload(true);
+        
+        // $('#"dreamerUpdate"');
+        // window.location.reload(true);
         //refreshes page after closing modal
     }
     });

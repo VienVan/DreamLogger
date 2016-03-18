@@ -24,6 +24,9 @@ router.route('/dreamers/:id/edit')				//edit view to edit users
 			.patch(dreamersController.update);
 router.route('/dreamers/:id');						//update users
 
+router.route('/dreamers/:id/edit/:id')
+	.put(dreamersController.update);
+
 // DREAMS
 router.route('/dreamers/:id/dreams')			//show all user's dreams (timeline)
 			.get(dreamsController.index)
