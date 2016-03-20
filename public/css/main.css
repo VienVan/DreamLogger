@@ -231,6 +231,10 @@ a {
 	border-top: none;
 }
 
+#footer:hover {
+	cursor: pointer;
+}
+
 .dreamcatcher {
 	font-family: Sacramento;
 	color: white;
