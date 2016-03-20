@@ -89,7 +89,7 @@
 				if(base.options.showDate){
 					base.eventDivs[index].html("<span class='date'>" + monthNames[d.startDate.getUTCMonth()] + " " + d.startDate.getUTCDate() + ", " + d.startDate.getUTCFullYear() + "</span><h1>" + d.title + "</h1><p>" + d.description + "</p>");
 				} else {
-					base.eventDivs[index].html("<h1>" + d.title + "</h1><p>" + d.description + "</p><button class='btn delete-btn' onclick='dreamCatcher.deleteDream(event)' id='" + d.id + "'>" + d.update + "</button>");
+					base.eventDivs[index].html("<h1>" + d.title + "</h1><p>" + d.description + "</p><button class='btn delete-btn' onclick='dreamCatcher.deleteDream(event)' id='" + d.id + "'>" + d.remove + "</button><button class='btn edit-btn' data-toggle='modal' data-target='#dreamModal' id='" + d.id + "'>" + d.edit + "</button>");
 				}
 
                 if(d.extraclass){

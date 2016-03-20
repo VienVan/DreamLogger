@@ -115,9 +115,8 @@ dreamCatcher.getDreams = function(){
         title: date,
         description: description,
         id: dreamId,
-        update: "update",
-        delete: "delete button",
-        edit: "edit button",
+        remove: "delete",
+        edit: "edit",
         startDate: (new Date(fullDate)),
         endDate: null
       });
