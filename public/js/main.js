@@ -89,6 +89,8 @@ $('#footer').click(function() {
 
 
 });
+
+
 // END DOCUMENT READY
 var pastDreams;
 // //client-side dream logic
@@ -98,31 +100,50 @@ dreamCatcher.timeLine = [];
 
 dreamCatcher.getDreams = function(){
   // console.log(dreams);
-    dreamCount= dreams.children.length;
 
-    pastDreams = [];
-    for (var i=0; i < dreamCount; i++){
-      var string = dreams.children[i].innerText;
-      var array = string.split(".");
-      var descriptionArray = array.splice(0, array.length-2);
-      var description = descriptionArray.join('.');
-      var fullDate = array[array.length - 2];
-      // changed full date to -2 and dream added dreamId
-      var dreamId = array[array.length-1];
-      var dateArray = fullDate.split(" ");
-      var wantedDate = dateArray.splice(0, 3);
-      var date = wantedDate.join(' ');
+    console.log("dreams", dreams)
+    // console.log("dreamers", dreamer)
+    var url = window.location.href;
+    $.ajax({
+      type: 'GET',
+      url: url,
+      success: function(data) {
+        console.log("inside getDreams data", data);
 
-      pastDreams.push({
-        title: date,
-        description: description,
-        id: dreamId,
-        remove: "",
-        edit: "",
-        startDate: (new Date(fullDate)),
-        endDate: null
-      });
-    }
+        dreamCount= dreams.children.length;
+        pastDreams = [];
+        for (var i=0; i < dreamCount-1; i++){
+          var string = data.dreams.children[i].innerText;
+          var array = string.split(".");
+          var descriptionArray = array.splice(0, array.length-2);
+          var description = descriptionArray.join('.');
+          var fullDate = array[array.length - 2];
+          console.log("fulldate: ",fullDate);
+          // changed full date to -2 and dream added dreamId
+          var dreamId = array[array.length-1];
+          var dateArray = fullDate.split(" ");
+          var wantedDate = dateArray.splice(0, 3);
+          var date = wantedDate.join(' ');
+
+          var img = data.img;
+          var meaning = data.tags.meaning;
+
+
+          pastDreams.push({
+            title: date,
+            description: description,
+            id: dreamId,
+            remove: "",
+            edit: "",
+            startDate: (new Date(fullDate)),
+            endDate: null
+          });
+        }
+
+      }
+    })
+    // console.log("tags", tags)
+
 
 
 

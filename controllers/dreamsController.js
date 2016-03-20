@@ -13,14 +13,19 @@ var dreamsController 		= {
 			Dream.find({dreamerId: id}, function(err, dreams) {
 		    req.currentUser(function(err, currentUser) {
 					Tag.find({}, function(err, tags) {
+						DreamTag.find({}, function(err, dreamTag){
+						if(req.xhr) {
+							res.send({dreamer: dreamer, dreams: dreams, currentUser: currentUser, tags: tags, dreamTags: dreamTags});
+						} else {
 						// if (currentUser){
 			    		res.render('dreams/index', {dreamer: dreamer, dreams: dreams, currentUser: currentUser, tags: tags});
 						// }
 						// else{
 						// res.redirect("/");
 						// }
-					})
-
+						}
+					});
+				});
 		    });
 			});
 		});
