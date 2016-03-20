@@ -3,10 +3,40 @@
 
 </div>
 
-
-
       <div class="content-wrapper">
         <a href="/dreamers/{{dreamer._id}}/edit"><img src='{{dreamer.img}}' class='menu'></a>
+        <br>
+        <br>
+
+          <!-- Toggle profile page (al) -->
+          <div class="flip-container" onclick="this.classList.toggle('hover');">
+              <div class="flipper">
+            <div class="front">
+      <!-- front content --> 
+            <button class="create_btn btn btn-success">Edit Profile</button>   
+        </div>
+      <div class="back">
+      <!-- back content -->
+      <form id="edit-dreamer-form" data-dreamer-id="{{dreamer.id}}" action="/dreamers/:id/dreams" onsubmit="dreamCatcher.editDreamer(event)">
+      <br>
+      <br>
+        Edit Profile:<br>
+        <input id="dreamerUpdate"type="text" name="dreamer[username]" placeholder="Username"><br>
+      <!--   <input id="dreamerUpdate"type="text" name="dreamer[password]" placeholder="Password"> -->
+        <br>
+        <!-- <input id="dreamerUpdate"type="text" name="Confirm Password" placeholder="Confirm Password"> -->
+        <br>
+        <br>
+        <button type="submit" class="create_btn btn btn-success" onsubmit="dreamCatcher.editDreamer(event)" id="{{dreamer.id}}">Save</button>
+        <button class="create_btn btn btn-success">Cancel</button>
+        <div class="form-group">
+          <input type="hidden" role="uploadcare-uploader" name="dreamer[img]"/>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- End of al's code -->
       <div id="timeline" class="timeCube">
         <a class="addDream" data-toggle="modal" data-target="#createDreamModal">
             <span class="fa-stack fa-2x">
