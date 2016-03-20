@@ -471,16 +471,21 @@ imageAnimation {  0% {
 	border-radius: .5px;
 }
 
-/************/
+/*****************dreams buttons****************************************************/
+
 
 .delete-btn {
 	border: none;
 	background: none;
 	color: white;
+	margin-top: 75px;
+	margin-left: 900px;
 }
 
 .edit-btn {
 	border: none;
 	background: none;
 	color: white;
+	margin-top: 75px;
+	margin-right: -100px;
 }
