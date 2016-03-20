@@ -137,9 +137,10 @@ dreamCatcher.createDream = function(e) {
   var formData = JSON.stringify($(e.target).serializeArray());
   console.log('formdata', formData["0"]);
   window.formData = formData;
+  var currentUrl = window.location.href;
 
   console.log("created dream," , dream);
-  $.post("/dreamers/:id/dreams", dream)
+  $.post(currentUrl, dream)
     .done(function(res) {
       // OPTIMIZE: renders the entire dom eat time a food is created
       // dreamCatcher.renderDream(res);
