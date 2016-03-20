@@ -19,7 +19,7 @@ var dreamsController 		= {
 			    		res.render('dreams/index', {dreamer: dreamer, dreams: dreams, currentUser: currentUser});
 						}
 						else{res.redirect("/");}
-					}			
+					}
 		    });
 			});
 		});
@@ -53,7 +53,7 @@ var dreamsController 		= {
 										meaning = $('li','.definition')['0'].textContent;
 									} else {
 										meaning = "couldn't find a meaning :(";
-									}		
+									}
 								}
 								tag.meaning = meaning;
 
@@ -88,7 +88,7 @@ var dreamsController 		= {
 											});
 										}
 								});
-							});	
+							});
 						});
 					});
 	},
