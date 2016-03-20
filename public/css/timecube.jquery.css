@@ -1,9 +1,11 @@
 #content-wrapper {
-	background: white;
+	/*background: white;*/
 	width: 100vw;
 	height: 300px;
 	position: absolute;
-	/*background: purple;*/
+	/*background: purple !important;*/
+	/*z-index: 999;*/
+	overflow: hidden;
 }
 
 /* OTHER STYLES */
@@ -56,11 +58,12 @@ a#prev-link.active, a#prev-link.disabled {
 
 .timeCube {
 	width: 80vw;
-	/*margin: 8px 50px;*/
+	margin: -50px 0;
 	position: relative;
 	-webkit-perspective-origin: 50% 200px;
 	-webkit-transform-style: preserve-3d;
 	-webkit-perspective: 600;
+	/*background: red;*/
 	/*background: red;*/
 }
 
@@ -74,7 +77,7 @@ a#prev-link.active, a#prev-link.disabled {
 
 .timeCube > .nav > .line {
 	background: white;
-	width: 700px;
+	width: 500px;
 	height: 2px;
 	position: relative;
 	margin: 0 auto;
@@ -130,9 +133,9 @@ a#prev-link.active, a#prev-link.disabled {
 .timeCube > .container > .event {
 	position: absolute;
 	width: 1000px;
-	height: 250px;
+	height: 500px;
 	margin-left: 150px;
-	margin-top: 50px;
+	margin-top: 10px;
 	border-radius: 10px;
 	top: 0px;
 	right: 0px;
@@ -142,6 +145,7 @@ a#prev-link.active, a#prev-link.disabled {
 	-webkit-transition-timing-function: ease-out;
 	box-shadow: 0px 0px 10px white;
 	padding: 10px;
+	/*background: red;*/
 }
 
 .timeCube > .container > .event.left {
@@ -168,7 +172,7 @@ a#prev-link.active, a#prev-link.disabled {
 	color: white;
 	font-size: 30px;
 	margin: 10px 24px;
-	text-align: center;
+	text-align: left;
 	text-shadow: 0px 0px 10px black;
 }
 
