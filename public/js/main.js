@@ -52,12 +52,14 @@ function checkUrl(){
   $('#dreams').on('click', '.edit-dream', dreamCatcher.editDream);
   // $('#createDreamModal').modal('show');
 
+  var lastWeek = new Date();
+  lastWeek.setDate(lastWeek.getDate() - 7);
 
   $("#timeline").timeCube({
   data: pastDreams,
   granularity: "day",
-  startDate: new Date('March 15, 2016 10:20:00 pm GMT+0'),
-  endDate: new Date('March 18, 2016 02:20:00 am GMT+0'),
+  startDate: lastWeek,
+  endDate: new Date(),
   transitionAngle: 60,
   transitionSpacing: 100,
   nextButton: $("#next-link"),
