@@ -58,19 +58,19 @@ var dreamersController = {
 	update: function(req, res) {
 		var id = req.params.id;
 		var dreamer = req.body.dreamer;
-		// console.log('user id', id);
+		console.log('user id', id);
 		var username = dreamer.username;
 		var password = dreamer.password;
 		var img = dreamer.img;
-		Dreamer.findOne({_id: id}, function (err, dream) {
+		Dreamer.findOne({_id: id}, function (err, dreamer) {
 			if (err) console.log(err);
-			if (username) Dreamer.username = username;
-			if (password) Dreamer.password = password;
-			if (img) Dreamer.img = img;
+			if (username) dreamer.username = username;
+			if (password) dreamer.password = password;
+			if (img) dreamer.img = img;
 			var updatedDreamer = {
-				username: Dreamer.username,
-				password: Dreamer.password,
-				img: Dreamer.img
+				username: dreamer.username,
+				password: dreamer.password,
+				img: dreamer.img
 			};
 			Dreamer.update({_id: id}, updatedDreamer, function (err, dreamer) {
 				if (err) console.log(err);
