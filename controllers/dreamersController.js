@@ -29,13 +29,16 @@ var dreamersController = {
 		var username = dreamer.username;
 		var password = dreamer.password_digest;
 		var img = dreamer.img;
-		Dreamer.create({username: username, password_digest: password, img: img}, function(err, dreamer) {
-			var id = dreamer._id;
+		
+			Dreamer.createSecure(username, password, function(err, dreamer) {
 			if (err) {
+				// req.flash('danger','invalid username/password');
 				console.log(err);
 			}else{
 				req.login(dreamer);
-				res.redirect('/dreamers/'+id+'/dreams');
+				// req.flash('success','Successfully Loggedin');
+				// console.log("Successfully created" ,dreamer);
+				res.redirect('/');
 			}
 		});
 	},
@@ -51,6 +54,32 @@ var dreamersController = {
 			});
 		});
 	},
+	//Profile form update (al)
+	update: function(req, res) {
+		var id = req.params.id;
+		var dreamer = req.body.dreamer;
+		// console.log('user id', id);
+		var username = dreamer.username;
+		var password = dreamer.password;
+		var img = dreamer.img;
+		Dreamer.findOne({_id: id}, function (err, dream) {
+			if (err) console.log(err);
+			if (username) Dreamer.username = username;
+			if (password) Dreamer.password = password;
+			if (img) Dreamer.img = img;
+			var updatedDreamer = {
+				username: Dreamer.username,
+				password: Dreamer.password,
+				img: Dreamer.img
+			};
+			Dreamer.update({_id: id}, updatedDreamer, function (err, dreamer) {
+				if (err) console.log(err);
+				res.status(200).send();
+			});
+		});
+
+	},
+
 	signup: function (req, res) {
 		  // grab the user from the params
   var dreamer = req.body.dreamer;

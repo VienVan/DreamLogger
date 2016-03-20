@@ -20,7 +20,16 @@ router.route('/dreamers')									//show all users
  			.post(dreamersController.create);
 router.route('/dreamers/:id/edit')				//edit view to edit users
 			.get(dreamersController.edit);
-router.route('/dreamers/:id');						//update users
+router.route('/dreamers/:id')					//update users
+
+//al's code
+			.patch(dreamersController.update);
+router.route('/dreamers/:id');					//update users
+
+router.route('/dreamers/:id/edit/:id')
+			.put(dreamersController.update);
+
+
 
 // DREAMS
 router.route('/dreamers/:id/dreams')			//show all user's dreams (timeline)
@@ -41,7 +50,7 @@ router.route('/pages/login')
 			.get(pagesController.login);
 
 router.route('/sessions')
-			.post(sessionsController.create);
+			.post(sessionsController.login);
 
 router.route('/logout')
 			.get(pagesController.logout);

@@ -27,7 +27,7 @@ dreamerSchema.statics.createSecure = function (username, password, cb) {
   // `_this` now references our schema
   var _this = this;
   // generate some salt
-  bcrypt.genSalt(function (err, salt) {
+  bcrypt.genSalt(12, function (err, salt) {
     // hash the password with the salt
     bcrypt.hash(password, salt, function (err, hash) {
       // build the user object
