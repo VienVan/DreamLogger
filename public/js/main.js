@@ -102,16 +102,20 @@ dreamCatcher.getDreams = function(){
     for (var i=0; i < dreamCount; i++){
       var string = dreams.children[i].innerText;
       var array = string.split(".");
-      var descriptionArray = array.splice(0, array.length-1);
+      var descriptionArray = array.splice(0, array.length-2);
       var description = descriptionArray.join('.');
-      var fullDate = array[array.length - 1];
-      var dateArray = fullDate.split(" ")
+      var fullDate = array[array.length - 2];
+      // changed full date to -2 and dream added dreamId
+      var dreamId = array[array.length-1];
+      var dateArray = fullDate.split(" ");
       var wantedDate = dateArray.splice(0, 3);
       var date = wantedDate.join(' ');
 
       pastDreams.push({
         title: date,
         description: description,
+        id: dreamId,
+        update: "update",
         delete: "delete button",
         edit: "edit button",
         startDate: (new Date(fullDate)),
@@ -200,8 +204,9 @@ dreamCatcher.editDream = function(e) {
 
 // DELETE DREAM
 dreamCatcher.deleteDream = function(e) {
-  e.preventDefault();
-  var dreamId = $(this).closest('div').data('dreams-id');
+  // e.preventDefault();
+  console.log($(e.target).attr('id'));
+  var dreamId = $(e.target).attr('id');
   console.log('someone wants to delete dream id= ' + dreamId);
   $.ajax({
     method: 'DELETE',
@@ -209,6 +214,7 @@ dreamCatcher.deleteDream = function(e) {
     data: dreamId,
     success: function() {
         $('#'+dreamId).remove();
+        window.location.reload(true);
     }
     });
 };
