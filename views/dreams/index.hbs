@@ -1,7 +1,11 @@
 <div class='container-fluid dreams-page'>
-<div class='dreamer-image'>
-
-</div>
+      <div class='dreamer-image'></div>
+      <div class='tags' style="background: red; z-index: 999; height: 300px; width: 300px; color: white">
+        {{#each tags}}
+        <p>{{meaning}}</p><br>
+        <img src='{{img}}'>
+        {{/each}}
+      </div>
 
 
 
@@ -53,7 +57,7 @@
   </div>
 </div>
 
-<div class="container hidden" id="dreams">
+<div class="container hidden" id="dreams" >
   {{#each dreams}}
   <div class="row-dream" data-dreams-id={{_id}} id="{{_id}}">
     {{description}}

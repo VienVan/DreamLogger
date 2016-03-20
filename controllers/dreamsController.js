@@ -12,14 +12,15 @@ var dreamsController 		= {
 		Dreamer.findById({_id: id}, function(err, dreamer) {
 			Dream.find({dreamerId: id}, function(err, dreams) {
 		    req.currentUser(function(err, currentUser) {
-		    	if (req.xhr){
-		    		res.json({dreams: dreams});
-		    	}else{
-			    	if (currentUser){
-			    		res.render('dreams/index', {dreamer: dreamer, dreams: dreams, currentUser: currentUser});
-						}
-						else{res.redirect("/");}
-					}
+					Tag.find({}, function(err, tags) {
+						// if (currentUser){
+			    		res.render('dreams/index', {dreamer: dreamer, dreams: dreams, currentUser: currentUser, tags: tags});
+						// }
+						// else{
+						// res.redirect("/");
+						// }
+					})
+
 		    });
 			});
 		});
@@ -47,11 +48,13 @@ var dreamsController 		= {
 
 									var $ = cheerio.load(body);
 
-									if ($('p','.definition')['0'].textContent){
-										meaning = $('p','.definition')['0'].textContent;
-									} else if ($('li','.definition')['0'].textContent){
+									if ($('p','.definition')){
+										meaning = $('p','.definition')['0'].children[0].data;
+										console.log('meaning, ', meaning)
+									} else if ($('li','.definition')){
 										meaning = $('li','.definition')['0'].textContent;
 									} else {
+										console.log("error not find");
 										meaning = "couldn't find a meaning :(";
 									}
 								}
