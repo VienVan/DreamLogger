@@ -27,9 +27,7 @@ var dreamsController 		= {
 	create: function(req, res) {
 		var description 		= req.body.description;
 		var dreamerId     	= req.body.dreamerId;
-		console.log("dreamerId:",dreamerId);
-		console.log("params.id", req.params.id);
-		var anewdream     	= {description: description, dreamerId: dreamerId};
+		var aNewDream     	= {description: description, dreamerId: dreamerId};
 		var tag        			= req.body.tags;
 		var tagId;
 
@@ -41,7 +39,7 @@ var dreamsController 		= {
 		    'Accept': '*/*'
 		  }
 		};
-				Dream.create(anewdream, function(err, newdream) {
+				Dream.create(aNewDream, function(err, newdream) {
 						Tag.findOne(tag, function(err, foundTag) {
 
 							request.post(postOptions, function (err, response, body) {
@@ -49,10 +47,10 @@ var dreamsController 		= {
 
 									var $ = cheerio.load(body);
 
-									if ($('p','.definition')['0'].children[0].data){
-										meaning = $('p','.definition')['0'].children[0].data;
-									} else if ($('li','.definition')['0'].children[0].data){
-										meaning = $('li','.definition')['0'].children[0].data;
+									if ($('p','.definition')['0'].textContent){
+										meaning = $('p','.definition')['0'].textContent;
+									} else if ($('li','.definition')['0'].textContent){
+										meaning = $('li','.definition')['0'].textContent;
 									} else {
 										meaning = "couldn't find a meaning :(";
 									}		
