@@ -470,3 +470,17 @@ imageAnimation {  0% {
 	border: 2px solid black;
 	border-radius: .5px;
 }
+
+/************/
+
+.delete-btn {
+	border: none;
+	background: none;
+	color: white;
+}
+
+.edit-btn {
+	border: none;
+	background: none;
+	color: white;
+}
