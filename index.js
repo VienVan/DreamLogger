@@ -10,7 +10,7 @@ var express         = require('express'),
     app             = express(),
     db              = require('./models'),
     hbsutils = require('hbs-utils')(hbs),
-    port            = process.env || 3000,
+    port            = process.env.PORT || 3000,
     http            = require('http'),
     https           = require('https');
 
