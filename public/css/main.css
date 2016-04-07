@@ -1,8 +1,8 @@
-/*******************************Nav buttons**********************************/
 body {
-	font-family: Halant;
+	font-family: Questrial;
 	/*overflow: hidden;*/
 }
+/*******************************Nav buttons**********************************/
 a {
 	color: white;
 	text-decoration: none;
@@ -14,7 +14,17 @@ a {
 .navbar {
 	padding: 5px;
 }
-/*.video {
+
+.know {
+	font-family: Josefin Slab;
+	color: white;
+	font-size: 50px;
+	text-align: center;
+	margin-bottom: -80px;
+	margin-top: -36px;
+	text-shadow: 0 0 50px black;
+}
+.video {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -27,21 +37,71 @@ a {
     transform: translateX(-50%) translateY(-50%);
     background: url(polina.jpg) no-repeat;
     background-size: cover;
-}*/
+}
 /*****************************************************************/
 .dreams-page {
 	height: 80vw;
-	background: linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .25)), url('http://i.imgur.com/h8awQ4t.gif');
+	background: linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .25)), url('http://i.imgur.com/ozh66TS.gif');
 	background-attachment: fixed;
 	backface-visibility: hidden;
   background-size: cover;
-  background-position: center center;
+  background-position: 40px center;
 	padding-bottom: 50px;
+	padding-top: 100px;
 }
 
 /******************************Main Content***********************************/
 .about-us {
 	height: 1000px;
+}
+#logo {
+	scroll-snap-coords:
+}
+
+
+.know {
+	font-family: Josefin Slab;
+	color: white;
+	font-size: 50px;
+	text-align: center;
+	margin-bottom: -80px;
+	margin-top: -36px;
+	text-shadow: 0 0 50px black;
+}
+.video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover;
+}
+/*****************************************************************/
+.dreams-page {
+	height: 80vw;
+	background: linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .25)), url('http://i.imgur.com/ozh66TS.gif');
+	background-attachment: fixed;
+	backface-visibility: hidden;
+  background-size: cover;
+  background-position: 40px center;
+	padding-bottom: 50px;
+	padding-top: 100px;
+}
+
+/******************************Main Content***********************************/
+.about-us {
+	height: 1000px;
+	text-align: center;
+	background: url("http://www.techandall.com/wp-content/uploads/2013/07/05.png") no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  /*top: 50px;*/
 }
 #logo {
 	scroll-snap-coords:
@@ -55,16 +115,6 @@ a {
 	max-height : 50%;
 	overflow   : auto;
 }
-.dreamcatcher {
-	font-family: Sacramento;
-	color: white;
-	font-size: 12em;
-	text-align: center;
-	margin-top: 15%;
-	text-shadow: 0px 0px 10px black;
-	/*letter-spacing: 15px;*/
-}
-
 #home-btns	{
   position: relative;
   text-align: center;
@@ -74,34 +124,6 @@ a {
 #home-btns #login {
 	margin-top: -20px;
 }
-
-/*****************************************************************/
-.main-content {
-	width: 100%;
-	width: 100%;
-}
-#footer{
-	bottom: 0;
-	background: rgba(255, 255, 255, .8);
-	color: black;
-	height: 45px;
-	font-size: 17px;
-	left: 0;
-	line-height: 45px;
-	position: fixed;
-	text-align: center;
-	width: 100%;
-	z-index: 2;
-	transition: bottom .3s ease-out 1.7s;
-	border-top: none;
-}
-
-.form-group {
-  text-align: center;
-  width: 200px;
-  margin: 10px auto;
-}
-
 
 .menu	{
 	/*display: inline;*/
@@ -129,6 +151,173 @@ a {
 	text-align: center;
 }
 
+#get-started, #login {
+	width: 40%;
+	color: white;
+	font-size: 1em;
+	background: rgba(100, 100, 100, .5);
+	border: none;
+}
+
+#get-started:hover, #login:hover {
+	background: rgba(200, 200, 200, .6);
+}
+.uploadcare-widget-button {
+	width: 200px;
+	padding: 10px;
+}
+
+
+.calendar-text {
+	color: gray !important;
+}
+.calendar-text:hover {
+	color: white;
+}
+
+.addDream {
+	font-size: 30px;
+	border: none;
+	color: white;
+	position: absolute;
+	margin-top: -60px;
+	top: 0;
+	right: 0;
+	z-index: 999;
+}
+.addDream:hover {
+	cursor: cell;
+	color: rgba(125, 75, 165, .7);
+}
+.addDream:hover > .calender-text:hover {
+	color: white;
+}
+
+/*******************************Nav buttons**********************************/
+
+/*********************************** Pages **********************************/
+.dreams-page {
+	height: 80vw;
+	background: linear-gradient(rgba(0, 0, 0, .25), rgba(0, 0, 0, .25)), url('http://i.imgur.com/ozh66TS.gif');
+	background-attachment: fixed;
+	backface-visibility: hidden;
+  background-size: cover;
+  background-position: center center;
+	padding-bottom: 50px;
+	padding-top: 100px;
+}
+
+/*.about-us {
+	height: 1000px;
+}*/
+
+.main-content {
+	width: 100%;
+	width: 100%;
+}
+#footer{
+	bottom: 0;
+	background: rgba(255, 255, 255, .8);
+	color: black;
+	height: 45px;
+	font-size: 17px;
+	left: 0;
+	line-height: 45px;
+	position: fixed;
+	text-align: center;
+	width: 100%;
+	z-index: 2;
+	transition: bottom .3s ease-out 1.7s;
+	border-top: none;
+}
+
+#footer:hover {
+	cursor: pointer;
+}
+
+.dreamcatcher {
+	font-family: Sacramento;
+	color: white;
+	font-size: 12em;
+	text-align: center;
+	margin-top: 15%;
+	text-shadow: 0px 0px 10px black;
+	/*letter-spacing: 15px;*/
+}
+
+.know {
+	font-family: Josefin Slab;
+	color: white;
+	font-size: 50px;
+	text-align: center;
+	margin-bottom: -80px;
+	margin-top: -36px;
+	text-shadow: 0 0 50px black;
+}
+
+.video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover;
+}
+
+.dreamers-index {
+	background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url('http://i.imgur.com/4DU4hYi.gif');
+	height: 100vh;
+	width: 100vw;
+	background-size: cover;
+	background-position: center center;
+	position: relative;
+	margin: 0 auto;
+}
+
+.search {
+	width: 100vw;
+	position: relative;
+	margin: 0 auto;
+	display: block;
+	text-align: center;
+	top: 10%;
+	z-index: 999;
+}
+
+.dreamers-page {
+	display: flex;
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+/*********************************** Pages **********************************/
+
+
+
+
+
+/************************* Forms     ****************************************/
+
+.form-group {
+  text-align: center;
+  width: 200px;
+  margin: 10px auto;
+}
+
+.form-group2 {
+	/*color: red;*/
+	/*background: red;*/
+	width: 100%;
+}
+
+
+
 /******************************Sliding background**********************************/
 
 .crossfade > figure {
@@ -146,7 +335,7 @@ a {
   z-index: -100;
 }
 
-.crossfade > figure:nth-child(1) { background-image: url('http://i.imgur.com/41yhAnY.gif'); }
+.crossfade > figure:nth-child(1) { background-image: url('https://i.imgur.com/ezKSIXl.gif'); }
 .crossfade > figure:nth-child(2) {
   animation-delay: 6s;
   background-image: url('http://i.imgur.com/41yhAnY.gif');
@@ -224,58 +413,10 @@ imageAnimation {  0% {
 }
 /***********************************************************************************/
 
-/***********************************Buttons******************************/
-#get-started, #login {
-	width: 40%;
-	color: white;
-	font-size: 1em;
-	background: rgba(100, 100, 100, .5);
-	border: none;
-}
-#get-started:hover, #login:hover {
-	background: rgba(200, 200, 200, .6);
-}
-.uploadcare-widget-button {
-	width: 200px;
-	padding: 10px;
-}
-#content-wrapper {
-}
-.calendar-text {
-	color: gray !important;
-}
-.calendar-text:hover {
-	color: white;
-}
 
-.addDream {
-	font-size: 30px;
-	border: none;
-	color: white;
-	position: absolute;
-	margin-top: -60px;
-	top: 0;
-	right: 0;
-	z-index: 999;
-}
-.addDream:hover {
-	cursor: cell;
-	color: rgba(125, 75, 165, .7);
-}
-.addDream:hover > .calender-text:hover {
-	color: white;
-}
-
-
-.form-group2 {
-	/*color: red;*/
-	/*background: red;*/
-	width: 100%;
-}
-
-#a {
+.a {
 	color: purple;
-	text-shadow: 0px 0px 10px white;
+	text-shadow: 0px 0px 50px white;
 }
 .found-dreamers {
 	text-align: center;
@@ -287,52 +428,68 @@ imageAnimation {  0% {
 	width: 200px;
 	height: 200px;
 	border-radius: 100%;
+	box-shadow: 0 0 50px white;
 }
 
-.dreamers-page {
-	display: flex;
 
-	position: relative;
-	height: 100%;
-	width: 100%;
-}
 .found-dreamers {
 	width: 30%;
-	background: lightblue;
+	/*background: lightblue;*/
 	padding-top: 100px;
+	color: white;
+	margin-top: 100px;
+}
+.found-dreamers > p {
+	font-size: 30px;
 }
 .found-dreams {
 	flex: 1;
-	background: red;
+	/*background: red;*/
 	text-align: center;
+	color: white;
+}
+.found-dreams > ul > li {
+	color: white;
+	font-size: 30px;
+	margin-top: -50px !important;
+	list-style: none;
 }
 
-.dreamers-index {
-	background: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url('http://i.imgur.com/riJCDCp.gif');
-	height: 100vh;
-	width: 100vw;
-	background-size: cover;
-	background-position: center center;
-	position: relative;
-	margin: 0 auto;
-}
-.search {
-	width: 100vw;
-	position: relative;
-	margin: 0 auto;
-	display: block;
-	text-align: center;
-	top: 10%;
-}
+
 #searchTag {
-	/*position: relative;*/
-	/*margin: 0 auto;*/
 	width: 90%;
 	padding: 8px;
 	border-radius: 5px;
+	z-index: 999;
 }
+
 #search {
 	background: purple;
 	color: white;
 	font-size: 20px;
+}
+.d1{
+	width:200px;
+	height:200px;
+	border: 2px solid black;
+	border-radius: .5px;
+}
+
+/*****************dreams buttons****************************************************/
+
+
+.delete-btn {
+	border: none;
+	background: none;
+	color: white;
+	margin-top: 75px;
+	margin-left: 900px;
+}
+
+.edit-btn {
+	border: none;
+	background: none;
+	color: white;
+	margin-top: 75px;
+	margin-right: -100px;
 }

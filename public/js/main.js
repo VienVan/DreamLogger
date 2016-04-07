@@ -13,51 +13,53 @@ function checkUrl(){
    dreamCatcher.getDreams();
  }
 }
-  var homeButton
-  $('#get-started').click(function() {
-    $('.about-us').css('padding-top', '150px');
-
-    console.log("replace home btns with signup", homeButton)
-    $('.signup').toggleClass('hidden');
-    // $('#home-btns').addClass('hidden');
-    $('#home-btns').before($('.signup')).detach();
-    return homeButton = $('#home-btns').replaceWith($('.signup'))
+  // var homeButton;
+  // $('#get-started').click(function() {
+  //   $('.about-us').css('margin-top', '150px');
+  //
+  //   console.log("replace home btns with signup", homeButton)
+  //   $('.signup').toggleClass('hidden');
+  //   $('.signup').css('z-index', '999');
+  //   // $('#home-btns').addClass('hidden');
+  //   $('#home-btns').before($('.signup')).detach();
+  //   return homeButton = $('#home-btns').replaceWith($('.signup'))
 
     // console.log(homeButton);
-  });
+  // });
 
   $('.cancel').click(function() {
-     $('.signup').before(homeButton).detach();
-    // $('.signup').replaceWith(homeButton);
-
-
-    // $('.signup').addClass('hidden');
-  });
-
-  $('.cancelLogin').click(function() {
+    $('#home-btns').toggleClass('hidden');
     $('.login').toggleClass('hidden');
-    $('#login').removeClass('hidden');
-    $('#get-started').removeClass('hidden');
   });
 
   $('#login').click(function() {
-    $('#home-btns').replaceWith($('.login'));
-    $('.about-us').css('margin-top', '325px');
+     $('.login').toggleClass('hidden');
+     $('#home-btns').toggleClass('hidden');
+    // $('#home-btns').replaceWith($('.login'));
+    $('.about-us').css('margin-top', '400px');
     //
-    $('#get-started').addClass('hidden');
-    $('#login').addClass('hidden');
-  })
+  });
+
+  // $('#login').click(function() {
+  //   $('#home-btns').replaceWith($('.login'));
+  //   $('.about-us').css('margin-top', '325px');
+  //   //
+  //   $('#get-started').addClass('hidden');
+  //   $('#login').addClass('hidden');
+  // })
   //
   $('#dreams').on('click', '.delete-dream', dreamCatcher.deleteDream);
   $('#dreams').on('click', '.edit-dream', dreamCatcher.editDream);
   // $('#createDreamModal').modal('show');
 
+  var lastWeek = new Date();
+  lastWeek.setDate(lastWeek.getDate() - 7);
 
   $("#timeline").timeCube({
   data: pastDreams,
   granularity: "day",
-  startDate: new Date('March 15, 2016 10:20:00 pm GMT+0'),
-  endDate: new Date('March 18, 2016 02:20:00 am GMT+0'),
+  startDate: lastWeek,
+  endDate: new Date(),
   transitionAngle: 60,
   transitionSpacing: 100,
   nextButton: $("#next-link"),
@@ -68,30 +70,22 @@ function checkUrl(){
 var counter = 0;
 
 $('#footer').click(function() {
-  console.log("hitting the counter")
+  console.log("hitting the counter");
   counter+=1;
   console.log(counter);
   if(counter % 2 !== 0) {
     console.log("odd count");
     var y = $(window).scrollTop();
+    // $("#footer-text").innerText("Sing Up Now");
      $("html, body").animate({ scrollTop: y + $(window).height() }, 1200);
+     $(".twitter-follow-button").hide();
   } else if (counter % 2 === 0){
     console.log("even counter", counter);
     $("html, body").animate({scrollTop: 0}, 1200);
+    $(".twitter-follow-button").show();
   }
+});
 
-})
-
-//   $('#footer').toggle(function(){
-//     // $('.about-us').toggleClass('hidden');
-//     // $('.about-us').css('background: red');
-//
-//
-//     var y = $(window).scrollTop();
-//     console.log("clicked on footer");
-//     //
-//     $("html, body").animate({ scrollTop: y + $(window).height() }, 1200);
-// }
 
 
 });
@@ -110,18 +104,21 @@ dreamCatcher.getDreams = function(){
     for (var i=0; i < dreamCount; i++){
       var string = dreams.children[i].innerText;
       var array = string.split(".");
-      var descriptionArray = array.splice(0, array.length-1);
+      var descriptionArray = array.splice(0, array.length-2);
       var description = descriptionArray.join('.');
-      var fullDate = array[array.length - 1];
-      var dateArray = fullDate.split(" ")
+      var fullDate = array[array.length - 2];
+      // changed full date to -2 and dream added dreamId
+      var dreamId = array[array.length-1];
+      var dateArray = fullDate.split(" ");
       var wantedDate = dateArray.splice(0, 3);
       var date = wantedDate.join(' ');
 
       pastDreams.push({
         title: date,
         description: description,
-        delete: "delete button",
-        edit: "edit button",
+        id: dreamId,
+        remove: "",
+        edit: "",
         startDate: (new Date(fullDate)),
         endDate: null
       });
@@ -140,10 +137,12 @@ dreamCatcher.createDream = function(e) {
   var that = this;
   var dream = $(e.target).serialize();
   var formData = JSON.stringify($(e.target).serializeArray());
-  console.log('formdata', formData['dreamerId']);
+  console.log('formdata', formData["0"]);
+  window.formData = formData;
+  var currentUrl = window.location.href;
 
   console.log("created dream," , dream);
-  $.post("/dreamers/:id/dreams", dream)
+  $.post(currentUrl, dream)
     .done(function(res) {
       // OPTIMIZE: renders the entire dom eat time a food is created
       // dreamCatcher.renderDream(res);
@@ -207,8 +206,9 @@ dreamCatcher.editDream = function(e) {
 
 // DELETE DREAM
 dreamCatcher.deleteDream = function(e) {
-  e.preventDefault();
-  var dreamId = $(this).closest('div').data('dreams-id');
+  // e.preventDefault();
+  console.log($(e.target).attr('id'));
+  var dreamId = $(e.target).attr('id');
   console.log('someone wants to delete dream id= ' + dreamId);
   $.ajax({
     method: 'DELETE',
@@ -216,6 +216,7 @@ dreamCatcher.deleteDream = function(e) {
     data: dreamId,
     success: function() {
         $('#'+dreamId).remove();
+        window.location.reload(true);
     }
     });
 };
@@ -236,7 +237,7 @@ $('#search').click( function() {
         dreamCatcher.renderDream(dream);
       })
       data.dreamers.forEach(function(dreamer){
-        console.log("hittin that dramer shit")
+        console.log("hittin that dreamer shit")
         dreamCatcher.renderDreamer(dreamer);
       })
 }

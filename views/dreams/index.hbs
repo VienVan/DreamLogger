@@ -57,7 +57,7 @@
   {{#each dreams}}
   <div class="row-dream" data-dreams-id={{_id}} id="{{_id}}">
     {{description}}
-    {{tags.name}}.{{createdAt}}
+    {{tags.name}}.{{createdAt}}.{{_id}}
    {{!--  <button class='btn btn-danger delete-dream'>Delete Dream</button>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dreamModal" id="{{_id}}">Edit Dream</button> --}}
   </div>
@@ -82,8 +82,8 @@
         </form>
       </div>
       <div class="modal-footer">
-{{!--         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" id="saveDream" data-dream-id="{{_id}}" onclick="dreamCatcher.editDream(event)">Save changes</button> --}}
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="saveDream" data-dream-id="{{_id}}" onclick="dreamCatcher.editDream(event)">Save changes</button>
       </div>
     </div>
 
