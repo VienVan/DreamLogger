@@ -15,7 +15,8 @@ var express         = require('express'),
     https           = require('https');
 
 //Database
-mongoose.connect('mongodb://localhost/dream-logger');
+var uri = process.env.MONGOLAB_URI || "mongodb://localhost/dream-logger"
+mongoose.connect(uri);
   process.on('exit', function() {mongoose.disconnect();
 });
 
