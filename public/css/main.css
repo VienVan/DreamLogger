@@ -463,19 +463,24 @@ imageAnimation {  0% {
 }
 
 /*****************MEDIA QUERIES****************************************************/
-@media (max-width: 700px) {
+@media (min-width: 414px) {
 	#logo {
-		margin-top: 200px;
+		position: absolute;
+		top: 30%;
+		left: 50%;
+		transform: translate(-50%);
 	}
 	.dreamcatcher {
-		font-size: 64px;
+		font-size: 80px;
 	}
 	.know {
 		margin-top: -20px;
 		font-size: 32px;
 	}
 	.phone-buttons {
-		margin-top: 80px;
+		position: relative;
+		margin-top: 80%;
+
 	}
 	.about-us {
 		display: none;
