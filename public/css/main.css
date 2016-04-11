@@ -467,13 +467,12 @@ imageAnimation {  0% {
 	#logo {
 		position: absolute;
 		width: 100%;
-		top: 30%;
+		top: 10%;
 		left: 50%;
 		transform: translate(-50%);
 	}
 	.dreamcatcher {
-		font-size: 200px;
-		color: red;
+		font-size: 150px;
 	}
 	.know {
 		margin-top: -20px;
@@ -487,9 +486,11 @@ imageAnimation {  0% {
 	.about-us {
 		display: none;
 	}
-	button {
-		height: 30%;
-		width: 30%;
+	#login, #get-started {
+		padding: 20px;
+		background: rgba(30, 30, 30, .7);
+		width: 50%;
+		height: 20%;
 		font-size: 50px;
 	}
 }
