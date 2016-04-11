@@ -11,16 +11,31 @@ var dreamsController 		= {
 		var id = req.params.id;
 		Dreamer.findById({_id: id}, function(err, dreamer) {
 			Dream.find({dreamerId: id}, function(err, dreams) {
-		    req.currentUser(function(err, currentUser) {
-		    	if (req.xhr){
-		    		res.json({dreams: dreams});
-		    	}else{
-			    	if (currentUser){
-			    		res.render('dreams/index', {dreamer: dreamer, dreams: dreams, currentUser: currentUser});
-						}
-						else{res.redirect("/");}
-					}
-		    });
+				var dreamIds = dreams.map(function(dream) {
+					// console.log("dreams found by dreamers", dreams)
+					return dream._id;
+				})
+				console.log("dreams ids", dreamIds);
+				DreamTag.find({dreamId: { $in: dreamIds}}, function(err, dreamTags) {
+					err ? console.log("err", err) : console.log("dreamstags Id", dreamTags);
+					var tagIds = dreamTags.map(function(dreamTag) {
+						return dreamTag.tagId;
+					})
+					console.log("tag Ids", tagIds);
+					Tag.find({_id: {$in: tagIds}}, function(err, tags) {
+						console.log("tags", tags);
+				    req.currentUser(function(err, currentUser) {
+				    	if (req.xhr){
+				    		res.json({dreams: dreams});
+				    	}else{
+					    	if (currentUser){
+					    		res.render('dreams/index', {dreamer: dreamer, dreams: dreams, tags: tags, currentUser: currentUser});
+								}
+								else{res.redirect("/");}
+							}
+				    });
+				  });
+				});
 			});
 		});
 	},

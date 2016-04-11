@@ -1,31 +1,16 @@
 $(document).ready(function(){
  checkUrl();
 
-
-
 function checkUrl(){
  var url = window.location.href;
  // "dreamers/234932842/dreams"
  var splitUrl = url.split('/');
- var something = splitUrl[splitUrl.length - 1];
+ var dreamsPage = splitUrl[splitUrl.length - 1];
 
- if (something === "dreams"){
+ if (dreamsPage === "dreams"){
    dreamCatcher.getDreams();
  }
 }
-  // var homeButton;
-  // $('#get-started').click(function() {
-  //   $('.about-us').css('margin-top', '150px');
-  //
-  //   console.log("replace home btns with signup", homeButton)
-  //   $('.signup').toggleClass('hidden');
-  //   $('.signup').css('z-index', '999');
-  //   // $('#home-btns').addClass('hidden');
-  //   $('#home-btns').before($('.signup')).detach();
-  //   return homeButton = $('#home-btns').replaceWith($('.signup'))
-
-    // console.log(homeButton);
-  // });
 
   $('.cancel').click(function() {
     $('#home-btns').toggleClass('hidden');
@@ -35,22 +20,11 @@ function checkUrl(){
   $('#login').click(function() {
      $('.login').toggleClass('hidden');
      $('#home-btns').toggleClass('hidden');
-    // $('#home-btns').replaceWith($('.login'));
     $('.about-us').css('margin-top', '400px');
-    //
   });
 
-  // $('#login').click(function() {
-  //   $('#home-btns').replaceWith($('.login'));
-  //   $('.about-us').css('margin-top', '325px');
-  //   //
-  //   $('#get-started').addClass('hidden');
-  //   $('#login').addClass('hidden');
-  // })
-  //
   $('#dreams').on('click', '.delete-dream', dreamCatcher.deleteDream);
   $('#dreams').on('click', '.edit-dream', dreamCatcher.editDream);
-  // $('#createDreamModal').modal('show');
 
   var lastWeek = new Date();
   lastWeek.setDate(lastWeek.getDate() - 7);
@@ -97,8 +71,7 @@ var dreamCatcher = {};
 dreamCatcher.timeLine = [];
 
 dreamCatcher.getDreams = function(){
-  // console.log(dreams);
-    dreamCount= dreams.children.length;
+  dreamCount= dreams.children.length;
 
     pastDreams = [];
     for (var i=0; i < dreamCount; i++){
@@ -112,24 +85,22 @@ dreamCatcher.getDreams = function(){
       var dateArray = fullDate.split(" ");
       var wantedDate = dateArray.splice(0, 3);
       var date = wantedDate.join(' ');
+      // var dreamMeaning = "";
+      // var gifUrl = "";
+      // console.log()
 
       pastDreams.push({
         title: date,
         description: description,
         id: dreamId,
+        // gif: gifUrl,
+        // meaning: dreamMeaning,
         remove: "",
         edit: "",
         startDate: (new Date(fullDate)),
         endDate: null
       });
     }
-
-
-
-  // $.get('/dreamers/:id/dreams')
-  //   .done(function(res){
-  //     console.log(res);
-  //   });
 };
 
 dreamCatcher.createDream = function(e) {

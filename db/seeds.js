@@ -35,8 +35,8 @@ Dreamer.create(dreamer, function (err, dreamer) {
 	Dream.create(dreams,function(err, dreams) {
 		console.log("created dreams:", dreams);
 		var tags = [
-			{name: "Jay-z"},
-			{name: "muffins"}
+			{name: "Jay-z", meaning: "he loves Beyonce"},
+			{name: "muffins", meaning: "I'm hungry"}
 		];
 		// create tags
 		Tag.create(tags, function(err, tags) {
