@@ -466,12 +466,14 @@ imageAnimation {  0% {
 @media (min-width: 414px) {
 	#logo {
 		position: absolute;
+		width: 100%;
 		top: 30%;
 		left: 50%;
 		transform: translate(-50%);
 	}
 	.dreamcatcher {
-		font-size: 95px;
+		font-size: 200px;
+		color: red;
 	}
 	.know {
 		margin-top: -20px;
