@@ -477,10 +477,8 @@ imageAnimation {  0% {
 	.phone-buttons {
 		margin-top: 80px;
 	}
-	.container-fluid {
-		height: 100vh;
+	.about-us {
+		display: none;
 	}
-
-
 }
 /*****************MEDIA QUERIES****************************************************/
