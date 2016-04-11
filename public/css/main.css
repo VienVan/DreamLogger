@@ -463,7 +463,7 @@ imageAnimation {  0% {
 }
 
 /*****************MEDIA QUERIES****************************************************/
-@media (min-width: 414px) {
+@media (max-width: 414px) {
 	#logo {
 		position: absolute;
 		width: 100%;
