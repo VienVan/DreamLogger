@@ -464,12 +464,21 @@ imageAnimation {  0% {
 
 /*****************MEDIA QUERIES****************************************************/
 @media (max-width: 400px) {
-	.main-content {
-		height: 100%;
+	#logo {
+		margin-top: 200px;
 	}
 	.dreamcatcher {
-		color: red;
-		font-size: 80px;
+		font-size: 64px;
+	}
+	.know {
+		margin-top: -20px;
+		font-size: 32px;
+	}
+	.phone-buttons {
+		margin-top: 80px;
+	}
+	.container-fluid {
+		height: 100vh;
 	}
 
 
