@@ -471,11 +471,11 @@ imageAnimation {  0% {
 		transform: translate(-50%);
 	}
 	.dreamcatcher {
-		font-size: 80px;
+		font-size: 95px;
 	}
 	.know {
 		margin-top: -20px;
-		font-size: 32px;
+		font-size: 50px;
 	}
 	.phone-buttons {
 		position: relative;
@@ -484,6 +484,11 @@ imageAnimation {  0% {
 	}
 	.about-us {
 		display: none;
+	}
+	button {
+		height: 30%;
+		width: 30%;
+		font-size: 50px;
 	}
 }
 /*****************MEDIA QUERIES****************************************************/
