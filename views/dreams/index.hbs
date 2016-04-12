@@ -64,10 +64,26 @@
   {{/each}}
 </div>
 
+<div class="container hidden" id="tags">
+  {{#each tags}}
+  <div class="row-dream" data-dreams-id={{_id}} id="{{_id}}">
+    {{meaning}}.{{img}}
+   {{!--  <button class='btn btn-danger delete-dream'>Delete Dream</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#dreamModal" id="{{_id}}">Edit Dream</button> --}}
+  </div>
+  {{/each}}
+</div>
+
 {{#each dreams}}
 <div>
   {{description}}
   {{tags.name}}.{{createdAt}}.{{_id}}.{{tags.meaning}}
+</div>
+  {{/each}}
+
+  {{#each tags}}
+<div>
+  {{img}}.{{meaning}}
 </div>
   {{/each}}
 

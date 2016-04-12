@@ -71,9 +71,16 @@ var dreamCatcher = {};
 dreamCatcher.timeLine = [];
 
 dreamCatcher.getDreams = function(){
+  console.log("tags", tags);
   dreamCount= dreams.children.length;
+  tagCount = tags.children.length;
 
     pastDreams = [];
+    for (var j=0; j < tagCount; j++){
+      var tags = tags.children[j].innerText;
+      console.log(tags);
+    }
+
     for (var i=0; i < dreamCount; i++){
       var string = dreams.children[i].innerText;
       var array = string.split(".");
