@@ -43,19 +43,19 @@ var dreamsController 		= {
 						Tag.findOne(tag, function(err, foundTag) {
 
 							request.post(postOptions, function (err, response, body) {
-								if(!err && res.statusCode == 200){
-
-									var $ = cheerio.load(body);
-
-									if ($('p','.definition')['0'].textContent){
-										meaning = $('p','.definition')['0'].textContent;
-									} else if ($('li','.definition')['0'].textContent){
-										meaning = $('li','.definition')['0'].textContent;
-									} else {
-										meaning = "couldn't find a meaning :(";
-									}
-								}
-								tag.meaning = meaning;
+								// if(!err && res.statusCode == 200){
+								//
+								// 	var $ = cheerio.load(body);
+								//
+								// 	if ($('p','.definition')['0'].textContent){
+								// 		meaning = $('p','.definition')['0'].textContent;
+								// 	} else if ($('li','.definition')['0'].textContent){
+								// 		meaning = $('li','.definition')['0'].textContent;
+								// 	} else {
+								// 		meaning = "couldn't find a meaning :(";
+								// 	}
+								// }
+								// tag.meaning = meaning;
 
 								rp({
 									uri: "http://api.giphy.com/v1/gifs/search?q="+tag.name+"&api_key=dc6zaTOxFJmzC",
@@ -76,7 +76,7 @@ var dreamsController 		= {
 											Tag.create(tag, function(err, newtag) {
 												console.log("tag", newtag);
 												console.log("tagname", newtag.name);
-												console.log("tagmeaning", newtag.meaning, "end tag meaning");
+												// console.log("tagmeaning", newtag.meaning, "end tag meaning");
 												console.log("type of tag", typeof newtag);
 												DreamTag.create({dreamId: newdream._id, tagId: newtag._id}, function(err, dreamtag) {
 													res.send({newdream: newdream, tag: newtag});
