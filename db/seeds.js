@@ -3,7 +3,8 @@ var Dreamer = require("../models").Dreamer;
 var Tag = require('../models/tag');
 var Dream = require('../models').Dream;
 var DreamTag = require('../models').DreamTag;
-mongoose.connect('mongodb://localhost/dream-logger');
+var uri = process.env.MONGOLAB_URI || "mongodb://localhost/dream-logger"
+mongoose.connect(uri);
 
 Dream.remove({});
 Dreamer.remove({}, function(err, dreamer) {
@@ -15,7 +16,7 @@ DreamTag.remove({});
 var dreamer = {
 	username: "Vien",
 	password_digest: "1234",
-	img: 'https://images.unsplash.com/photo-1447280714070-3280cb09be9b?crop=entropy&dpr=2&fit=crop&fm=jpg&h=725&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1300'
+	img: 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAPYAAAAJDczN2Q5ODBhLWVhM2UtNDdjZS05NTU3LTUyMjQ2MTk3OWZmYw.jpg2.1.0&ixlib=rb-0.3.5&q=50&w=1300'
 };
 
 // create data
