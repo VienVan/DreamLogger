@@ -507,7 +507,13 @@ imageAnimation {  0% {
 				display: block;
 				/*margin-left: 70%;*/
 			}
-			.modal-open {
-  			overflow-y: auto;
+			.modal {
+				/*background: red;*/
+  			position: fixed;
+				top: 3%;
+				right: 3%;
+				left: 3%;
+				width: auto;
+				margin: 0;
 			}
 		}
