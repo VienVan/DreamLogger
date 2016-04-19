@@ -4,7 +4,7 @@ $(document).ready(function(){
  $('.modal').on('shown', function() {
      $(document).off('focusin.modal');
  });
- 
+
  $(window).resize(function () {
      var viewportWidth = $(window).width();
      if (viewportWidth < 600) {
