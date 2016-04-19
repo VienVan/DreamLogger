@@ -1,13 +1,17 @@
 $(document).ready(function(){
  checkUrl();
 
-
+ $('.modal').on('shown', function() {
+     $(document).off('focusin.modal');
+ });
+ 
  $(window).resize(function () {
      var viewportWidth = $(window).width();
      if (viewportWidth < 600) {
          $(".modal").removeClass("fade");
      }
  });
+
 function checkUrl(){
  var url = window.location.href;
  // "dreamers/234932842/dreams"
