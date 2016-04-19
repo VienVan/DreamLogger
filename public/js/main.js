@@ -27,18 +27,18 @@ function checkUrl(){
     // console.log(homeButton);
   // });
 
-  $('.cancel').click(function() {
-    $('#home-btns').toggleClass('hidden');
-    $('.login').toggleClass('hidden');
-  });
+  // $('.cancel').click(function() {
+  //   $('#home-btns').toggleClass('hidden');
+  //   $('.login').toggleClass('hidden');
+  // });
 
-  $('#login').click(function() {
-     $('.login').toggleClass('hidden');
-     $('#home-btns').toggleClass('hidden');
-    // $('#home-btns').replaceWith($('.login'));
-    $('.about-us').css('margin-top', '400px');
-    //
-  });
+  // $('#login').click(function() {
+  //    $('.login').toggleClass('hidden');
+  //    $('#home-btns').toggleClass('hidden');
+  //   // $('#home-btns').replaceWith($('.login'));
+  //   $('.about-us').css('margin-top', '400px');
+  //   //
+  // });
 
   // $('#login').click(function() {
   //   $('#home-btns').replaceWith($('.login'));

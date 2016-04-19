@@ -7,7 +7,7 @@
     <div class='phone-buttons'>
       <div id="home-btns">
         <button class="create_btn btn btn-success" id="get-started" data-toggle='modal' data-target="#signup">Get Started</button><br><br>
-        <button class="btn btn-success" id="login">Log In</button>
+        <button class="btn btn-success" data-toggle='modal' data-target="#login-modal" id="login">Log In</button>
       </div>
     </div>
     <div class='about-us'>
@@ -25,22 +25,34 @@
 
 </div>
 
-<div class="login hidden">
-  <form id="Login-form" action="/sessions" method="POST">
-      <div class='form-group'>
-        <input type="text" name="dreamer[username]" placeholder="Username" class="form-control" autofocus>
-      </div>
-      <div class='form-group'>
-        <input type="password" name="dreamer[password]" placeholder="Password" class="form-control" >
-      </div>
-      <div class='form-group'>
-        <input type="submit" value='Log In' class="btn btn-success form-control">
-      </div>
-    </form>
-  <button class="btn btn-danger cancelLogin cancel">Cancel</button>
-</div>
 
-
+<div class="modal fade" tabindex="-1" id="login-modal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Welcome Back!</h4>
+      </div>
+      <div class="modal-body">
+        <form id="Login-form" action="/sessions" method="POST">
+            <div class='form-group'>
+              <input type="text" name="dreamer[username]" placeholder="Username" class="form-control" autofocus>
+            </div>
+            <div class='form-group'>
+              <input type="password" name="dreamer[password]" placeholder="Password" class="form-control" >
+            </div>
+            <div class='form-group'>
+              <input type="submit" value='Log In' class="btn btn-success form-control">
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <div class="modal fade" tabindex="-1" id="signup" role="dialog">
   <div class="modal-dialog">
