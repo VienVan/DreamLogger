@@ -198,4 +198,17 @@ hr {
 	margin: 16px 0px;
 }
 
-@media
+@media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 480px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait) {
+			.event {
+				height: 600px !important;
+			}
+			#timeline {
+				/*background: red !important;*/
+				margin-top: 70%;
+				margin-left: 150px !important;
+			}
+		}
