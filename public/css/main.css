@@ -54,9 +54,6 @@ a {
 .about-us {
 	height: 1000px;
 }
-#logo {
-	scroll-snap-coords:
-}
 
 
 .know {
@@ -113,7 +110,6 @@ a {
 	right      : 10%;
 	bottom     : 20%;
 	max-height : 50%;
-	overflow   : auto;
 }
 #home-btns	{
   position: relative;
@@ -510,5 +506,8 @@ imageAnimation {  0% {
 			a > .menu {
 				display: block;
 				/*margin-left: 70%;*/
+			}
+			.modal {
+				width: @modal-sm;
 			}
 		}
