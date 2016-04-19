@@ -2,7 +2,12 @@ $(document).ready(function(){
  checkUrl();
 
 
-
+ $(window).resize(function () {
+     var viewportWidth = $(window).width();
+     if (viewportWidth < 600) {
+         $(".modal").removeClass("fade");
+     }
+ });
 function checkUrl(){
  var url = window.location.href;
  // "dreamers/234932842/dreams"
