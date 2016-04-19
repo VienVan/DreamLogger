@@ -497,6 +497,9 @@ imageAnimation {  0% {
     and (max-device-width: 480px)
     and (-webkit-min-device-pixel-ratio: 2)
     and (orientation: portrait) {
+			body {
+				overflow: scroll;
+			}
 			.dreams-page {
 				/*background: red;*/
 				background-position: right;
@@ -508,7 +511,7 @@ imageAnimation {  0% {
 				/*margin-left: 70%;*/
 			}
 			.modal {
-				/*background: red;*/
+				background: red;
   			position: fixed;
 				top: 3%;
 				right: 3%;
