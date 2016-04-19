@@ -498,7 +498,7 @@ imageAnimation {  0% {
 		height: 200vh !important;
 	}
 	a > .menu {
-		display: block;
+		/*display: block;*/
 		/*margin-left: 70%;*/
 	}
 }
